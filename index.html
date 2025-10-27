@@ -474,16 +474,40 @@
       <p>© <span id="current-year">2025</span> AfriPharma Health Systems. All rights reserved.</p>
     </div>
   </div>
-</footer>
+<!-- Shared footer slot -->
+<div id="footer-slot"></div>
 
 <script>
-  // Auto-update year
-  document.getElementById('current-year').textContent = new Date().getFullYear();
+  // Load the shared public footer, then initialize dynamic bits (year + clock)
+  fetch('/footer-public.html', { cache: 'no-cache' })
+    .then(r => r.text())
+    .then(html => {
+      const slot = document.getElementById('footer-slot');
+      slot.innerHTML = html;
+
+      // 1) Copyright year
+      const yearEl = document.getElementById('current-year');
+      if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+      // 2) Live "Current time in Nacala" clock
+      const mozEl = document.getElementById('moz-time');
+      if (mozEl) {
+        const fmt = new Intl.DateTimeFormat('en-GB', {
+          hour: '2-digit', minute: '2-digit', second: '2-digit',
+          hour12: false,
+          timeZone: 'Africa/Maputo'  // Correct tz for Nacala; no DST
+        });
+        function tick() { mozEl.textContent = fmt.format(new Date()); }
+        tick();
+        setInterval(tick, 1000);
+      }
+    })
+    .catch(err => console.error('Footer load failed:', err));
 </script>
 
-<!-- JavaScript -->
+<!-- Your site JS (keep this) -->
 <script src="js/main.js"></script>
-
 </body>
 </html>
+
 
