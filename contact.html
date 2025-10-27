@@ -94,15 +94,23 @@
             </p>
           </div>
 
-         <p id="local-time-note" style="font-size:0.9rem; opacity:0.8;"></p>
-<script>
-  const userOffset = -new Date().getTimezoneOffset() / 60;
-  const diff = userOffset - 2; // Mozambique is UTC+2
-  const note = diff === 0 
-    ? "You're in the same time zone as our office (UTC+2)."
-    : `Our office is ${Math.abs(diff)} hour${Math.abs(diff) !== 1 ? "s" : ""} ${diff > 0 ? "behind" : "ahead of"} your local time.`;
-  document.getElementById("local-time-note").textContent = note;
-</script>
+        <div style="margin-top: 2rem;">
+  <h4>Business Hours</h4>
+  <p>
+    <strong>Monday – Friday:</strong> 9:00 AM – 5:00 PM CAT (UTC +2)<br>
+    <em>Email inquiries are responded to within 48 business hours.</em>
+  </p>
+  <p id="local-time-note" style="font-size:0.9rem; opacity:0.8;"></p>
+  <script>
+    const userOffset = -new Date().getTimezoneOffset() / 60;
+    const diff = userOffset - 2; // Mozambique is UTC+2
+    const note = diff === 0 
+      ? "You're in the same time zone as our office (UTC+2)."
+      : `Our office is ${Math.abs(diff)} hour${Math.abs(diff) !== 1 ? "s" : ""} ${diff > 0 ? "behind" : "ahead of"} your local time.`;
+    document.getElementById("local-time-note").textContent = note;
+  </script>
+</div>
+
 
 
         <div>
