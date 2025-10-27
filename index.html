@@ -378,43 +378,37 @@
   </section>
   
  
-        <!-- Shared footer slot -->
-<div id="footer-slot"></div>
+         </main>
 
-<script>
-  // Load the shared public footer, then initialize dynamic bits (year + clock)
-  fetch('/footer-public.html', { cache: 'no-cache' })
-    .then(r => r.text())
-    .then(html => {
-      const slot = document.getElementById('footer-slot');
-      slot.innerHTML = html;
+  <!-- Shared footer slot -->
+  <div id="footer-slot"></div>
 
-      // © year
-      const yearEl = document.getElementById('current-year');
-      if (yearEl) yearEl.textContent = new Date().getFullYear();
+  <script>
+    fetch('/footer-public.html', { cache: 'no-cache' })
+      .then(r => r.text())
+      .then(html => {
+        const slot = document.getElementById('footer-slot');
+        slot.innerHTML = html;
 
-      // Live "Current time in Nacala" clock
-      const mozEl = document.getElementById('moz-time');
-      if (mozEl) {
-        const fmt = new Intl.DateTimeFormat('en-GB', {
-          hour: '2-digit', minute: '2-digit', second: '2-digit',
-          hour12: false, timeZone: 'Africa/Maputo'
-        });
-        function tick(){ mozEl.textContent = fmt.format(new Date()); }
-        tick();
-        setInterval(tick, 1000);
-      }
-    })
-    .catch(err => console.error('Footer load failed:', err));
-</script>
+        const yearEl = document.getElementById('current-year');
+        if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-<script src="js/main.js"></script>
+        const mozEl = document.getElementById('moz-time');
+        if (mozEl) {
+          const fmt = new Intl.DateTimeFormat('en-GB', {
+            hour: '2-digit', minute: '2-digit', second: '2-digit',
+            hour12: false, timeZone: 'Africa/Maputo'
+          });
+          function tick() { mozEl.textContent = fmt.format(new Date()); }
+          tick(); setInterval(tick, 1000);
+        }
+      })
+      .catch(err => console.error('Footer load failed:', err));
+  </script>
+
+  <script src="/js/main.js"></script>
 </body>
 </html>
 
-<!-- Your site JS (keep this) -->
-<script src="js/main.js"></script>
-</body>
-</html>
 
 
