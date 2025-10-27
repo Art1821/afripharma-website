@@ -1,0 +1,45 @@
+<footer class="footer">
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4>AfriPharma Health Systems</h4>
+        <p style="font-size:0.9rem;line-height:1.6;opacity:0.8;">
+          Building pharmaceutical sovereignty in Africa through WHO-aligned manufacturing 
+          and supply resilience.
+        </p>
+        <p style="margin-top:1rem;">
+          <strong>Tagline:</strong><br>
+          <em>Precision Medicine. African Roots.</em>
+        </p>
+      </div>
+
+      <div class="footer-section">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+          <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="/terms.html">Terms of Use</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h4>Contact</h4>
+        <p><a href="mailto:info@afripharma-health.com">info@afripharma-health.com</a></p>
+        <p><a href="mailto:invest@afripharma-health.com">invest@afripharma-health.com</a></p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© <span id="current-year">2025</span> AfriPharma Health Systems. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+<script>
+  // Keep this inline so each page shows the right year without relying on main.js load order
+  (function(){
+    var el = document.getElementById('current-year');
+    if (el) el.textContent = new Date().getFullYear();
+  })();
+</script>
