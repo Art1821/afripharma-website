@@ -111,12 +111,22 @@
   </div>
 
   <footer class="footer">
-    <div class="container">
-      <div class="footer-bottom">
-        <p>© <span id="current-year">2024</span> AfriPharma Health Systems Ltd. All rights reserved.</p>
-      </div>
+  <div class="container">
+    <div class="footer-bottom">
+      <p>© <span id="current-year"></span> AfriPharma Health Systems Ltd. All rights reserved.</p>
     </div>
-  </footer>
-  <script src="../js/main.js"></script>
+  </div>
+</footer>
+
+<script>
+// Auto-update year dynamically
+(function() {
+  const yearEl = document.getElementById('current-year');
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
+})();
+</script>
+
+<script src="/js/main.js"></script>
 </body>
 </html>
+
