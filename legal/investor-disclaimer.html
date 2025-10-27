@@ -33,7 +33,14 @@
 
   <div class="container legal-page">
     <h1>Disclaimer</h1>
-    <p class="last-updated">Last Updated: October 27, 2025</p>
+    
+<p><em>Last updated: October 27, <span id="update-year">2025</span></em></p>
+
+<script>
+  // Automatically update the year if file not edited manually
+  const y = document.getElementById('update-year');
+  if (y) y.textContent = new Date().getFullYear();
+</script>
 
     <div class="disclaimer-box">
       <h3>⚠️ IMPORTANT: Please read this disclaimer carefully before using this Website.</h3>
