@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Accessibility Statement | AfriPharma Health Systems</title>
+  <meta name="description" content="AfriPharma Health Systems is committed to digital accessibility and continuous improvement aligned with WCAG 2.1 AA." />
+
+  <!-- Root-absolute assets so /legal/ pages load correctly -->
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="icon" type="image/png" href="/images/favicon.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <script defer data-domain="afripharma-health.com" src="https://plausible.io/js/script.js"></script>
+
+  <style>
+    /* Page-specific light styling (inherits your site CSS) */
+    .section { padding-top: 2.5rem; padding-bottom: 2.5rem; }
+    .section h1, .section h2 { margin: 0 0 0.75rem 0; }
+    .section p, .section ul, .section ol { line-height: 1.8; }
+    .notice { background: var(--light-bg, #f7f9fc); border: 1px solid rgba(0,0,0,0.06); padding: 1rem 1.25rem; border-radius: 10px; }
+    .kbd { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.9em; background: #f1f3f5; padding: 0.1rem 0.35rem; border-radius: 4px; }
+  </style>
+</head>
+<body>
+
+  <!-- Header / Navigation -->
+  <header class="header">
+    <div class="container">
+      <nav class="nav-container">
+        <div class="logo">
+          <img src="/images/afripharma-logo.png" alt="AfriPharma Health Systems Logo" />
+          <div class="logo-text">
+            <h1>AfriPharma Health Systems</h1>
+            <p class="tagline">Precision Medicine. African Roots.</p>
+          </div>
+        </div>
+        <ul class="nav-menu">
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/products.html">Products</a></li>
+          <li><a href="/impact.html">Impact</a></li>
+          <li><a href="/investment.html">Investment</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+        </ul>
+        <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">☰</button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <section class="section">
+    <div class="container">
+      <div class="section-title">
+        <h1>Accessibility Statement</h1>
+        <p class="section-subtitle">Our commitment to accessible, inclusive experiences for everyone.</p>
+      </div>
+
+      <p class="notice"><strong>Last updated:</strong> <span id="last-updated">Loading…</span></p>
+
+      <h2>Our Commitment</h2>
+      <p>
+        AfriPharma Health Systems is committed to providing a website that is accessible to the widest possible audience,
+        regardless of technology or ability. We aim to conform to the <strong>Web Content Accessibility Guidelines (WCAG) 2.1 Level AA</strong>.
+      </p>
+
+      <h2>Conformance Status</h2>
+      <p>
+        We are actively working toward full WCAG 2.1 AA conformance. Based on ongoing manual reviews and automated checks,
+        the site is currently <strong>partially conformant</strong>; certain components are being improved to meet contrast,
+        keyboard navigation, and ARIA labeling best practices.
+      </p>
+
+      <h2>Measures We Take</h2>
+      <ul>
+        <li>Designing for semantic HTML structure and logical heading order</li>
+        <li>Providing text alternatives for meaningful images</li>
+        <li>Maintaining sufficient color contrast for text and UI components</li>
+        <li>Ensuring keyboard operability and visible focus styles</li>
+        <li>Using descriptive link text and form labels</li>
+        <li>Testing with automated tools (e.g., Lighthouse, axe) and manual checks</li>
+        <li>Continuous iteration as content and features evolve</li>
+      </ul>
+
+      <h2>Compatibility with Browsers & Assistive Technology</h2>
+      <p>
+        This site is designed to work with the last two major versions of modern browsers (Chrome, Edge, Firefox, Safari)
+        and with common assistive technologies on desktop and mobile. You’ll get the best experience by keeping your browser
+        and operating system updated.
+      </p>
+
+      <h2>Known Limitations</h2>
+      <p>We’re tracking and addressing the following:</p>
+      <ul>
+        <li>Occasional missing ARIA roles on new components</li>
+        <li>Minor contrast issues on legacy text elements</li>
+        <li>Keyboard focus order refinements on specific interactive elements</li>
+      </ul>
+      <p>If you find an issue not listed here, please let us know.</p>
+
+      <h2>Feedback & Support</h2>
+      <p>
+        We welcome your feedback on the accessibility of this website. If you encounter accessibility barriers or need
+        content in an alternative format, contact us:
+      </p>
+      <ul>
+        <li>Email: <a href="mailto:info@afripharma-health.com">info@afripharma-health.com</a></li>
+        <li>Response time: We aim to respond within 2 business days</li>
+      </ul>
+
+      <h2>Assessment Approach</h2>
+      <p>
+        AfriPharma assesses accessibility through internal self-evaluation, code reviews, and automated scanning,
+        supplemented by periodic manual testing.
+      </p>
+
+      <h2>Ongoing Improvements</h2>
+      <p>
+        Accessibility is an ongoing effort. As we add new pages and features, we will continue to iterate toward full WCAG 2.1 AA conformance.
+        Your feedback helps us prioritize fixes that matter most.
+      </p>
+    </div>
+  </section>
+
+  <!-- Shared footer slot (loads footer-public.html) -->
+  <div id="footer-slot"></div>
+
+  <script>
+    // Auto-derive "Last updated" as today's date in a readable format
+    (function() {
+      var el = document.getElementById('last-updated');
+      if (!el) return;
+      var d = new Date();
+      var opts = { year: 'numeric', month: 'long', day: 'numeric' };
+      el.textContent = d.toLocaleDateString('en-US', opts);
+    })();
+
+    // Load the shared public footer, then init the year + live Nacala clock
+    fetch('/footer-public.html', { cache: 'no-cache' })
+      .then(r => r.text())
+      .then(html => {
+        var slot = document.getElementById('footer-slot');
+        slot.innerHTML = html;
+
+        var yearEl = document.getElementById('current-year');
+        if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+        var mozEl = document.getElementById('moz-time');
+        if (mozEl) {
+          var fmt = new Intl.DateTimeFormat('en-GB', {
+            hour: '2-digit', minute: '2-digit', second: '2-digit',
+            hour12: false, timeZone: 'Africa/Maputo'
+          });
+          function tick(){ mozEl.textContent = fmt.format(new Date()); }
+          tick(); setInterval(tick, 1000);
+        }
+      })
+      .catch(err => console.error('Footer load failed:', err));
+  </script>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>
