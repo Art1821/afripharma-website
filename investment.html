@@ -3,13 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <base href="/">
-  <title>Investment Opportunity | AfriPharma Health Systems</title>
-  <meta name="description" content="$12M investment opportunity in WHO PQ pharmaceutical manufacturing. Building pharmaceutical sovereignty in Africa with measurable impact and returns.">
-  <meta name="keywords" content="pharmaceutical investment Africa, impact investing, DFI opportunities, healthcare investing, Mozambique investment, SADC investment">
+  <title>Investor Disclaimer | AfriPharma Health Systems</title>
+
+  <!-- Use root-absolute paths so it works from /legal/ -->
   <link rel="stylesheet" href="/css/style.css">
+  <link rel="icon" type="image/png" href="/images/favicon.png">
+
+  <!-- Fonts / Analytics (unchanged) -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <script defer data-domain="afripharma-health.com" src="https://plausible.io/js/script.js"></script>
+</head>
+
 </head>
 <body>
   
@@ -171,6 +175,7 @@
   </section>
 
  <!-- Shared investor footer slot -->
+<!-- Shared investor footer slot -->
 <div id="footer-slot"></div>
 
 <script>
@@ -182,19 +187,19 @@
       slot.innerHTML = html;
 
       // © year
-      const yearEl = document.getElementById('current-year');
-      if (yearEl) yearEl.textContent = new Date().getFullYear();
+      const y = document.getElementById('current-year');
+      if (y) y.textContent = new Date().getFullYear();
 
-      // Nacala clock (Africa/Maputo)
-      const mozEl = document.getElementById('moz-time');
-      if (mozEl) {
+      // Live Nacala clock
+      const t = document.getElementById('moz-time');
+      if (t) {
         const fmt = new Intl.DateTimeFormat('en-GB', {
           hour:'2-digit', minute:'2-digit', second:'2-digit',
           hour12:false, timeZone:'Africa/Maputo'
         });
-        function tick(){ mozEl.textContent = fmt.format(new Date()); }
+        function tick(){ t.textContent = fmt.format(new Date()); }
         tick();
-        mozEl.style.opacity = '1'; // fade-in
+        t.style.opacity = '1';        // fade-in
         setInterval(tick, 1000);
       }
     })
@@ -204,6 +209,7 @@
 <script src="/js/main.js"></script>
 </body>
 </html>
+
 
 
 
