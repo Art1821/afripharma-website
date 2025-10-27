@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Investor Portal Login | AfriPharma Health Systems</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body style="background-color: var(--light-bg);">
+  
+  <header class="header">
+    <div class="container">
+      <nav class="nav-container">
+        <div class="logo">
+          <img src="../images/afripharma-logo.png" alt="AfriPharma Health Systems Logo">
+          <div class="logo-text">
+            <h1>AfriPharma Health Systems</h1>
+            <p class="tagline">Precision Medicine. African Roots.</p>
+          </div>
+        </div>
+        <ul class="nav-menu">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../contact.html">Contact</a></li>
+        </ul>
+        <button class="mobile-menu-toggle">☰</button>
+      </nav>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="portal-login">
+      <h2 style="text-align: center; margin-bottom: 2rem;">Investor Portal Access</h2>
+
+      <div class="portal-disclaimer">
+        <h3>⚠️ RESTRICTED ACCESS - QUALIFIED INVESTORS ONLY</h3>
+        
+        <p>Access to this investor portal is restricted to:</p>
+        <ul>
+          <li>Accredited investors as defined by applicable securities laws</li>
+          <li>Institutional investors and development finance institutions</li>
+          <li>Strategic partners under Non-Disclosure Agreement</li>
+        </ul>
+        
+        <p><strong>By proceeding, you represent and warrant that:</strong></p>
+        <ol>
+          <li>You meet the criteria above</li>
+          <li>You have read and accept our <a href="../legal/terms-of-use.html">Terms of Use</a> and <a href="../legal/disclaimer.html">Disclaimer</a></li>
+          <li>You acknowledge that materials herein are confidential</li>
+          <li>You will not reproduce or share materials without written permission</li>
+        </ol>
+        
+        <p style="margin-top: 1.5rem; margin-bottom: 0;">
+          <strong>Non-Disclosure Agreement Required:</strong><br>
+          First-time access requires execution of NDA. Contact: <a href="mailto:invest@afripharma-health.com">invest@afripharma-health.com</a>
+        </p>
+      </div>
+
+      <form id="portal-login-form">
+        <div class="form-group">
+          <label for="portal-email">Email Address</label>
+          <input type="email" id="portal-email" name="email" required placeholder="investor@example.com">
+        </div>
+
+        <div class="form-group">
+          <label for="portal-password">Password</label>
+          <input type="password" id="portal-password" name="password" required placeholder="Enter your password">
+        </div>
+
+        <div class="form-group">
+          <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
+            <input type="checkbox" id="portal-terms-acceptance" required>
+            <span>I acknowledge and accept the terms above</span>
+          </label>
+        </div>
+
+        <button type="submit" id="portal-submit-btn" class="btn btn-primary" style="width: 100%;" disabled>
+          Access Investor Portal
+        </button>
+
+        <p style="font-size: 0.85rem; color: var(--neutral-gray); text-align: center; margin-top: 1.5rem;">
+          Don't have portal access? <a href="mailto:invest@afripharma-health.com">Request Access</a>
+        </p>
+
+        <p style="font-size: 0.85rem; color: var(--neutral-gray); text-align: center; margin-top: 0.5rem;">
+          Forgot password? <a href="mailto:invest@afripharma-health.com">Contact Support</a>
+        </p>
+      </form>
+
+      <div style="background: var(--light-bg); padding: 1.5rem; border-radius: 8px; margin-top: 2rem; text-align: center;">
+        <h4 style="margin-top: 0; color: var(--primary-blue);">Portal Features</h4>
+        <p style="font-size: 0.9rem; margin-bottom: 0;">
+          Access investment memoranda, financial models, governance documentation, due diligence materials, and quarterly investor updates.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h4>AfriPharma Health Systems</h4>
+          <p style="font-size: 0.9rem; line-height: 1.6; opacity: 0.8;">Building pharmaceutical sovereignty in Africa through WHO-aligned manufacturing and supply resilience.</p>
+        </div>
+        <div class="footer-section">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="../legal/privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="../legal/terms-of-use.html">Terms of Use</a></li>
+            <li><a href="../legal/disclaimer.html">Disclaimer</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="mailto:invest@afripharma-health.com">invest@afripharma-health.com</a></li>
+            <li><a href="mailto:legal@afripharma-health.com">legal@afripharma-health.com</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-entity-statement">
+        <p><strong>Corporate Structure:</strong> AfriPharma Health Systems Ltd, a Mauritius-based entity established to serve as the Group's holding and compliance vehicle, is currently being formalized under the Mauritius Financial Services Commission (FSC) as a Global Business Company (GBC).</p>
+      </div>
+      <div class="footer-bottom">
+        <p>© <span id="current-year">2024</span> AfriPharma Health Systems Ltd. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>
