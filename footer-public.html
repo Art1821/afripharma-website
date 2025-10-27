@@ -34,12 +34,34 @@
     <div class="footer-bottom">
       <p>© <span id="current-year">2025</span> AfriPharma Health Systems. All rights reserved.</p>
     </div>
+     <!-- Live clock section (place directly under the copyright block, before </footer>) -->
+    <div class="footer-time" style="margin-top:1rem;font-size:0.9rem;opacity:0.8;">
+      <strong>Current time in Nacala:</strong>
+      <span id="moz-time">Loading…</span> CAT (UTC +2)
+    </div>
+
   </div>
 </footer>
+
 <script>
-  // Keep this inline so each page shows the right year without relying on main.js load order
-  (function(){
+  // Auto-update copyright year
+  (function () {
     var el = document.getElementById('current-year');
     if (el) el.textContent = new Date().getFullYear();
   })();
+
+  // Live Mozambique time clock (UTC+2, no DST)
+  function updateMozTime() {
+    // Current UTC time
+    var now = new Date();
+    // Convert to UTC+2 by adding 2 hours (in ms)
+    var moz = new Date(now.getTime() + 2 * 60 * 60 * 1000);
+
+    var opts = { hour: '2-digit', minute: '2-digit', second: '2-digit' };
+    var el = document.getElementById('moz-time');
+    if (el) el.textContent = moz.toLocaleTimeString('en-GB', opts);
+  }
+
+  updateMozTime();
+  setInterval(updateMozTime, 1000);
 </script>
