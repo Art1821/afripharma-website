@@ -92,47 +92,34 @@
     </div>
   </section>
 
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-content">
-        <div class="footer-section">
-          <h4>AfriPharma Health Systems</h4>
-          <p style="font-size: 0.9rem; line-height: 1.6; opacity: 0.8;">Building pharmaceutical sovereignty in Africa through WHO-aligned manufacturing and supply resilience.</p>
-          <p style="margin-top: 1rem;"><strong>Tagline:</strong><br><em>Precision Medicine. African Roots.</em></p>
-        </div>
-        <div class="footer-section">
-          <h4>Quick Links</h4>
-          <ul>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="products.html">Product Portfolio</a></li>
-            <li><a href="impact.html">Our Impact</a></li>
-            <li><a href="investment.html">Investment Opportunity</a></li>
-            <li><a href="contact.html">Contact Us</a></li>
-          </ul>
-        </div>
-        <div class="footer-section">
-          <h4>Legal</h4>
-          <ul>
-            <li><a href="legal/privacy-policy.html">Privacy Policy</a></li>
-            <li><a href="legal/terms-of-use.html">Terms of Use</a></li>
-            <li><a href="legal/cookies-notice.html">Cookies Notice</a></li>
-            <li><a href="legal/disclaimer.html">Disclaimer</a></li>
-          </ul>
-        </div>
-        <div class="footer-section">
-          <h4>Connect</h4>
-          <ul>
-            <li><a href="mailto:info@afripharma-health.com">info@afripharma-health.com</a></li>
-            <li><a href="mailto:invest@afripharma-health.com">invest@afripharma-health.com</a></li>
-            <li><a href="https://linkedin.com/company/afripharma-health-systems" target="_blank">LinkedIn</a></li>
-          </ul>
-        </div>
-      </div>
-      <div id="footer-slot"></div>
+  <!-- Shared footer slot -->
+<div id="footer-slot"></div>
+
 <script>
-  fetch('/footer-public.html', {cache: 'no-cache'})
+  // Load the shared public footer, then initialize dynamic bits (year + clock)
+  fetch('/footer-public.html', { cache: 'no-cache' })
     .then(r => r.text())
-    .then(html => { document.getElementById('footer-slot').innerHTML = html; })
+    .then(html => {
+      const slot = document.getElementById('footer-slot');
+      slot.innerHTML = html;
+
+      // 1) Copyright year
+      const yearEl = document.getElementById('current-year');
+      if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+      // 2) Live "Current time in Nacala" clock
+      const mozEl = document.getElementById('moz-time');
+      if (mozEl) {
+        const fmt = new Intl.DateTimeFormat('en-GB', {
+          hour: '2-digit', minute: '2-digit', second: '2-digit',
+          hour12: false,
+          timeZone: 'Africa/Maputo'
+        });
+        function tick() { mozEl.textContent = fmt.format(new Date()); }
+        tick();
+        setInterval(tick, 1000);
+      }
+    })
     .catch(err => console.error('Footer load failed:', err));
 </script>
 
