@@ -182,40 +182,38 @@
   </section>
 
  <!-- Shared investor footer slot -->
-<!-- Shared investor footer slot -->
-<div id="footer-slot"></div>
+  </main>
 
-<script>
-  // Load investor footer + init year + clock (with fade-in)
-  fetch('/footer-investor.html', { cache: 'no-cache' })
-    .then(r => r.text())
-    .then(html => {
-      const slot = document.getElementById('footer-slot');
-      slot.innerHTML = html;
+  <!-- Shared footer slot -->
+  <div id="footer-slot"></div>
 
-      // © year
-      const y = document.getElementById('current-year');
-      if (y) y.textContent = new Date().getFullYear();
+  <script>
+    fetch('/footer-public.html', { cache: 'no-cache' })
+      .then(r => r.text())
+      .then(html => {
+        const slot = document.getElementById('footer-slot');
+        slot.innerHTML = html;
 
-      // Live Nacala clock
-      const t = document.getElementById('moz-time');
-      if (t) {
-        const fmt = new Intl.DateTimeFormat('en-GB', {
-          hour:'2-digit', minute:'2-digit', second:'2-digit',
-          hour12:false, timeZone:'Africa/Maputo'
-        });
-        function tick(){ t.textContent = fmt.format(new Date()); }
-        tick();
-        t.style.opacity = '1';        // fade-in
-        setInterval(tick, 1000);
-      }
-    })
-    .catch(err => console.error('Investor footer load failed:', err));
-</script>
+        const yearEl = document.getElementById('current-year');
+        if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-<script src="/js/main.js"></script>
+        const mozEl = document.getElementById('moz-time');
+        if (mozEl) {
+          const fmt = new Intl.DateTimeFormat('en-GB', {
+            hour: '2-digit', minute: '2-digit', second: '2-digit',
+            hour12: false, timeZone: 'Africa/Maputo'
+          });
+          function tick() { mozEl.textContent = fmt.format(new Date()); }
+          tick(); setInterval(tick, 1000);
+        }
+      })
+      .catch(err => console.error('Footer load failed:', err));
+  </script>
+
+  <script src="/js/main.js"></script>
 </body>
 </html>
+
 
 
 
