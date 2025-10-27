@@ -43,25 +43,4 @@
   </div>
 </footer>
 
-<script>
-  // Auto-update copyright year
-  (function () {
-    var el = document.getElementById('current-year');
-    if (el) el.textContent = new Date().getFullYear();
-  })();
 
-  // Live Mozambique time clock (UTC+2, no DST)
-  function updateMozTime() {
-    // Current UTC time
-    var now = new Date();
-    // Convert to UTC+2 by adding 2 hours (in ms)
-    var moz = new Date(now.getTime() + 2 * 60 * 60 * 1000);
-
-    var opts = { hour: '2-digit', minute: '2-digit', second: '2-digit' };
-    var el = document.getElementById('moz-time');
-    if (el) el.textContent = moz.toLocaleTimeString('en-GB', opts);
-  }
-
-  updateMozTime();
-  setInterval(updateMozTime, 1000);
-</script>
