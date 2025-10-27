@@ -17,7 +17,7 @@
     <div class="container">
       <nav class="nav-container">
         <div class="logo">
-          <img src="images/afripharma-logo.png" alt="AfriPharma Health Systems Logo">
+          <img src="/images/afripharma-logo.png" alt="AfriPharma Health Systems Logo">
           <div class="logo-text">
             <h1>AfriPharma Health Systems</h1>
             <p class="tagline">Precision Medicine. African Roots.</p>
@@ -170,7 +170,7 @@
     </div>
   </section>
 
-  <!-- Shared investor footer slot -->
+ <!-- Shared investor footer slot -->
 <div id="footer-slot"></div>
 
 <script>
@@ -181,25 +181,30 @@
       const slot = document.getElementById('footer-slot');
       slot.innerHTML = html;
 
-      // Update copyright year
+      // © year
       const yearEl = document.getElementById('current-year');
       if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-      // Live clock (Africa/Maputo = UTC+2)
+      // Nacala clock (Africa/Maputo)
       const mozEl = document.getElementById('moz-time');
       if (mozEl) {
         const fmt = new Intl.DateTimeFormat('en-GB', {
-          hour: '2-digit', minute: '2-digit', second: '2-digit',
-          hour12: false, timeZone: 'Africa/Maputo'
+          hour:'2-digit', minute:'2-digit', second:'2-digit',
+          hour12:false, timeZone:'Africa/Maputo'
         });
-        function tick() { mozEl.textContent = fmt.format(new Date()); }
+        function tick(){ mozEl.textContent = fmt.format(new Date()); }
         tick();
-        mozEl.style.opacity = '1'; // Smooth fade-in
+        mozEl.style.opacity = '1'; // fade-in
         setInterval(tick, 1000);
       }
     })
     .catch(err => console.error('Investor footer load failed:', err));
 </script>
+
+<script src="/js/main.js"></script>
+</body>
+</html>
+
 
 <script src="js/main.js"></script>
 </body>
