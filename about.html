@@ -128,15 +128,15 @@
           </ul>
         </div>
       </div>
-      <div class="footer-entity-statement">
-        <p><strong>Corporate Structure:</strong> AfriPharma Health Systems Ltd, a Mauritius-based entity established to serve as the Group's holding and compliance vehicle, is currently being formalized under the Mauritius Financial Services Commission (FSC) as a Global Business Company (GBC).</p>
-      </div>
-      <div class="footer-bottom">
-        <p>© <span id="current-year">2024</span> AfriPharma Health Systems Ltd. All rights reserved.</p>
-      </div>
-    </div>
-  </footer>
+      <div id="footer-slot"></div>
+<script>
+  fetch('/footer-public.html', {cache: 'no-cache'})
+    .then(r => r.text())
+    .then(html => { document.getElementById('footer-slot').innerHTML = html; })
+    .catch(err => console.error('Footer load failed:', err));
+</script>
 
-  <script src="js/main.js"></script>
+<script src="js/main.js"></script>
 </body>
 </html>
+
