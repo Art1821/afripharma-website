@@ -1,310 +1,1155 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Product Portfolio | WHO Essential Medicines | AfriPharma</title>
-  <meta name="description" content="AfriPharma manufactures 7 WHO Essential Medicines including paracetamol, ceftriaxone, and unique pediatric formulations for the SADC market.">
-  <link rel="stylesheet" href="css/style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <script defer data-domain="afripharma-health.com" src="https://plausible.io/js/script.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Portfolio | AfriPharma Health Systems</title>
+    <meta name="description" content="AfriPharma's comprehensive portfolio of WHO Essential Medicines - sterile injectables and oral solid dosage forms serving the SADC region with quality pharmaceutical products.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Spectral:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            /* AfriPharma Brand Colors */
+            --primary-blue: #004A8F;
+            --light-blue: #7AC5E5;
+            --medium-blue: #0066CC;
+            --accent-blue: #E6F3F9;
+            
+            /* Neutrals */
+            --white: #FFFFFF;
+            --off-white: #F8FAFB;
+            --light-gray: #E5E9ED;
+            --medium-gray: #8B95A1;
+            --dark-gray: #2C3E50;
+            --black: #1A1F2C;
+            
+            /* Status Colors */
+            --success-green: #10B981;
+            --warning-orange: #F59E0B;
+            --info-blue: #3B82F6;
+            
+            /* Typography */
+            --font-body: 'DM Sans', sans-serif;
+            --font-display: 'Spectral', serif;
+            
+            /* Spacing */
+            --section-padding: 5rem;
+            --container-max: 1200px;
+        }
+        
+        body {
+            font-family: var(--font-body);
+            color: var(--dark-gray);
+            background: var(--off-white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* Navigation */
+        .nav {
+            background: var(--white);
+            padding: 1.5rem 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav-container {
+            max-width: var(--container-max);
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+        }
+        
+        .logo-icon {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, var(--light-blue), var(--medium-blue));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+        
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .logo-text h1 {
+            font-family: var(--font-display);
+            font-size: 1.4rem;
+            color: var(--primary-blue);
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+        
+        .logo-text span {
+            font-size: 0.75rem;
+            color: var(--medium-gray);
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+        
+        .nav-menu {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+        }
+        
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--dark-gray);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+        
+        .nav-menu a:hover {
+            color: var(--primary-blue);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, #003366 100%);
+            color: var(--white);
+            padding: 4rem 2rem 5rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(122, 197, 229, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        
+        .hero-container {
+            max-width: var(--container-max);
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero h2 {
+            font-family: var(--font-display);
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        
+        .hero p {
+            font-size: 1.25rem;
+            opacity: 0.95;
+            max-width: 700px;
+            line-height: 1.7;
+        }
+        
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+            padding-top: 3rem;
+            border-top: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .stat {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            font-family: var(--font-display);
+            color: var(--light-blue);
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            margin-top: 0.5rem;
+        }
+        
+        /* Filter Section */
+        .filters {
+            background: var(--white);
+            padding: 2rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 88px;
+            z-index: 90;
+        }
+        
+        .filters-container {
+            max-width: var(--container-max);
+            margin: 0 auto;
+        }
+        
+        .filter-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .filter-label {
+            font-weight: 600;
+            color: var(--dark-gray);
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+        }
+        
+        .filter-btn {
+            padding: 0.75rem 1.5rem;
+            border: 2px solid var(--light-gray);
+            background: var(--white);
+            color: var(--dark-gray);
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            font-family: var(--font-body);
+        }
+        
+        .filter-btn:hover {
+            border-color: var(--medium-blue);
+            color: var(--medium-blue);
+            transform: translateY(-2px);
+        }
+        
+        .filter-btn.active {
+            background: var(--primary-blue);
+            border-color: var(--primary-blue);
+            color: var(--white);
+            box-shadow: 0 4px 12px rgba(0, 74, 143, 0.3);
+        }
+        
+        /* Products Grid */
+        .products-section {
+            padding: 4rem 2rem;
+            max-width: var(--container-max);
+            margin: 0 auto;
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .product-card {
+            background: var(--white);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            animation: fadeIn 0.6s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+        }
+        
+        .product-header {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--medium-blue) 100%);
+            padding: 2rem;
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .product-header::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        
+        .product-badge {
+            display: inline-block;
+            padding: 0.4rem 0.9rem;
+            background: rgba(255,255,255,0.25);
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+        
+        .product-name {
+            font-family: var(--font-display);
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            line-height: 1.2;
+        }
+        
+        .product-subtitle {
+            font-size: 0.95rem;
+            opacity: 0.9;
+            font-weight: 500;
+        }
+        
+        .product-body {
+            padding: 2rem;
+        }
+        
+        .product-indication {
+            color: var(--medium-gray);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        
+        .product-specs {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .spec {
+            background: var(--accent-blue);
+            padding: 1rem;
+            border-radius: 10px;
+        }
+        
+        .spec-label {
+            font-size: 0.75rem;
+            color: var(--medium-gray);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.3rem;
+        }
+        
+        .spec-value {
+            font-size: 0.95rem;
+            color: var(--dark-gray);
+            font-weight: 600;
+        }
+        
+        .product-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--light-gray);
+        }
+        
+        .tag {
+            padding: 0.4rem 0.8rem;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .tag.who {
+            background: #DCFCE7;
+            color: #166534;
+        }
+        
+        .tag.phase {
+            background: #DBEAFE;
+            color: #1E40AF;
+        }
+        
+        .tag.new {
+            background: #FEF3C7;
+            color: #92400E;
+        }
+        
+        .product-card.hidden {
+            display: none;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, #003366 100%);
+            color: var(--white);
+            padding: 5rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            left: -100px;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(122, 197, 229, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        
+        .cta-container {
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .cta-section h3 {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+        
+        .cta-section p {
+            font-size: 1.15rem;
+            opacity: 0.95;
+            margin-bottom: 2rem;
+            line-height: 1.7;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        
+        .btn-primary {
+            background: var(--white);
+            color: var(--primary-blue);
+        }
+        
+        .btn-primary:hover {
+            background: var(--light-blue);
+            color: var(--white);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+        
+        .btn-secondary:hover {
+            background: var(--white);
+            color: var(--primary-blue);
+        }
+        
+        /* Footer */
+        .footer {
+            background: var(--dark-gray);
+            color: var(--white);
+            padding: 3rem 2rem 2rem;
+        }
+        
+        .footer-container {
+            max-width: var(--container-max);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+        }
+        
+        .footer-section h4 {
+            font-family: var(--font-display);
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            color: var(--light-blue);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-links a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--light-blue);
+        }
+        
+        .footer-bottom {
+            max-width: var(--container-max);
+            margin: 0 auto;
+            padding-top: 2rem;
+            margin-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            text-align: center;
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.7);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h2 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-menu {
+                display: none;
+            }
+            
+            .filter-buttons {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .filter-btn {
+                width: 100%;
+            }
+        }
+    </style>
 </head>
 <body>
-  
-  <header class="header">
-    <div class="container">
-      <nav class="nav-container">
-        <div class="logo">
-          <img src="images/afripharma-logo.png" alt="AfriPharma Health Systems Logo">
-          <div class="logo-text">
-            <h1>AfriPharma Health Systems</h1>
-            <p class="tagline">Precision Medicine. African Roots.</p>
-          </div>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="/" class="logo">
+                <div class="logo-icon">💊</div>
+                <div class="logo-text">
+                    <h1>AfriPharma</h1>
+                    <span>PRECISION MEDICINE. AFRICAN ROOTS.</span>
+                </div>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="/">Home</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/products">Products</a></li>
+                <li><a href="/quality-compliance">Quality</a></li>
+                <li><a href="/investors">Investors</a></li>
+                <li><a href="/contact">Contact</a></li>
+            </ul>
         </div>
-        <ul class="nav-menu">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="products.html" class="active">Products</a></li>
-          <li><a href="impact.html">Impact</a></li>
-          <li><a href="investment.html">Investment</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-        <button class="mobile-menu-toggle">☰</button>
-      </nav>
-    </div>
-  </header>
+    </nav>
 
-  <section class="section">
-    <div class="container">
-      <div class="section-title">
-        <h1>Product Portfolio</h1>
-        <p class="section-subtitle">7 WHO Essential Medicines serving 380 million people across the SADC region</p>
-      </div>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <h2>Essential Medicines for Africa</h2>
+            <p>AfriPharma's comprehensive portfolio of WHO Essential Medicines serving 380 million people across the SADC region with quality sterile injectables and oral solid dosage forms manufactured to international standards.</p>
+            
+            <div class="hero-stats">
+                <div class="stat">
+                    <div class="stat-number">12</div>
+                    <div class="stat-label">Product Portfolio</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">21.6M</div>
+                    <div class="stat-label">Annual Capacity</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">10</div>
+                    <div class="stat-label">WHO EML Products</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">2027</div>
+                    <div class="stat-label">First Launch</div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-      <div class="product-card">
-        <div class="product-header">
-          <div>
-            <h3>Paracetamol Injection</h3>
-            <p style="color: var(--neutral-gray);">Pain and Fever Management</p>
-          </div>
-          <span class="product-status">Product Development</span>
+    <!-- Filters -->
+    <section class="filters">
+        <div class="filters-container">
+            <div class="filter-buttons">
+                <span class="filter-label">Filter by:</span>
+                <button class="filter-btn active" data-filter="all">All Products</button>
+                <button class="filter-btn" data-filter="phase1a">Phase 1a (2027)</button>
+                <button class="filter-btn" data-filter="phase1b">Phase 1b (2028)</button>
+                <button class="filter-btn" data-filter="osd">Oral Solid Dosage</button>
+                <button class="filter-btn" data-filter="sterile">Sterile Injectable</button>
+            </div>
         </div>
-        <p>Adult formulations for effective pain relief and fever management in hospital settings.</p>
-        <div class="product-details">
-          <div class="product-detail-item">
-            <span class="product-detail-label">Strength</span>
-            <span class="product-detail-value">500mg, 1000mg (1g)</span>
-          </div>
-          <div class="product-detail-item">
-            <span class="product-detail-label">Market Opportunity</span>
-            <span class="product-detail-value">$450M SADC</span>
-          </div>
-          <div class="product-detail-item">
-            <span class="product-detail-label">Regulatory Status</span>
-            <span class="product-detail-value">WHO PQ Pathway Initiated</span>
-          </div>
-          <div class="product-detail-item">
-            <span class="product-detail-label">Target Launch</span>
-            <span class="product-detail-value">Q3 2027</span>
-          </div>
-        </div>
-      </div>
+    </section>
 
-      <div class="product-card">
-        <div class="product-header">
-          <div>
-            <h3>Pediatric Paracetamol (UNIQUE)</h3>
-            <p style="color: var(--neutral-gray);">Weight-Based Pediatric Formulation</p>
-          </div>
-          <span class="product-status" style="background-color: var(--accent-red);">Formulation Development</span>
-        </div>
-        <p>Innovative mg/kg weight-based dosing specifically designed for pediatric use with limited competition in region.</p>
-        <div class="product-details">
-          <div class="product-detail-item">
-            <span class="product-detail-label">Strength</span>
-            <span class="product-detail-value">mg/kg dosing</span>
-          </div>
-          <div class="product-detail-item">
-            <span class="product-detail-label">Market Opportunity</span>
-            <span class="product-detail-value">$82M SADC</span>
-          </div>
-          <div class="product-detail-item">
-            <span class="product-detail-label">Regulatory Status</span>
-            <span class="product-detail-value">WHO PQ Pathway Planned</span>
-          </div>
-          <div class="product-detail-item">
-            <span class="product-detail-label">Competitive Edge</span>
-            <span class="product-detail-value">Limited Competition</span>
-          </div>
-        </div>
-      </div>
+    <!-- Products Grid -->
+    <section class="products-section">
+        <div class="products-grid" id="productsGrid">
+            
+            <!-- Product 1: ParaFlow 1000 -->
+            <div class="product-card" data-category="phase1a sterile">
+                <div class="product-header">
+                    <div class="product-badge">Phase 1a • Q3 2027</div>
+                    <h3 class="product-name">ParaFlow 1000</h3>
+                    <p class="product-subtitle">Paracetamol IV 1000mg/100mL</p>
+                </div>
+                <div class="product-body">
+                    <p class="product-indication">
+                        <strong>Indication:</strong> Adult pain and fever management. First-line treatment for moderate pain and pyrexia in hospital settings.
+                    </p>
+                    
+                    <div class="product-specs">
+                        <div class="spec">
+                            <div class="spec-label">Presentation</div>
+                            <div class="spec-value">100mL Glass Bottle</div>
+                        </div>
+                        <div class="spec">
+                            <div class="spec-label">Strength</div>
+                            <div class="spec-value">10mg/mL</div>
+                        </div>
+                        <div class="spec">
+                            <div class="spec-label">Year 5 Target</div>
+                            <div class="spec-value">2.5M units</div>
+                        </div>
+                        <div class="spec">
+                            <div class="spec-label">Gross Margin</div>
+                            <div class="spec-value">72%</div>
+                        </div>
+                    </div>
+                    
+                    <div class="product-tags">
+                        <span class="tag who">WHO Essential Medicine</span>
+                        <span class="tag phase">Phase 1a Lead</span>
+                    </div>
+                </div>
+            </div>
 
-      <div class="product-card">
-        <div class="product-header">
-          <div>
-            <h3>Ceftriaxone Injection</h3>
-            <p style="color: var(--neutral-gray);">Antibiotic for Bacterial Infections</p>
-          </div>
-          <span class="product-status">Pre-Formulation Studies</span>
-        </div>
-        <p>Broad-spectrum antibiotic for treatment of bacterial infections in hospital and clinical settings.</p>
-        <div class="product-details">
-          <div class="product-detail-item">
-            <span class="product-detail-label">Strength</span>
-            <span class="product-detail-value">1g, 2g</span>
-          </div>
-          <div class="product-detail-item">
-            <span class="product-detail-label">Market Opportunity</span>
-            <span class="product-detail-value">$380M SADC</span>
-          </div>
-          <div class="product-detail-item">
-            <span class="product-detail-label">Regulatory Status</span>
-            <span class="product-detail-value">WHO PQ Pathway Planned</span>
-          </div>
-          <div class="product-detail-item">
-            <span class="product-detail-label">Target Launch</span>
-            <span class="product-detail-value">Q4 2027</span>
-          </div>
-        </div>
-      </div>
+            <!-- Product 2: ParaFlow 150 -->
+            <div class="product-card" data-category="phase1a sterile">
+                <div class="product-header">
+                    <div class="product-badge">Phase 1a • Q3 2027</div>
+                    <h3 class="product-name">ParaFlow 150</h3>
+                    <p class="product-subtitle">Paracetamol IV 150mg/10mL</p>
+                </div>
+                <div class="product-body">
+                    <p class="product-indication">
+                        <strong>Indication:</strong> Pediatric pain and fever management. Safe and effective analgesic for children.
+                    </p>
+                    
+                    <div class="product-specs">
+                        <div class="spec">
+                            <div class="spec-label">Presentation</div>
+                            <div class="spec-value">10mL Glass Vial</div>
+                        </div>
+                        <div class="spec">
+                            <div class="spec-label">Strength</div>
+                            <div class="spec-value">15mg/mL</div>
+                        </div>
+                        <div class="spec">
+                            <div class="spec-label">Year 5 Target</div>
+                            <div class="spec-value">1.5M units</div>
+                        </div>
+                        <div class="spec">
+                            <div class="spec-label">Gross Margin</div>
+                            <div class="spec-value">71%</div>
+                        </div>
+                    </div>
+                    
+                    <div class="product-tags">
+                        <span class="tag who">WHO Essential Medicine</span>
+                        <span class="tag new">Only WHO-PQ Pediatric IV</span>
+                    </div>
+                </div>
+            </div>
 
-      <div class="product-card">
-        <div class="product-header">
-          <div>
-            <h3>Dexamethasone Injection</h3>
-            <p style="color: var(--neutral-gray);">Anti-inflammatory & Immunosuppressant</p>
-          </div>
-          <span class="product-status">Product Development</span>
-        </div>
-        <p>Essential corticosteroid for inflammatory conditions and immunosuppression.</p>
-        <div class="product-details">
-          <div class="product-detail-item">
-            <span class="product-detail-label">Strength</span>
-            <span class="product-detail-value">4mg/ml</span>
-          </div>
-          <div class="product-detail-item">
-            <span class="product-detail-label">Market Opportunity</span>
-            <span class="product-detail-value">$210M SADC</span>
-          </div>
-          <div class="product-detail-item">
-            <span class="product-detail-label">Regulatory Status</span>
-            <span class="product-detail-value">National Registration Pathway</span>
-          </div>
-          <div class="product-detail-item">
-            <span class="product-detail-label">Target Launch</span>
-            <span class="product-detail-value">2028</span>
-          </div>
-        </div>
-      </div>
+            <!-- Product 3: Metronidazole IV -->
+            <div class="product-card" data-category="phase1a sterile">
+                <div class="product-header">
+                    <div class="product-badge">Phase 1a • Q3 2027</div>
+                    <h3 class="product-name">Metronidazole IV</h3>
+                    <p class="product-subtitle">500mg/100mL Infusion</p>
+                </div>
+                <div class="product-body">
+                    <p class="product-indication">
+                        <strong>Indication:</strong> Anaerobic bacterial infections, intra-abdominal sepsis, and protozoal infections.
+                    </p>
+                    
+                    <div class="product-specs">
+                        <div class="spec">
+                            <div class="spec-label">Presentation</div>
+                            <div class="spec-value">100mL Infusion Bottle</div>
+                        </div>
+                        <div class="spec">
+                            <div class="spec-label">Strength</div>
+                            <div class="spec-value">5mg/mL</div>
+                        </div>
+                        <div class="spec">
+                            <div class="spec-label">Year 5 Target</div>
+                            <div class="spec-value">3.6M units</div>
+                        </div>
+                        <div class="spec">
+                            <div class="spec-label">Gross Margin</div>
+                            <div class="spec-value">70%</div>
+                        </div>
+                    </div>
+                    
+                    <div class="product-tags">
+                        <span class="tag who">WHO Essential Medicine</span>
+                        <span class="tag phase">High Volume</span>
+                    </div>
+                </div>
+            </div>
 
-      <div class="product-card">
-        <div class="product-header">
-          <div>
-            <h3>Metoclopramide Injection</h3>
-            <p style="color: var(--neutral-gray);">Anti-nausea & GI Motility</p>
-          </div>
-          <span class="product-status">Pre-Formulation Studies</span>
-        </div>
-        <p>Treatment for nausea, vomiting, and gastrointestinal motility disorders.</p>
-        <div class="product-details">
-          <div class="product-detail-item">
-            <span class="product-detail-label">Strength</span>
-            <span class="product-detail-value">10mg/2ml</span>
-          </div>
-          <div class="product-detail-item">
-            <span class="product-detail-label">Market Opportunity</span>
-            <span class="product-detail-value">$145M SADC</span>
-          </div>
-          <div class="product-detail-item">
-            <span class="product-detail-label">Regulatory Status</span>
-            <span class="product-detail-value">National Registration Pathway</span>
-          </div>
-        </div>
-      </div>
+            <!-- Product 4: TramaFlow (NEW) -->
+            <div class="product-card" data-category="phase1a sterile">
+                <div class="product-header" style="background: linear-gradient(135deg, #C2410C 0%, #EA580C 100%);">
+                    <div class="product-badge">Phase 1a • Q3 2027 • NEW</div>
+                    <h3 class="product-name">TramaFlow</h3>
+                    <p class="product-subtitle">Tramadol IV 100mg/2mL</p>
+                </div>
+                <div class="product-body">
+                    <p class="product-indication">
+                        <strong>Indication:</strong> Moderate to moderately severe pain management. Post-operative, trauma, and cancer pain. WHO Step 2 analgesic.
+                    </p>
+                    
+                    <div class="product-specs">
+                        <div class="spec">
+                            <div class="spec-label">Presentation</div>
+                            <div class="spec-value">2mL Glass Ampoule</div>
+                        </div>
+                        <div class="spec">
+                            <div class="spec-label">Strength</div>
+                            <div class="spec-value">50mg/mL</div>
+                        </div>
+                        <div class="spec">
+                            <div class="spec-label">Year 5 Target</div>
+                            <div class="spec-value">2.4M units</div>
+                        </div>
+                        <div class="spec">
+                            <div class="spec-label">Gross Margin</div>
+                            <div class="spec-value">75%</div>
+                        </div>
+                    </div>
+                    
+                    <div class="product-tags">
+                        <span class="tag new">NEW - Pain Management</span>
+                        <span class="tag phase">Prescription Only</span>
+                    </div>
+                </div>
+            </div>
 
-      <div class="product-card">
-        <div class="product-header">
-          <div>
-            <h3>Ranitidine Injection</h3>
-            <p style="color: var(--neutral-gray);">GI Disorders & Ulcers</p>
-          </div>
-          <span class="product-status">Formulation Screening</span>
+            <!-- Product 5: Ciprofloxacin IV -->
+            <div class="product-card" data-category="phase1b sterile">
+                <div class="product-header">
+                    <div class="product-badge">Phase 1b • Q1 2028</div>
+                    <h3 class="product-name">Ciprofloxacin IV</h3>
+                    <p class="product-subtitle">200mg/100mL Infusion</p>
+                </div>
+                <div class="product-body">
+                    <p class="product-indication">
+                        <strong>Indication:</strong> Serious bacterial infections caused by gram-negative organisms. Broad-spectrum fluoroquinolone.
+                    </p>
+                    
+                    <div class="product-specs">
+                        <div class="spec">
+                            <div class="spec-label">Presentation</div>
+                            <div class="spec-value">100mL Infusion Bottle</div>
+                        </div>
+                        <div class="spec">
+                            <div class="spec-label">Strength</div>
+                            <div class="spec-value">2mg/mL</div>
+                        </div>
+                        <div class="spec">
+                            <div class="spec-label">Year 5 Target</div>
+                            <div class="spec-value">3.0M units</div>
+                        </div>
+                        <div class="spec">
+                            <div class="spec-label">Gross Margin</div>
+                            <div class="spec-value">73%</div>
+                        </div>
+                    </div>
+                    
+                    <div class="product-tags">
+                        <span class="tag who">WHO Essential Medicine</span>
+                        <span class="tag phase">Phase 1b</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 6: Gentamicin -->
+            <div class="product-card" data-category="phase1b sterile">
+                <div class="product-header">
+                    <div class="product-badge">Phase 1b • Q1 2028</div>
+                    <h3 class="product-name">Gentamicin</h3>
+                    <p class="product-subtitle">80mg/2mL Injectable</p>
+                </div>
+                <div class="product-body">
+                    <p class="product-indication">
+                        <strong>Indication:</strong> Serious gram-negative infections. Aminoglycoside antibiotic for sepsis and complex infections.
+                    </p>
+                    
+                    <div class="product-specs">
+                        <div class="spec">
+                            <div class="spec-label">Presentation</div>
+                            <div class="spec-value">2mL Ampoule</div>
+                        </div>
+                        <div class="spec">
+                            <div class="spec-label">Strength</div>
+                            <div class="spec-value">40mg/mL</div>
+                        </div>
+                        <div class="spec">
+                            <div class="spec-label">Year 5 Target</div>
+                            <div class="spec-value">4.8M units</div>
+                        </div>
+                        <div class="spec">
+                            <div class="spec-label">Gross Margin</div>
+                            <div class="spec-value">74%</div>
+                        </div>
+                    </div>
+                    
+                    <div class="product-tags">
+                        <span class="tag who">WHO Essential Medicine</span>
+                        <span class="tag phase">Highest Volume</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 7: Dextrose 5% -->
+            <div class="product-card" data-category="phase1b sterile">
+                <div class="product-header">
+                    <div class="product-badge">Phase 1b • Q3 2028</div>
+                    <h3 class="product-name">Dextrose 5%</h3>
+                    <p class="product-subtitle">500mL IV Solution</p>
+                </div>
+                <div class="product-body">
+                    <p class="product-indication">
+                        <strong>Indication:</strong> Hydration, caloric supplementation, and vehicle for drug administration.
+                    </p>
+                    
+                    <div class="product-specs">
+                        <div class="spec">
+                            <div class="spec-label">Presentation</div>
+                            <div class="spec-value">500mL BFS Bag</div>
+                        </div>
+                        <div class="spec">
+                            <div class="spec-label">Strength</div>
+                            <div class="spec-value">50mg/mL (5% w/v)</div>
+                        </div>
+                        <div class="spec">
+                            <div class="spec-label">Year 5 Target</div>
+                            <div class="spec-value">2.4M units</div>
+                        </div>
+                        <div class="spec">
+                            <div class="spec-label">Technology</div>
+                            <div class="spec-value">Blow-Fill-Seal</div>
+                        </div>
+                    </div>
+                    
+                    <div class="product-tags">
+                        <span class="tag who">WHO Essential Medicine</span>
+                        <span class="tag new">BFS Technology</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 8: Normal Saline -->
+            <div class="product-card" data-category="phase1b sterile">
+                <div class="product-header">
+                    <div class="product-badge">Phase 1b • Q3 2028</div>
+                    <h3 class="product-name">Normal Saline 0.9%</h3>
+                    <p class="product-subtitle">500mL IV Solution</p>
+                </div>
+                <div class="product-body">
+                    <p class="product-indication">
+                        <strong>Indication:</strong> Fluid replacement, hydration, and vehicle for drug administration.
+                    </p>
+                    
+                    <div class="product-specs">
+                        <div class="spec">
+                            <div class="spec-label">Presentation</div>
+                            <div class="spec-value">500mL BFS Bag</div>
+                        </div>
+                        <div class="spec">
+                            <div class="spec-label">Strength</div>
+                            <div class="spec-value">9mg/mL (0.9% w/v)</div>
+                        </div>
+                        <div class="spec">
+                            <div class="spec-label">Year 5 Target</div>
+                            <div class="spec-value">1.4M units</div>
+                        </div>
+                        <div class="spec">
+                            <div class="spec-label">Technology</div>
+                            <div class="spec-value">Blow-Fill-Seal</div>
+                        </div>
+                    </div>
+                    
+                    <div class="product-tags">
+                        <span class="tag who">WHO Essential Medicine</span>
+                        <span class="tag new">BFS Technology</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 9: Metronidazole Tablets -->
+            <div class="product-card" data-category="osd">
+                <div class="product-header" style="background: linear-gradient(135deg, #059669 0%, #10B981 100%);">
+                    <div class="product-badge">Phase 1b/1c • 2028</div>
+                    <h3 class="product-name">Metronidazole</h3>
+                    <p class="product-subtitle">400mg Tablets</p>
+                </div>
+                <div class="product-body">
+                    <p class="product-indication">
+                        <strong>Indication:</strong> Anaerobic infections, protozoal infections, and bacterial vaginosis.
+                    </p>
+                    
+                    <div class="product-specs">
+                        <div class="spec">
+                            <div class="spec-label">Presentation</div>
+                            <div class="spec-value">10 Tablets/Blister</div>
+                        </div>
+                        <div class="spec">
+                            <div class="spec-label">Strength</div>
+                            <div class="spec-value">400mg</div>
+                        </div>
+                        <div class="spec">
+                            <div class="spec-label">Year 5 Target</div>
+                            <div class="spec-value">5M tablets</div>
+                        </div>
+                        <div class="spec">
+                            <div class="spec-label">Gross Margin</div>
+                            <div class="spec-value">70%</div>
+                        </div>
+                    </div>
+                    
+                    <div class="product-tags">
+                        <span class="tag who">WHO Essential Medicine</span>
+                        <span class="tag new">Oral Solid Dosage</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 10: Atenolol -->
+            <div class="product-card" data-category="osd">
+                <div class="product-header" style="background: linear-gradient(135deg, #059669 0%, #10B981 100%);">
+                    <div class="product-badge">Phase 1c • 2028</div>
+                    <h3 class="product-name">Atenolol</h3>
+                    <p class="product-subtitle">50mg Tablets</p>
+                </div>
+                <div class="product-body">
+                    <p class="product-indication">
+                        <strong>Indication:</strong> Hypertension and cardiovascular disease. Beta-blocker for chronic disease management.
+                    </p>
+                    
+                    <div class="product-specs">
+                        <div class="spec">
+                            <div class="spec-label">Presentation</div>
+                            <div class="spec-value">30 Tablets/Bottle</div>
+                        </div>
+                        <div class="spec">
+                            <div class="spec-label">Strength</div>
+                            <div class="spec-value">50mg</div>
+                        </div>
+                        <div class="spec">
+                            <div class="spec-label">Year 5 Target</div>
+                            <div class="spec-value">1M tablets</div>
+                        </div>
+                        <div class="spec">
+                            <div class="spec-label">Focus</div>
+                            <div class="spec-value">NCD Market</div>
+                        </div>
+                    </div>
+                    
+                    <div class="product-tags">
+                        <span class="tag who">WHO Essential Medicine</span>
+                        <span class="tag phase">NCD Focus</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 11: Metformin -->
+            <div class="product-card" data-category="osd">
+                <div class="product-header" style="background: linear-gradient(135deg, #059669 0%, #10B981 100%);">
+                    <div class="product-badge">Phase 1c • 2028</div>
+                    <h3 class="product-name">Metformin</h3>
+                    <p class="product-subtitle">500mg Tablets</p>
+                </div>
+                <div class="product-body">
+                    <p class="product-indication">
+                        <strong>Indication:</strong> Type 2 Diabetes management. First-line oral hypoglycemic agent.
+                    </p>
+                    
+                    <div class="product-specs">
+                        <div class="spec">
+                            <div class="spec-label">Presentation</div>
+                            <div class="spec-value">30 Tablets/Bottle</div>
+                        </div>
+                        <div class="spec">
+                            <div class="spec-label">Strength</div>
+                            <div class="spec-value">500mg</div>
+                        </div>
+                        <div class="spec">
+                            <div class="spec-label">Year 5 Target</div>
+                            <div class="spec-value">2M tablets</div>
+                        </div>
+                        <div class="spec">
+                            <div class="spec-label">Focus</div>
+                            <div class="spec-value">NCD Market</div>
+                        </div>
+                    </div>
+                    
+                    <div class="product-tags">
+                        <span class="tag who">WHO Essential Medicine</span>
+                        <span class="tag phase">NCD Focus</span>
+                    </div>
+                </div>
+            </div>
+
         </div>
-        <p>H2 receptor antagonist for treatment of gastrointestinal disorders and peptic ulcers.</p>
-        <div class="product-details">
-          <div class="product-detail-item">
-            <span class="product-detail-label">Strength</span>
-            <span class="product-detail-value">50mg/2ml</span>
-          </div>
-          <div class="product-detail-item">
-            <span class="product-detail-label">Market Opportunity</span>
-            <span class="product-detail-value">$168M SADC</span>
-          </div>
-          <div class="product-detail-item">
-            <span class="product-detail-label">Regulatory Status</span>
-            <span class="product-detail-value">National Registration Pathway</span>
-          </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-container">
+            <h3>Partner with AfriPharma</h3>
+            <p>For procurement inquiries, distribution partnerships, or investment opportunities, contact our team to learn how we're building pharmaceutical sovereignty in Africa.</p>
+            <div class="cta-buttons">
+                <a href="/contact" class="btn btn-primary">Contact Us</a>
+                <a href="/quality-compliance" class="btn btn-secondary">Quality Standards</a>
+            </div>
         </div>
-      </div>
+    </section>
 
-      <div class="product-card">
-        <div class="product-header">
-          <div>
-            <h3>Furosemide Injection</h3>
-            <p style="color: var(--neutral-gray);">Diuretic for Heart Failure</p>
-          </div>
-          <span class="product-status">Pre-Formulation Studies</span>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4>AfriPharma Health Systems</h4>
+                <p style="color: rgba(255,255,255,0.7); line-height: 1.8;">
+                    Building pharmaceutical sovereignty in Africa through WHO-aligned manufacturing and supply resilience.
+                </p>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Products</h4>
+                <ul class="footer-links">
+                    <li><a href="/products">All Products</a></li>
+                    <li><a href="/products#sterile">Sterile Injectables</a></li>
+                    <li><a href="/products#osd">Oral Solid Dosage</a></li>
+                    <li><a href="/quality-compliance">Quality Standards</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Company</h4>
+                <ul class="footer-links">
+                    <li><a href="/about">About Us</a></li>
+                    <li><a href="/impact">Our Impact</a></li>
+                    <li><a href="/investors">For Investors</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Resources</h4>
+                <ul class="footer-links">
+                    <li><a href="/healthcare-professionals">For Healthcare Professionals</a></li>
+                    <li><a href="/pharmacovigilance">Pharmacovigilance</a></li>
+                    <li><a href="/privacy-policy">Privacy Policy</a></li>
+                    <li><a href="/terms-of-use">Terms of Use</a></li>
+                </ul>
+            </div>
         </div>
-        <p>Loop diuretic for treatment of edema, heart failure, and hypertension.</p>
-        <div class="product-details">
-          <div class="product-detail-item">
-            <span class="product-detail-label">Strength</span>
-            <span class="product-detail-value">20mg/2ml</span>
-          </div>
-          <div class="product-detail-item">
-            <span class="product-detail-label">Market Opportunity</span>
-            <span class="product-detail-value">$195M SADC</span>
-          </div>
-          <div class="product-detail-item">
-            <span class="product-detail-label">Regulatory Status</span>
-            <span class="product-detail-value">National Registration Pathway</span>
-          </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2025 AfriPharma Health Systems. All rights reserved. | Precision Medicine. African Roots.</p>
         </div>
-      </div>
+    </footer>
 
-      <h2 class="mt-4">Regulatory Strategy</h2>
-      <div class="card-grid">
-        <div class="card">
-          <h4>Phase 1 (2026-2027)</h4>
-          <h3>Mozambique Registration</h3>
-          <ul>
-            <li>MISAU approval for domestic market</li>
-            <li>GMP certification</li>
-            <li>Local market launch</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h4>Phase 2 (2027-2028)</h4>
-          <h3>SADC Expansion</h3>
-          <ul>
-            <li>Zimbabwe, Zambia, Malawi registrations</li>
-            <li>Regional distribution partnerships</li>
-            <li>Export capacity development</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h4>Phase 3 (2028-2030)</h4>
-          <h3>WHO Prequalification</h3>
-          <ul>
-            <li>International quality standards</li>
-            <li>UN and Global Fund procurement access</li>
-            <li>$500M+ market potential</li>
-          </ul>
-        </div>
-      </div>
-
-      <h2 class="mt-4">Quality Standards</h2>
-      <p>All products manufactured to WHO Good Manufacturing Practice (GMP) standards, ISO quality management systems, with stability and bioequivalence studies, under stringent regulatory oversight.</p>
-      <p><strong>Manufacturing Capacity:</strong> 21.6 million vials annually at full capacity with flexible production lines, multi-product capability, and cold chain infrastructure.</p>
-
-    </div>
-  </section>
-
-  <!-- Shared footer slot -->
-<div id="footer-slot"></div>
-
-<script>
-  // Load the shared public footer, then initialize dynamic bits (year + clock)
-  fetch('/footer-public.html', { cache: 'no-cache' })
-    .then(r => r.text())
-    .then(html => {
-      const slot = document.getElementById('footer-slot');
-      slot.innerHTML = html;
-
-      // 1) © year
-      const yearEl = document.getElementById('current-year');
-      if (yearEl) yearEl.textContent = new Date().getFullYear();
-
-      // 2) Live "Current time in Nacala" clock
-      const mozEl = document.getElementById('moz-time');
-      if (mozEl) {
-        const fmt = new Intl.DateTimeFormat('en-GB', {
-          hour: '2-digit', minute: '2-digit', second: '2-digit',
-          hour12: false,
-          timeZone: 'Africa/Maputo' // correct for Nacala, UTC+2 year-round
+    <script>
+        // Filter functionality
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const productCards = document.querySelectorAll('.product-card');
+        
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                // Add active class to clicked button
+                button.classList.add('active');
+                
+                const filterValue = button.getAttribute('data-filter');
+                
+                productCards.forEach(card => {
+                    if (filterValue === 'all') {
+                        card.classList.remove('hidden');
+                    } else {
+                        const categories = card.getAttribute('data-category').split(' ');
+                        if (categories.includes(filterValue)) {
+                            card.classList.remove('hidden');
+                        } else {
+                            card.classList.add('hidden');
+                        }
+                    }
+                });
+            });
         });
-        function tick() { mozEl.textContent = fmt.format(new Date()); }
-        tick();
-        setInterval(tick, 1000);
-      }
-    })
-    .catch(err => console.error('Footer load failed:', err));
-</script>
-
-<script src="js/main.js"></script>
-</body>
-</html>
-
-<script src="js/main.js"></script>
+    </script>
 </body>
 </html>
