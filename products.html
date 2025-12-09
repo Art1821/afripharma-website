@@ -73,16 +73,29 @@
             align-items: center;
         }
         
-        .logo {
-            display: flex;
-            align-items: center;
-            text-decoration: none;
-        }
-        
-        .logo img {
-            height: 50px;
-            width: auto;
-        }
+        <!-- Header / Navigation -->
+  <header class="header" role="banner">
+    <div class="container">
+      <nav class="nav-container" aria-label="Primary Navigation">
+        <div class="logo">
+          <img src="/images/afripharma-logo.png" alt="AfriPharma Health Systems Logo">
+          <div class="logo-text">
+            <h1>AfriPharma Health Systems</h1>
+            <p class="tagline">Precision Medicine. African Roots.</p>
+          </div>
+        </div>
+        <ul class="nav-menu">
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/products.html">Products</a></li>
+          <li><a href="/impact.html">Impact</a></li>
+          <li><a href="/investment.html">Investment</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+        </ul>
+        <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">☰</button>
+      </nav>
+    </div>
+  </header>
         
         .nav-menu {
             display: flex;
