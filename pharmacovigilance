@@ -1,0 +1,1103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pharmacovigilance & Drug Safety | AfriPharma Health Systems</title>
+    <meta name="description" content="Report adverse events and access drug safety information. AfriPharma's 24-hour pharmacovigilance hotline and adverse event reporting system for healthcare professionals and patients.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Spectral:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary-blue: #004A8F;
+            --light-blue: #7AC5E5;
+            --medium-blue: #0066CC;
+            --accent-blue: #E6F3F9;
+            --white: #FFFFFF;
+            --off-white: #F8FAFB;
+            --light-gray: #E5E9ED;
+            --medium-gray: #8B95A1;
+            --dark-gray: #2C3E50;
+            --black: #1A1F2C;
+            --success-green: #10B981;
+            --warning-orange: #F59E0B;
+            --danger-red: #EF4444;
+            --font-body: 'DM Sans', sans-serif;
+            --font-display: 'Spectral', serif;
+            --container-max: 1200px;
+        }
+        
+        body {
+            font-family: var(--font-body);
+            color: var(--dark-gray);
+            background: var(--off-white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* Navigation */
+        .nav {
+            background: var(--white);
+            padding: 1.5rem 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav-container {
+            max-width: var(--container-max);
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+        }
+        
+        .logo-icon {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, var(--light-blue), var(--medium-blue));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+        
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .logo-text h1 {
+            font-family: var(--font-display);
+            font-size: 1.4rem;
+            color: var(--primary-blue);
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+        
+        .logo-text span {
+            font-size: 0.75rem;
+            color: var(--medium-gray);
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+        
+        .nav-menu {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+        }
+        
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--dark-gray);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+        
+        .nav-menu a:hover {
+            color: var(--primary-blue);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #DC2626 0%, #991B1B 100%);
+            color: var(--white);
+            padding: 4rem 2rem 5rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        
+        .hero-container {
+            max-width: var(--container-max);
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero-badge {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: rgba(255,255,255,0.2);
+            border-radius: 25px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+        }
+        
+        .hero h2 {
+            font-family: var(--font-display);
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        
+        .hero p {
+            font-size: 1.25rem;
+            opacity: 0.95;
+            max-width: 700px;
+            line-height: 1.7;
+            margin-bottom: 2rem;
+        }
+        
+        /* Emergency Contact Box */
+        .emergency-contact {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-top: 2rem;
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .emergency-icon {
+            font-size: 3rem;
+        }
+        
+        .emergency-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .emergency-number {
+            font-size: 2rem;
+            font-weight: 700;
+            font-family: var(--font-display);
+            letter-spacing: 1px;
+        }
+        
+        .emergency-note {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        /* Content Section */
+        .content-section {
+            padding: 4rem 2rem;
+            max-width: var(--container-max);
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.15rem;
+            color: var(--medium-gray);
+            max-width: 700px;
+            margin: 0 auto 3rem;
+        }
+        
+        /* What to Report Grid */
+        .report-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+        
+        .report-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+        }
+        
+        .report-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+        }
+        
+        .report-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .report-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.4rem;
+            color: var(--primary-blue);
+            margin-bottom: 0.75rem;
+        }
+        
+        .report-card ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .report-card li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        
+        .report-card li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--medium-blue);
+            font-weight: 700;
+        }
+        
+        /* Reporting Form */
+        .form-section {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 3rem;
+            box-shadow: 0 4px 30px rgba(0,0,0,0.1);
+            margin: 3rem 0;
+        }
+        
+        .form-section h3 {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+        }
+        
+        .form-note {
+            background: #FEF3C7;
+            border-left: 4px solid #F59E0B;
+            padding: 1rem;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+        }
+        
+        .form-note strong {
+            color: #92400E;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--dark-gray);
+        }
+        
+        .required {
+            color: var(--danger-red);
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.875rem;
+            border: 2px solid var(--light-gray);
+            border-radius: 8px;
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            transition: all 0.3s;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--medium-blue);
+            box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.1);
+        }
+        
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .checkbox-group input[type="checkbox"] {
+            width: auto;
+            margin: 0;
+        }
+        
+        .submit-btn {
+            background: linear-gradient(135deg, #DC2626 0%, #991B1B 100%);
+            color: var(--white);
+            padding: 1rem 3rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: var(--font-body);
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(220, 38, 38, 0.3);
+        }
+        
+        /* Contact Cards */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .contact-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+        
+        .contact-card-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-card h4 {
+            font-family: var(--font-display);
+            font-size: 1.3rem;
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+        }
+        
+        .contact-detail {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--dark-gray);
+            margin: 0.5rem 0;
+        }
+        
+        .contact-link {
+            display: inline-block;
+            margin-top: 1rem;
+            color: var(--medium-blue);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        
+        .contact-link:hover {
+            color: var(--primary-blue);
+        }
+        
+        /* Timeline Section */
+        .timeline {
+            position: relative;
+            padding: 2rem 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: var(--light-blue);
+            transform: translateX(-50%);
+        }
+        
+        .timeline-item {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 3rem;
+            align-items: center;
+        }
+        
+        .timeline-content {
+            flex: 1;
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+        
+        .timeline-badge {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--medium-blue));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--white);
+            font-weight: 700;
+            position: relative;
+            z-index: 2;
+            flex-shrink: 0;
+        }
+        
+        .timeline-content h4 {
+            font-family: var(--font-display);
+            font-size: 1.3rem;
+            color: var(--primary-blue);
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Info Boxes */
+        .info-box {
+            background: var(--accent-blue);
+            border-left: 4px solid var(--medium-blue);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+        }
+        
+        .info-box h4 {
+            color: var(--primary-blue);
+            margin-bottom: 0.75rem;
+            font-weight: 700;
+        }
+        
+        .info-box.warning {
+            background: #FEF3C7;
+            border-left-color: #F59E0B;
+        }
+        
+        .info-box.warning h4 {
+            color: #92400E;
+        }
+        
+        .info-box.success {
+            background: #DCFCE7;
+            border-left-color: #10B981;
+        }
+        
+        .info-box.success h4 {
+            color: #166534;
+        }
+        
+        /* Footer */
+        .footer {
+            background: var(--dark-gray);
+            color: var(--white);
+            padding: 3rem 2rem 2rem;
+            margin-top: 4rem;
+        }
+        
+        .footer-container {
+            max-width: var(--container-max);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+        }
+        
+        .footer-section h4 {
+            font-family: var(--font-display);
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            color: var(--light-blue);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-links a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--light-blue);
+        }
+        
+        .footer-bottom {
+            max-width: var(--container-max);
+            margin: 0 auto;
+            padding-top: 2rem;
+            margin-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            text-align: center;
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.7);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h2 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .nav-menu {
+                display: none;
+            }
+            
+            .emergency-contact {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .form-section {
+                padding: 1.5rem;
+            }
+            
+            .timeline::before {
+                left: 30px;
+            }
+            
+            .timeline-item {
+                padding-left: 80px;
+            }
+            
+            .timeline-badge {
+                position: absolute;
+                left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="/" class="logo">
+                <div class="logo-icon">💊</div>
+                <div class="logo-text">
+                    <h1>AfriPharma</h1>
+                    <span>PRECISION MEDICINE. AFRICAN ROOTS.</span>
+                </div>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="/">Home</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/products">Products</a></li>
+                <li><a href="/quality-compliance">Quality</a></li>
+                <li><a href="/investors">Investors</a></li>
+                <li><a href="/contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-badge">⚕️ Drug Safety & Pharmacovigilance</div>
+            <h2>Patient Safety is Our Priority</h2>
+            <p>Report adverse events, product quality concerns, or medication errors. Our dedicated pharmacovigilance team monitors drug safety 24/7 to ensure the highest standards of patient care across the SADC region.</p>
+            
+            <div class="emergency-contact">
+                <div class="emergency-icon">☎️</div>
+                <div class="emergency-info">
+                    <h3>24-Hour Safety Hotline</h3>
+                    <div class="emergency-number">+258 84 XXX XXXX</div>
+                    <p class="emergency-note">Available 24/7 for urgent safety reports</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What to Report Section -->
+    <section class="content-section">
+        <h2 class="section-title">What Should You Report?</h2>
+        <p class="section-subtitle">Healthcare professionals, patients, and caregivers should report any concerns about AfriPharma medicines. Your reports help us maintain the highest safety standards.</p>
+        
+        <div class="report-grid">
+            <div class="report-card">
+                <div class="report-icon">⚠️</div>
+                <h3>Adverse Drug Reactions (ADRs)</h3>
+                <ul>
+                    <li>Side effects (expected or unexpected)</li>
+                    <li>Allergic reactions</li>
+                    <li>Serious adverse events</li>
+                    <li>Medication errors leading to harm</li>
+                    <li>Overdose or misuse</li>
+                </ul>
+            </div>
+            
+            <div class="report-card">
+                <div class="report-icon">🔍</div>
+                <h3>Product Quality Issues</h3>
+                <ul>
+                    <li>Defective packaging or labeling</li>
+                    <li>Suspected counterfeit products</li>
+                    <li>Physical defects (discoloration, particles)</li>
+                    <li>Damaged or broken containers</li>
+                    <li>Incorrect product received</li>
+                </ul>
+            </div>
+            
+            <div class="report-card">
+                <div class="report-icon">💊</div>
+                <h3>Medication Errors</h3>
+                <ul>
+                    <li>Wrong dose administered</li>
+                    <li>Wrong route of administration</li>
+                    <li>Confusion due to similar names/packaging</li>
+                    <li>Prescription or dispensing errors</li>
+                    <li>Administration technique errors</li>
+                </ul>
+            </div>
+            
+            <div class="report-card">
+                <div class="report-icon">📉</div>
+                <h3>Lack of Efficacy</h3>
+                <ul>
+                    <li>Treatment failure</li>
+                    <li>Unexpected lack of effect</li>
+                    <li>Disease progression despite treatment</li>
+                    <li>Suspected product quality issue</li>
+                    <li>Therapy not working as expected</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reporting Form -->
+    <section class="content-section">
+        <div class="form-section">
+            <h3>Online Adverse Event Report Form</h3>
+            <div class="form-note">
+                <strong>Note:</strong> This form is for non-urgent reports. For serious or life-threatening events, please call our 24-hour hotline immediately: <strong>+258 84 XXX XXXX</strong>
+            </div>
+            
+            <form id="adrForm">
+                <h4 style="margin: 2rem 0 1rem; color: var(--primary-blue);">Reporter Information</h4>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Reporter Type <span class="required">*</span></label>
+                        <select required>
+                            <option value="">Select...</option>
+                            <option value="hcp">Healthcare Professional</option>
+                            <option value="patient">Patient</option>
+                            <option value="caregiver">Caregiver/Family Member</option>
+                            <option value="pharmacist">Pharmacist</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Contact Email <span class="required">*</span></label>
+                        <input type="email" required placeholder="your.email@example.com">
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Contact Phone</label>
+                        <input type="tel" placeholder="+258 XX XXX XXXX">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Country <span class="required">*</span></label>
+                        <select required>
+                            <option value="">Select...</option>
+                            <option value="MZ">Mozambique</option>
+                            <option value="TZ">Tanzania</option>
+                            <option value="MW">Malawi</option>
+                            <option value="ZM">Zambia</option>
+                            <option value="ZW">Zimbabwe</option>
+                            <option value="ZA">South Africa</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <h4 style="margin: 2rem 0 1rem; color: var(--primary-blue);">Patient Information</h4>
+                <div class="info-box">
+                    <h4>🔒 Privacy Notice</h4>
+                    <p>Patient identity will be kept confidential. Please provide initials only (no full names). Age and gender help us assess the event.</p>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Patient Initials <span class="required">*</span></label>
+                        <input type="text" required placeholder="e.g., J.D." maxlength="5">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Age/Date of Birth <span class="required">*</span></label>
+                        <input type="text" required placeholder="Age or DOB (dd/mm/yyyy)">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Gender <span class="required">*</span></label>
+                        <select required>
+                            <option value="">Select...</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="other">Other</option>
+                            <option value="unknown">Unknown</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label>Weight (kg)</label>
+                    <input type="number" placeholder="Patient weight">
+                </div>
+                
+                <h4 style="margin: 2rem 0 1rem; color: var(--primary-blue);">Product Information</h4>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Product Name <span class="required">*</span></label>
+                        <select required>
+                            <option value="">Select product...</option>
+                            <option value="paraflow1000">ParaFlow 1000 (Paracetamol IV 1000mg)</option>
+                            <option value="paraflow150">ParaFlow 150 (Paracetamol IV 150mg)</option>
+                            <option value="metronidazole">Metronidazole IV 500mg</option>
+                            <option value="tramaflow">TramaFlow (Tramadol IV 100mg)</option>
+                            <option value="ciprofloxacin">Ciprofloxacin IV 200mg</option>
+                            <option value="gentamicin">Gentamicin 80mg</option>
+                            <option value="dextrose">Dextrose 5% 500mL</option>
+                            <option value="saline">Normal Saline 0.9% 500mL</option>
+                            <option value="other">Other AfriPharma Product</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Batch/Lot Number <span class="required">*</span></label>
+                        <input type="text" required placeholder="Found on product label">
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Expiry Date <span class="required">*</span></label>
+                        <input type="text" required placeholder="mm/yyyy">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Dose & Frequency</label>
+                        <input type="text" placeholder="e.g., 1g every 6 hours">
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Start Date <span class="required">*</span></label>
+                        <input type="date" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Stop Date (if applicable)</label>
+                        <input type="date">
+                    </div>
+                </div>
+                
+                <h4 style="margin: 2rem 0 1rem; color: var(--primary-blue);">Adverse Event Description</h4>
+                
+                <div class="form-group">
+                    <label>Event Description <span class="required">*</span></label>
+                    <textarea required placeholder="Please describe what happened, when it started, and how severe it was. Include any medical treatment received."></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label>Event Date <span class="required">*</span></label>
+                    <input type="date" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Seriousness <span class="required">*</span></label>
+                    <select required>
+                        <option value="">Select...</option>
+                        <option value="non-serious">Non-Serious (Mild/Moderate, no hospitalization)</option>
+                        <option value="serious">Serious (Requires or prolongs hospitalization)</option>
+                        <option value="life-threatening">Life-Threatening</option>
+                        <option value="death">Death</option>
+                        <option value="disability">Persistent or Significant Disability</option>
+                        <option value="congenital">Congenital Anomaly/Birth Defect</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label>Outcome <span class="required">*</span></label>
+                    <select required>
+                        <option value="">Select...</option>
+                        <option value="recovered">Recovered/Resolved</option>
+                        <option value="recovering">Recovering/Resolving</option>
+                        <option value="not-recovered">Not Yet Recovered</option>
+                        <option value="sequelae">Recovered with Sequelae</option>
+                        <option value="fatal">Fatal</option>
+                        <option value="unknown">Unknown</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label>Did the event resolve after stopping the medicine?</label>
+                    <select>
+                        <option value="">Select...</option>
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                        <option value="unknown">Unknown</option>
+                        <option value="na">Not Applicable (Still Taking)</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label>Did the event reoccur after restarting the medicine?</label>
+                    <select>
+                        <option value="">Select...</option>
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                        <option value="unknown">Unknown</option>
+                        <option value="na">Not Restarted</option>
+                    </select>
+                </div>
+                
+                <h4 style="margin: 2rem 0 1rem; color: var(--primary-blue);">Additional Information</h4>
+                
+                <div class="form-group">
+                    <label>Other Medications (Concomitant)</label>
+                    <textarea placeholder="List other medications the patient was taking, including doses and dates if known"></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label>Medical History/Pre-existing Conditions</label>
+                    <textarea placeholder="Any relevant medical history or conditions that may be related to this event"></textarea>
+                </div>
+                
+                <div class="form-group checkbox-group">
+                    <input type="checkbox" id="consent" required>
+                    <label for="consent">I consent to AfriPharma contacting me for follow-up information regarding this report <span class="required">*</span></label>
+                </div>
+                
+                <div style="margin-top: 2rem;">
+                    <button type="submit" class="submit-btn">Submit Report</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Contact Methods -->
+    <section class="content-section" style="background: var(--white); padding: 4rem 2rem;">
+        <h2 class="section-title">Other Ways to Report</h2>
+        
+        <div class="contact-grid">
+            <div class="contact-card">
+                <div class="contact-card-icon">☎️</div>
+                <h4>24-Hour Safety Hotline</h4>
+                <div class="contact-detail">+258 84 XXX XXXX</div>
+                <p style="color: var(--medium-gray); margin-top: 1rem;">Available 24/7 for urgent reports</p>
+            </div>
+            
+            <div class="contact-card">
+                <div class="contact-card-icon">📧</div>
+                <h4>Email</h4>
+                <div class="contact-detail">safety@afripharma-health.com</div>
+                <a href="mailto:safety@afripharma-health.com" class="contact-link">Send Email →</a>
+            </div>
+            
+            <div class="contact-card">
+                <div class="contact-card-icon">👨‍⚕️</div>
+                <h4>Qualified Person for Pharmacovigilance</h4>
+                <div class="contact-detail">Dr. [QPPV Name]</div>
+                <div class="contact-detail">qppv@afripharma-health.com</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reporting Timeline -->
+    <section class="content-section">
+        <h2 class="section-title">What Happens After You Report?</h2>
+        <p class="section-subtitle">We take every report seriously. Here's our process to ensure patient safety.</p>
+        
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-content" style="text-align: right;">
+                    <h4>Immediate Acknowledgment</h4>
+                    <p>Within <strong>24 hours</strong>, we acknowledge receipt of your report and assign a unique reference number.</p>
+                </div>
+                <div class="timeline-badge">1</div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-badge">2</div>
+                <div class="timeline-content">
+                    <h4>Initial Assessment</h4>
+                    <p>Within <strong>48 hours</strong>, our pharmacovigilance team assesses the report for seriousness and follows up if additional information is needed.</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-content" style="text-align: right;">
+                    <h4>Investigation</h4>
+                    <p>We investigate the event, review medical records (with consent), and assess causality between the product and event.</p>
+                </div>
+                <div class="timeline-badge">3</div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-badge">4</div>
+                <div class="timeline-content">
+                    <h4>Regulatory Reporting</h4>
+                    <p><strong>Serious events:</strong> Reported to ANARME (Mozambique) and WHO within 7-15 days<br>
+                    <strong>Non-serious events:</strong> Included in periodic safety reports</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-content" style="text-align: right;">
+                    <h4>Action & Follow-up</h4>
+                    <p>We take appropriate action (product recall, labeling updates, healthcare professional communications) and provide feedback to reporters when permitted.</p>
+                </div>
+                <div class="timeline-badge">5</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Important Information -->
+    <section class="content-section">
+        <h2 class="section-title">Important Information</h2>
+        
+        <div class="info-box warning">
+            <h4>⚠️ For Serious or Life-Threatening Events</h4>
+            <p>Do not use this online form. Please call our 24-hour safety hotline immediately: <strong>+258 84 XXX XXXX</strong></p>
+            <p style="margin-top: 0.5rem;">Serious events include: death, life-threatening situation, hospitalization, persistent disability, or congenital anomaly.</p>
+        </div>
+        
+        <div class="info-box">
+            <h4>🔒 Confidentiality & Data Protection</h4>
+            <p>All reports are handled in strict confidence according to GDPR and Mozambique data protection laws. Patient identities are protected. Information is used solely for safety monitoring and regulatory compliance.</p>
+        </div>
+        
+        <div class="info-box success">
+            <h4>✅ Regulatory Reporting</h4>
+            <p>AfriPharma reports adverse events to:</p>
+            <ul style="margin-top: 0.5rem; margin-left: 1.5rem;">
+                <li>ANARME (Autoridade Nacional Reguladora de Medicamentos) - Mozambique</li>
+                <li>WHO Programme for International Drug Monitoring (VigiBase)</li>
+                <li>National regulatory authorities in countries where products are marketed</li>
+            </ul>
+        </div>
+        
+        <div class="info-box">
+            <h4>📋 Healthcare Professionals</h4>
+            <p>Healthcare professionals have a professional obligation to report adverse drug reactions. We encourage all HCPs to report suspected ADRs even if:</p>
+            <ul style="margin-top: 0.5rem; margin-left: 1.5rem;">
+                <li>Causality is uncertain</li>
+                <li>The reaction is already known</li>
+                <li>The event seems minor</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4>AfriPharma Health Systems</h4>
+                <p style="color: rgba(255,255,255,0.7); line-height: 1.8;">
+                    Building pharmaceutical sovereignty in Africa through WHO-aligned manufacturing and supply resilience.
+                </p>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Quick Contact</h4>
+                <ul class="footer-links">
+                    <li>24hr Hotline: +258 84 XXX XXXX</li>
+                    <li>Email: safety@afripharma-health.com</li>
+                    <li>QPPV: qppv@afripharma-health.com</li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Company</h4>
+                <ul class="footer-links">
+                    <li><a href="/about">About Us</a></li>
+                    <li><a href="/products">Products</a></li>
+                    <li><a href="/quality-compliance">Quality & Compliance</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Resources</h4>
+                <ul class="footer-links">
+                    <li><a href="/healthcare-professionals">For Healthcare Professionals</a></li>
+                    <li><a href="/pharmacovigilance">Pharmacovigilance</a></li>
+                    <li><a href="/privacy-policy">Privacy Policy</a></li>
+                    <li><a href="/terms-of-use">Terms of Use</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2025 AfriPharma Health Systems. All rights reserved. | Precision Medicine. African Roots.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Form submission handler
+        document.getElementById('adrForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // In production, this would send data to your backend
+            alert('Thank you for your report. We have received your submission and will acknowledge receipt within 24 hours. Your reference number is: ADR-' + Date.now());
+            
+            // Reset form
+            this.reset();
+        });
+    </script>
+</body>
+</html>
