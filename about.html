@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About AfriPharma | Building Pharmaceutical Sovereignty in Africa</title>
-  <meta name="description" content="Learn about AfriPharma's mission to establish WHO PQ-aligned pharmaceutical manufacturing in Mozambique, serving 380M people across SADC with essential medicines.">
-  <meta name="keywords" content="AfriPharma mission, pharmaceutical sovereignty Africa, WHO prequalification, Mozambique manufacturing, SADC healthcare">
+  <meta name="description" content="Learn about AfriPharma's mission to establish WHO PQ-aligned pharmaceutical manufacturing in Southern Africa, serving 380M people across SADC with essential medicines.">
+  <meta name="keywords" content="AfriPharma mission, pharmaceutical sovereignty Africa, WHO prequalification, Southern Africa manufacturing, SADC healthcare">
   <link rel="stylesheet" href="css/style.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <script defer data-domain="afripharma-health.com" src="https://plausible.io/js/script.js"></script>
@@ -62,7 +62,7 @@
       <p>Africa imports 88% of its pharmaceuticals, creating supply chain vulnerabilities, higher costs (20-30% premium over local production), limited access to essential medicines, and economic dependency. The COVID-19 pandemic exposed these critical gaps, highlighting the urgent need for local pharmaceutical manufacturing capacity.</p>
 
       <h2>Our Solution</h2>
-      <p>AfriPharma Health Systems is establishing Mozambique's first WHO Prequalification-aligned pharmaceutical manufacturing facility to manufacture 7 WHO Essential Medicines in sterile injectable formats.</p>
+      <p>AfriPharma Health Systems is establishing a WHO Prequalification-aligned pharmaceutical manufacturing facility in Southern Africa to manufacture 7 WHO Essential Medicines in sterile injectable formats.</p>
 
       <div class="card-grid">
         <div class="card">
@@ -75,19 +75,19 @@
         </div>
         <div class="card">
           <h3>Strategic Location</h3>
-          <p>Nacala Special Economic Zone with deep-water port access for efficient regional distribution.</p>
+          <p>Strategically positioned in Southern Africa with access to efficient regional distribution networks.</p>
         </div>
       </div>
 
       <h2>Our Vision</h2>
       <p>To become Africa's leading pharmaceutical manufacturer, contributing to pharmaceutical sovereignty across the continent, healthcare access for underserved populations, economic development through industrialization, skills development in pharmaceutical manufacturing, and regional trade and SADC integration.</p>
 
-      <h2>Why Mozambique</h2>
+      <h2>Why Southern Africa</h2>
       <ul>
         <li>Strategic gateway to 380M people in SADC</li>
-        <li>Nacala deep-water port for regional distribution</li>
-        <li>Special Economic Zone incentives (10-year tax exemption, duty waivers)</li>
-        <li>Government commitment to pharmaceutical manufacturing</li>
+        <li>Access to ports and infrastructure for regional distribution</li>
+        <li>Special Economic Zone opportunities and investment incentives</li>
+        <li>Government commitment to pharmaceutical manufacturing across the region</li>
         <li>Growing regional pharmaceutical market ($3.2B annually, 8-12% CAGR)</li>
       </ul>
 
@@ -114,16 +114,6 @@
 
         const yearEl = document.getElementById('current-year');
         if (yearEl) yearEl.textContent = new Date().getFullYear();
-
-        const mozEl = document.getElementById('moz-time');
-        if (mozEl) {
-          const fmt = new Intl.DateTimeFormat('en-GB', {
-            hour: '2-digit', minute: '2-digit', second: '2-digit',
-            hour12: false, timeZone: 'Africa/Maputo'
-          });
-          function tick() { mozEl.textContent = fmt.format(new Date()); }
-          tick(); setInterval(tick, 1000);
-        }
       })
       .catch(err => console.error('Footer load failed:', err));
   </script>
@@ -131,4 +121,3 @@
   <script src="/js/main.js"></script>
 </body>
 </html>
-
