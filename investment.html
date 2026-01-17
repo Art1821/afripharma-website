@@ -70,12 +70,12 @@
       </div>
 
       <h2>Project Overview</h2>
-      <p>AfriPharma Health Systems is raising <strong>$12 million</strong> to establish Mozambique's first WHO Prequalification-aligned pharmaceutical manufacturing facility for sterile injectables.</p>
+      <p>AfriPharma Health Systems is raising <strong>$12 million</strong> to establish a WHO Prequalification-aligned pharmaceutical manufacturing facility in Southern Africa for sterile injectables.</p>
 
       <div class="card-grid">
         <div class="card">
           <h3>Location</h3>
-          <p>Nacala Special Economic Zone, Mozambique</p>
+          <p>Southern Africa (Strategic SEZ location)</p>
         </div>
         <div class="card">
           <h3>Products</h3>
@@ -111,8 +111,8 @@
 
       <h2>Investment Highlights</h2>
       <ul style="line-height: 2;">
-        <li><strong>First-mover advantage:</strong> No WHO PQ-aligned facilities in Mozambique</li>
-        <li><strong>Strategic location:</strong> Nacala port provides efficient access to SADC markets</li>
+        <li><strong>First-mover advantage:</strong> Limited WHO PQ-aligned facilities in the region</li>
+        <li><strong>Strategic location:</strong> Efficient access to SADC markets through port infrastructure</li>
         <li><strong>Strong unit economics:</strong> Local production with 20-30% cost advantage</li>
         <li><strong>Government support:</strong> SEZ incentives, regulatory commitment, industrialization alignment</li>
         <li><strong>Impact + Returns:</strong> Measurable social impact with commercial returns</li>
@@ -196,16 +196,6 @@
 
         const yearEl = document.getElementById('current-year');
         if (yearEl) yearEl.textContent = new Date().getFullYear();
-
-        const mozEl = document.getElementById('moz-time');
-        if (mozEl) {
-          const fmt = new Intl.DateTimeFormat('en-GB', {
-            hour: '2-digit', minute: '2-digit', second: '2-digit',
-            hour12: false, timeZone: 'Africa/Maputo'
-          });
-          function tick() { mozEl.textContent = fmt.format(new Date()); }
-          tick(); setInterval(tick, 1000);
-        }
       })
       .catch(err => console.error('Footer load failed:', err));
   </script>
@@ -213,9 +203,3 @@
   <script src="/js/main.js"></script>
 </body>
 </html>
-
-
-
-
-
-
