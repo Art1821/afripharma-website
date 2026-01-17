@@ -911,28 +911,17 @@
   <div id="footer-slot"></div>
 
   <script>
-    fetch('/footer-public.html', { cache: 'no-cache' })
-      .then(r => r.text())
-      .then(html => {
-        const slot = document.getElementById('footer-slot');
-        slot.innerHTML = html;
+  fetch('/footer-public.html', { cache: 'no-cache' })
+    .then(r => r.text())
+    .then(html => {
+      const slot = document.getElementById('footer-slot');
+      slot.innerHTML = html;
 
-        const yearEl = document.getElementById('current-year');
-        if (yearEl) yearEl.textContent = new Date().getFullYear();
-
-        const mozEl = document.getElementById('moz-time');
-        if (mozEl) {
-          const fmt = new Intl.DateTimeFormat('en-GB', {
-            hour: '2-digit', minute: '2-digit', second: '2-digit',
-            hour12: false, timeZone: 'Africa/Maputo'
-          });
-          function tick() { mozEl.textContent = fmt.format(new Date()); }
-          tick(); setInterval(tick, 1000);
-        }
-      })
-      .catch(err => console.error('Footer load failed:', err));
-  </script>
-
+      const yearEl = document.getElementById('current-year');
+      if (yearEl) yearEl.textContent = new Date().getFullYear();
+    })
+    .catch(err => console.error('Footer load failed:', err));
+</script>
   <script>
     // Filter functionality
     const filterButtons = document.querySelectorAll('.filter-btn');
