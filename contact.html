@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact Us | AfriPharma Health Systems</title>
-  <meta name="description" content="Contact AfriPharma for investment opportunities, partnerships, and inquiries about WHO PQ pharmaceutical manufacturing in Mozambique.">
+  <meta name="description" content="Contact AfriPharma for investment opportunities, partnerships, and inquiries about WHO PQ pharmaceutical manufacturing in Southern Africa.">
   <link rel="stylesheet" href="css/style.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <script defer data-domain="afripharma-health.com" src="https://plausible.io/js/script.js"></script>
@@ -93,30 +93,12 @@
             </p>
           </div>
 
-          <div>
-            <h4>Operational Hub</h4>
-            <p>
-              Nacala Special Economic Zone<br>
-              Nampula Province<br>
-              Mozambique
-            </p>
-          </div>
-
         <div style="margin-top: 2rem;">
   <h4>Business Hours</h4>
   <p>
     <strong>Monday – Friday:</strong> 9:00 AM – 5:00 PM CAT (UTC +2)<br>
     <em>Email inquiries are responded to within 48 business hours.</em>
   </p>
-  <p id="local-time-note" style="font-size:0.9rem; opacity:0.8;"></p>
-  <script>
-    const userOffset = -new Date().getTimezoneOffset() / 60;
-    const diff = userOffset - 2; // Mozambique is UTC+2
-    const note = diff === 0 
-      ? "You're in the same time zone as our office (UTC+2)."
-      : `Our office is ${Math.abs(diff)} hour${Math.abs(diff) !== 1 ? "s" : ""} ${diff > 0 ? "behind" : "ahead of"} your local time.`;
-    document.getElementById("local-time-note").textContent = note;
-  </script>
 </div>
 
 
@@ -194,16 +176,6 @@
 
         const yearEl = document.getElementById('current-year');
         if (yearEl) yearEl.textContent = new Date().getFullYear();
-
-        const mozEl = document.getElementById('moz-time');
-        if (mozEl) {
-          const fmt = new Intl.DateTimeFormat('en-GB', {
-            hour: '2-digit', minute: '2-digit', second: '2-digit',
-            hour12: false, timeZone: 'Africa/Maputo'
-          });
-          function tick() { mozEl.textContent = fmt.format(new Date()); }
-          tick(); setInterval(tick, 1000);
-        }
       })
       .catch(err => console.error('Footer load failed:', err));
   </script>
@@ -211,4 +183,3 @@
   <script src="/js/main.js"></script>
 </body>
 </html>
-
