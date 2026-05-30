@@ -1,402 +1,485 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AfriPharma Health Systems | WHO-Aligned Pharmaceutical Manufacturing in Africa</title>
-  
-  <!-- SEO Meta Tags -->
-  <meta name="description" content="Building pharmaceutical sovereignty in Africa. Establishing WHO PQ-aligned sterile injectables facility in Southern Africa to serve 380M people across SADC with essential medicines.">
-  <meta name="keywords" content="pharmaceutical manufacturing Africa, WHO prequalification, SADC medicines, Southern Africa pharmaceuticals, essential medicines, sterile injectables, pharmaceutical sovereignty, GMP manufacturing">
-  <meta name="author" content="AfriPharma Health Systems Ltd">
-  
-  <!-- Open Graph / Social Media -->
-  <meta property="og:title" content="AfriPharma Health Systems | Building Pharmaceutical Sovereignty in Africa">
-  <meta property="og:description" content="Establishing WHO PQ-aligned pharmaceutical manufacturing in Mozambique to serve 380M people across SADC.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://afripharma-health.com">
-  <meta property="og:image" content="https://afripharma-health.com/images/og-image.jpg">
-  
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="AfriPharma Health Systems | Pharmaceutical Manufacturing in Africa">
-  <meta name="twitter:description" content="Building WHO PQ pharmaceutical manufacturing in Mozambique for 380M people across SADC.">
-  <meta name="twitter:image" content="https://afripharma-health.com/images/twitter-card.jpg">
-  
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="images/favicon.png">
-  
-  <!-- Stylesheets -->
-  <link rel="stylesheet" href="css/style.css">
-  
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  
-  <!-- Plausible Analytics - Privacy-Focused -->
-  <script defer data-domain="afripharma-health.com" src="https://plausible.io/js/script.js"></script>
-  
-  <!-- Schema.org Markup -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "AfriPharma Health Systems Ltd",
-    "alternateName": "AfriPharma",
-    "url": "https://afripharma-health.com",
-    "logo": "https://afripharma-health.com/images/afripharma-logo.png",
-    "description": "Establishing WHO Prequalification-aligned pharmaceutical manufacturing in Mozambique to serve 380 million people across the SADC region with essential medicines.",
-    "address": {
-      "@type": "PostalAddress",
-      "addressCountry": "MU",
-      "addressLocality": "Mauritius"
-    },
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "contactType": "Customer Service",
-      "email": "info@afripharma-health.com",
-      "availableLanguage": ["English", "Portuguese"]
-    },
-    "sameAs": [
-      "https://linkedin.com/company/afripharma-health-systems"
-    ],
-    "foundingDate": "2022",
-    "numberOfEmployees": {
-      "@type": "QuantitativeValue",
-      "value": "2-10"
-    },
-    "industry": "Pharmaceutical Manufacturing"
-  }
-  </script>
-  
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "What is AfriPharma Health Systems?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "AfriPharma Health Systems is establishing Mozambique's first WHO Prequalification-aligned pharmaceutical manufacturing facility to produce essential medicines for the SADC region, serving 380 million people."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What medicines does AfriPharma manufacture?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "AfriPharma manufactures 7 WHO Essential Medicines in sterile injectable formats, including Paracetamol, Tramadol, Dexamethasone, Metronidazole, Clindamycin, Furosemide, and a unique pediatric Paracetamol formulation."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Where is AfriPharma located?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "AfriPharma's manufacturing facility is being constructed in the Nacala Special Economic Zone in Mozambique, with corporate headquarters in Mauritius."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What is WHO Prequalification?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "WHO Prequalification is a rigorous quality assessment process conducted by the World Health Organization to ensure pharmaceutical products meet international standards. It enables access to UN, UNICEF, and Global Fund procurement opportunities."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How can I invest in AfriPharma?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Investment opportunities are private placements available only to accredited investors. Interested parties should contact invest@afripharma-health.com to execute an NDA and access formal investment documentation."
-        }
-      }
-    ]
-  }
-  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AfriPharma Health Systems — Healthcare Access Today. Manufacturing Tomorrow.</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* ── INDEX-SPECIFIC ── */
+    .hero {
+      min-height: 90vh;
+      background: var(--navy);
+      display: flex; align-items: center;
+      position: relative; overflow: hidden;
+      padding: 110px 7% 90px;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 70% 60% at 80% 50%, rgba(11,95,165,0.18) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 40% at 15% 80%, rgba(200,155,60,0.07) 0%, transparent 60%);
+    }
+    .hero-grid {
+      position: relative; z-index: 2;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 60px; align-items: center; max-width: 1200px;
+    }
+    .hero-eyebrow {
+      font-size: 11px; font-weight: 600; letter-spacing: 0.2em;
+      text-transform: uppercase; color: var(--gold); margin-bottom: 22px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .hero-eyebrow::before {
+      content: ''; display: inline-block;
+      width: 30px; height: 1px; background: var(--gold);
+    }
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(44px, 5.5vw, 68px);
+      font-weight: 700; line-height: 1.08;
+      color: var(--white); margin-bottom: 24px;
+    }
+    .hero h1 em { font-style: normal; color: var(--gold); }
+    .hero-sub {
+      font-size: 17px; color: rgba(255,255,255,0.68);
+      max-width: 490px; margin-bottom: 40px; line-height: 1.8;
+    }
+    .hero-buttons { display: flex; gap: 14px; flex-wrap: wrap; }
+    .btn-outline-white {
+      display: inline-block;
+      border: 1.5px solid rgba(255,255,255,0.38);
+      color: var(--white); padding: 13px 26px; border-radius: 4px;
+      text-decoration: none; font-weight: 500; font-size: 14px;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .btn-outline-white:hover { border-color: var(--gold); color: var(--gold); }
+
+    .hero-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .stat-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 10px; padding: 24px 22px;
+    }
+    .stat-card .number {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 40px; font-weight: 700;
+      color: var(--gold); line-height: 1; margin-bottom: 6px;
+    }
+    .stat-card .label { font-size: 13px; color: rgba(255,255,255,0.58); line-height: 1.5; }
+
+    .pillar-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 26px; }
+    .pillar {
+      background: var(--white); border-radius: 12px; padding: 36px 28px;
+      position: relative; overflow: hidden;
+      border: 1px solid var(--border);
+      transition: transform 0.22s, box-shadow 0.22s;
+    }
+    .pillar:hover { transform: translateY(-5px); box-shadow: 0 20px 50px rgba(6,33,58,0.1); }
+    .pillar-number {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 76px; font-weight: 700;
+      color: rgba(11,95,165,0.05);
+      position: absolute; top: -8px; right: 16px; line-height: 1;
+    }
+    .pillar-icon {
+      width: 46px; height: 46px;
+      background: linear-gradient(135deg, var(--blue), var(--blue-light));
+      border-radius: 10px; display: flex; align-items: center;
+      justify-content: center; margin-bottom: 18px;
+    }
+    .pillar-icon svg { width: 22px; height: 22px; fill: white; }
+    .pillar h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 21px; font-weight: 700; color: var(--navy); margin-bottom: 10px;
+    }
+    .pillar p { font-size: 15px; color: var(--muted); line-height: 1.7; }
+
+    .care360-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 18px; }
+    .care360-tier {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 10px; padding: 28px 22px;
+      transition: background 0.2s;
+    }
+    .care360-tier:hover { background: rgba(255,255,255,0.11); }
+    .care360-tier.featured { border-color: var(--gold); background: rgba(200,155,60,0.09); }
+    .tier-badge {
+      font-size: 10px; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--gold); margin-bottom: 10px;
+    }
+    .care360-tier h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 21px; font-weight: 700; color: var(--white); margin-bottom: 10px;
+    }
+    .care360-tier p { font-size: 14px; color: rgba(255,255,255,0.6); line-height: 1.65; }
+
+    .chips { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 44px; }
+    .chip {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.14);
+      border-radius: 20px; padding: 7px 18px;
+      font-size: 13.5px; color: rgba(255,255,255,0.78);
+    }
+
+    .markets-grid { display: grid; grid-template-columns: repeat(5,1fr); gap: 16px; }
+    .market-card {
+      background: var(--white); border-radius: 10px; padding: 24px 18px;
+      border: 1px solid var(--border); text-align: center;
+    }
+    .market-card.active { border-color: var(--blue); }
+    .market-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px; font-weight: 700; color: var(--navy); margin-bottom: 6px;
+    }
+    .market-card p { font-size: 13px; color: var(--muted); line-height: 1.5; }
+    .market-phase { font-size: 10.5px; font-weight: 600; color: var(--muted); margin-top: 10px; }
+
+    .vision-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+    .vision-item {
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 10px; padding: 28px;
+      background: rgba(255,255,255,0.04);
+    }
+    .vision-item h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 19px; font-weight: 700; color: var(--gold); margin-bottom: 10px;
+    }
+    .vision-item p { font-size: 14.5px; color: rgba(255,255,255,0.6); line-height: 1.7; }
+
+    .audience-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+    .audience-card {
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: 10px; padding: 28px;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .audience-card:hover { border-color: var(--blue); box-shadow: 0 8px 30px rgba(11,95,165,0.08); }
+    .audience-card h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 19px; font-weight: 700; color: var(--navy); margin-bottom: 8px;
+    }
+    .audience-card p { font-size: 14px; color: var(--muted); margin-bottom: 16px; }
+    .audience-card a { font-size: 13.5px; font-weight: 600; color: var(--blue); text-decoration: none; }
+    .audience-card a:hover { text-decoration: underline; }
+
+    .founder-aside {
+      background: var(--navy); border-radius: 12px; padding: 36px 28px; color: var(--white);
+    }
+    .founder-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 26px; font-weight: 700; color: var(--white); margin-bottom: 4px;
+    }
+    .founder-title { font-size: 13px; color: var(--gold); margin-bottom: 22px; }
+    .founder-credentials { list-style: none; }
+    .founder-credentials li {
+      font-size: 13.5px; color: rgba(255,255,255,0.7);
+      padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.08);
+      display: flex; gap: 10px;
+    }
+    .founder-credentials li::before { content: '—'; color: var(--gold); flex-shrink: 0; }
+    .founder-message p { font-size: 16px; color: var(--muted); margin-bottom: 18px; line-height: 1.8; }
+    .founder-message blockquote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 24px; font-weight: 600; color: var(--navy);
+      border-left: 3px solid var(--gold); padding-left: 22px;
+      margin: 28px 0; line-height: 1.45;
+    }
+    @media (max-width:900px) {
+      .hero-grid, .vision-grid { grid-template-columns: 1fr; }
+      .pillar-grid { grid-template-columns: 1fr; }
+      .care360-grid { grid-template-columns: 1fr 1fr; }
+      .markets-grid { grid-template-columns: repeat(2,1fr); }
+      .audience-grid { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body>
-  <!-- Skip to content link (accessibility improvement) -->
-  <a class="skip-link" href="#main-content">Skip to content</a>
 
-  <!-- Header / Navigation -->
-  <header class="header" role="banner">
-    <div class="container">
-      <nav class="nav-container" aria-label="Primary Navigation">
-        <div class="logo">
-          <img src="/images/afripharma-logo.png" alt="AfriPharma Health Systems Logo">
-          <div class="logo-text">
-            <h1>AfriPharma Health Systems</h1>
-            <p class="tagline">Precision Medicine. African Roots.</p>
-          </div>
-        </div>
-        <ul class="nav-menu">
-          <li><a href="/index.html">Home</a></li>
-          <li><a href="/about.html">About</a></li>
-          <li><a href="/products.html">Products</a></li>
-          <li><a href="/impact.html">Impact</a></li>
-          <li><a href="/investment.html">Investment</a></li>
-          <li><a href="/contact.html">Contact</a></li>
-        </ul>
-        <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">☰</button>
-      </nav>
+<header class="site-header">
+  <div class="brand">
+    <a href="index.html">
+      <img src="logo.png" alt="AfriPharma Health Systems" class="logo" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <span class="logo-text" style="display:none">Afri<span>Pharma</span></span>
+    </a>
+  </div>
+  <nav class="main-nav">
+    <a href="index.html" class="active">Home</a>
+    <a href="about.html">About</a>
+    <a href="care360.html">Care360</a>
+    <a href="pharmacy.html">Pharmacy</a>
+    <a href="distribution.html">Distribution</a>
+    <a href="manufacturing.html">Manufacturing</a>
+    <a href="partners.html">Partners</a>
+    <a href="contact.html" class="nav-cta">Contact</a>
+  </nav>
+</header>
+
+<div class="status-banner">
+  <div class="status-dot"></div>
+  <span><strong>Now Operational:</strong> AfriPharma Zimbabwe incorporated April 2026 (Reg. #98533A0242026) — MCAZ WDP application in progress. Botswana entity active. Distribution platform under development.</span>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid">
+    <div>
+      <div class="hero-eyebrow">Southern Africa Healthcare Platform</div>
+      <h1>Healthcare Access<br><em>Today.</em><br>Manufacturing<br>Tomorrow.</h1>
+      <p class="hero-sub">AfriPharma Health Systems is building a vertically integrated pharmaceutical distribution and healthcare access platform across the SADC region — anchored by a long-term WHO-aligned sterile injectable manufacturing strategy.</p>
+      <div class="hero-buttons">
+        <a href="care360.html" class="btn-gold">Explore Care360™</a>
+        <a href="partners.html" class="btn-outline-white">Partner With Us</a>
+      </div>
     </div>
-  </header>
+    <div class="hero-stats">
+      <div class="stat-card">
+        <div class="number">2</div>
+        <div class="label">Active markets — Zimbabwe &amp; Botswana — entities incorporated in 2026</div>
+      </div>
+      <div class="stat-card">
+        <div class="number">5+</div>
+        <div class="label">SADC markets targeted across the regional expansion roadmap</div>
+      </div>
+      <div class="stat-card">
+        <div class="number">12+</div>
+        <div class="label">Years sterile injectables manufacturing experience guiding the platform</div>
+      </div>
+      <div class="stat-card">
+        <div class="number">MCAZ</div>
+        <div class="label">WDP application in progress — Harare DC in development, Msasa</div>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <!-- Main content starts -->
-  <main id="main-content" role="main">
+<!-- MISSION -->
+<section class="section section-white">
+  <div class="section-label">Our Purpose</div>
+  <h2 class="section-title">Building Africa's Health<br>Infrastructure — One Brick at a Time.</h2>
+  <div class="two-col" style="margin-top:46px">
+    <div class="quote-block">"Healthcare access should not be determined by where a person lives."</div>
+    <div>
+      <p style="font-size:16px;color:var(--muted);margin-bottom:16px;line-height:1.8">Across Southern Africa, essential medicines remain difficult to access — due to fragmented supply chains, weak distribution infrastructure, and limited local manufacturing. AfriPharma was founded to address this directly.</p>
+      <p style="font-size:16px;color:var(--muted);line-height:1.8">Our approach is deliberate: start with distribution, build operational credibility, generate cash flows, and use that foundation to anchor future manufacturing at scale.</p>
+    </div>
+  </div>
+</section>
 
-  
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="container">
-      <h1>Building Pharmaceutical Sovereignty in Africa</h1>
-      <p class="hero-subtitle">
-        Establishing WHO Prequalification-aligned pharmaceutical manufacturing 
-        to serve 380 million people across the SADC region with essential medicines and 
-        supply chain resilience through WHO-aligned manufacturing.
-      </p>
+<!-- PLATFORM -->
+<section class="section section-offwhite">
+  <div class="section-label">The Platform</div>
+  <h2 class="section-title">Three Pillars. One Mission.</h2>
+  <p class="section-intro">An integrated healthcare access platform built for Southern Africa — connecting pharmacy services, care coordination, and pharmaceutical distribution.</p>
+  <div class="pillar-grid">
+    <div class="pillar">
+      <div class="pillar-number">01</div>
+      <div class="pillar-icon"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 14l-4-4 1.41-1.41L12 14.17l6.59-6.59L20 9l-8 8z"/></svg></div>
+      <h3>Pharmacy Operations</h3>
+      <p>Patient-centered pharmacy services including prescription fulfillment, chronic disease support, medication counseling, and home delivery — starting in Zimbabwe.</p>
+    </div>
+    <div class="pillar">
+      <div class="pillar-number">02</div>
+      <div class="pillar-icon"><svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg></div>
+      <h3>AfriPharma Care360™</h3>
+      <p>Healthcare coordination for diaspora families — covering medication management, appointment support, home delivery, and family reporting for loved ones back home.</p>
+    </div>
+    <div class="pillar">
+      <div class="pillar-number">03</div>
+      <div class="pillar-icon"><svg viewBox="0 0 24 24"><path d="M20 8h-3V4H3c-1.1 0-2 .9-2 2v11h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3h2v-5l-3-4zM6 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm13.5-9l1.96 2.5H17V9.5h2.5zm-1.5 9c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg></div>
+      <h3>Pharmaceutical Distribution</h3>
+      <p>A MCAZ-compliant, GDP-aligned distribution platform connecting manufacturers, hospitals, clinics, pharmacies, and NGOs across Zimbabwe and the SADC region.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CARE360 -->
+<section class="section section-navy" id="care360">
+  <div class="section-label">Care Coordination</div>
+  <h2 class="section-title">AfriPharma Care360™</h2>
+  <p class="section-intro">Helping diaspora families coordinate trusted healthcare for loved ones across Southern Africa — through medication support, appointment coordination, and family updates.</p>
+  <div class="care360-grid">
+    <div class="care360-tier">
+      <div class="tier-badge">Tier 1</div>
+      <h3>Essential</h3>
+      <p>Prescription coordination, refill reminders, medication tracking, and WhatsApp-based family support.</p>
+    </div>
+    <div class="care360-tier featured">
+      <div class="tier-badge">Tier 2 · Popular</div>
+      <h3>Plus</h3>
+      <p>Everything in Essential, plus home delivery, proactive refill management, and monthly family updates.</p>
+    </div>
+    <div class="care360-tier">
+      <div class="tier-badge">Tier 3</div>
+      <h3>Platinum</h3>
+      <p>Full healthcare navigation, appointment coordination, wellness verification, and dedicated care support.</p>
+    </div>
+    <div class="care360-tier">
+      <div class="tier-badge">Tier 4 · Coming Soon</div>
+      <h3>Signature</h3>
+      <p>Premium concierge care coordination for complex healthcare needs and executive health management.</p>
+    </div>
+  </div>
+  <div class="chips">
+    <div class="chip">Medication Coordination</div>
+    <div class="chip">Refill Management</div>
+    <div class="chip">Home Delivery</div>
+    <div class="chip">Appointment Support</div>
+    <div class="chip">Wellness Verification</div>
+    <div class="chip">Family Reporting</div>
+    <div class="chip">Chronic Care Support</div>
+    <div class="chip">WhatsApp Updates</div>
+  </div>
+</section>
+
+<!-- FOOTPRINT -->
+<section class="section section-offwhite">
+  <div class="section-label">Regional Footprint</div>
+  <h2 class="section-title">Starting in Zimbabwe.<br>Expanding Across Southern Africa.</h2>
+  <p class="section-intro">A phased, market-by-market rollout — building operational depth before expanding breadth.</p>
+  <div class="markets-grid">
+    <div class="market-card active">
+      <div class="status-pill pill-green">Operational</div>
+      <h3>Zimbabwe</h3>
+      <p>Incorporated April 2026. MCAZ WDP in progress. Harare DC in development, Msasa.</p>
+      <div class="market-phase">Phase 1 · M1</div>
+    </div>
+    <div class="market-card active">
+      <div class="status-pill pill-green">Incorporated</div>
+      <h3>Botswana</h3>
+      <p>Incorporated April 2026.</p>
+      <div class="market-phase">Phase 1 · M1</div>
+    </div>
+    <div class="market-card">
+      <div class="status-pill pill-blue">In Pipeline</div>
+      <h3>South Africa</h3>
+      <p>Entity formation planned. Technical and supply chain development underway.</p>
+      <div class="market-phase">Phase 2 · M2</div>
+    </div>
+    <div class="market-card">
+      <div class="status-pill pill-blue">In Pipeline</div>
+      <h3>Zambia</h3>
+      <p>ZDA engagement underway. ZAMRA, ZAMSA, and Ministry of Health introductions in progress.</p>
+      <div class="market-phase">Phase 3 · M3</div>
+    </div>
+    <div class="market-card">
+      <div class="status-pill pill-grey">Planned</div>
+      <h3>Mozambique</h3>
+      <p>Nacala SEZ identified as the anchor site for Phase 2 sterile injectable manufacturing.</p>
+      <div class="market-phase">Manufacturing Anchor</div>
+    </div>
+  </div>
+</section>
+
+<!-- VISION -->
+<section class="section section-navy">
+  <div class="section-label">Long-Term Vision</div>
+  <h2 class="section-title">Beyond Distribution.<br>Toward Pharmaceutical Sovereignty.</h2>
+  <p class="section-intro">AfriPharma's distribution platform is the first chapter. The long-term goal is WHO-aligned sterile injectable manufacturing at scale — strengthening medicine security throughout the SADC region.</p>
+  <div class="vision-grid">
+    <div class="vision-item">
+      <h4>ParaFlow™ — Paracetamol IV</h4>
+      <p>AfriPharma's anchor manufacturing product. A 2,000L batch paracetamol IV solution manufactured to EU GMP Annex 1 standards and targeting WHO Prequalification — addressing one of sub-Saharan Africa's most critical medicine gaps.</p>
+    </div>
+    <div class="vision-item">
+      <h4>Nacala SEZ — Manufacturing Anchor</h4>
+      <p>The Nacala Special Economic Zone in Mozambique has been identified as the preferred site for AfriPharma's Phase 2 sterile injectable manufacturing facility — strategically positioned for SADC-wide distribution.</p>
+    </div>
+    <div class="vision-item">
+      <h4>Distribution Cash Flows Fund Manufacturing</h4>
+      <p>AfriPharma's distribution operations are structured to generate the commercial track record and cash flows needed to support DFI financing — IFC, AfDB, and DFC — for the manufacturing phase.</p>
+    </div>
+    <div class="vision-item">
+      <h4>WHO Prequalification Pathway</h4>
+      <p>Manufacturing strategy is aligned from inception to WHO Prequalification — enabling access to institutional procurement through UNICEF Supply Division, UNFPA, and national tender programs.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOUNDER -->
+<section class="section section-white">
+  <div class="section-label">Leadership</div>
+  <h2 class="section-title">Founder's Message</h2>
+  <div class="two-col" style="margin-top:46px;align-items:start">
+    <div class="founder-aside">
       
-      <div class="cta-buttons">
-        <a href="investment.html" class="btn btn-primary" onclick="afripharma.trackButtonClick('Hero CTA - Investment')">Investment Opportunity</a>
-        <a href="about.html" class="btn btn-secondary">Learn More</a>
-      </div>
-      
-      <div class="hero-stats">
-        <div class="stat-item">
-          <span class="stat-number">380M+</span>
-          <span class="stat-label">People Served</span>
-        </div>
-        <div class="stat-item">
-          <span class="stat-number">150+</span>
-          <span class="stat-label">Jobs Created</span>
-        </div>
-        <div class="stat-item">
-          <span class="stat-number">7</span>
-          <span class="stat-label">WHO Medicines</span>
-        </div>
-        <div class="stat-item">
-          <span class="stat-number">2027</span>
-          <span class="stat-label">Launch Year</span>
-        </div>
-      </div>
+      <div class="founder-title">Founder &amp; CEO, AfriPharma Health Systems</div>
+      <ul class="founder-credentials">
+        <li>PharmD, University of Maryland</li>
+        <li>MS Biotechnology Management</li>
+        <li>12+ years sterile injectables manufacturing</li>
+        <li>Regulatory experience: FDA, EMA, PMDA, ANVISA, Health Canada, Israel MoH</li>
+      </ul>
     </div>
-  </section>
-  
-  <!-- Mission Section -->
-  <section class="section">
-    <div class="container">
-      <div class="section-title">
-        <h2>Our Mission</h2>
-        <p class="section-subtitle">
-          Building pharmaceutical sovereignty in Africa through WHO-aligned manufacturing 
-          and supply resilience
-        </p>
-      </div>
-      
-      <div class="card-grid">
-        <div class="card">
-          <div class="card-icon">🏭</div>
-          <h3>WHO GMP Manufacturing</h3>
-          <p>
-            State-of-the-art sterile injectables facility built to World Health Organization 
-            Good Manufacturing Practice standards from day one.
-          </p>
-        </div>
-        
-        <div class="card">
-          <div class="card-icon">💊</div>
-          <h3>Essential Medicines</h3>
-          <p>
-            7 WHO Essential Medicines with 21.6 million vials annual capacity, addressing 
-            critical healthcare needs across the SADC region.
-          </p>
-        </div>
-        
-        <div class="card">
-          <div class="card-icon">🌍</div>
-          <h3>Regional Impact</h3>
-          <p>
-            Serving 380 million people across 15 SADC countries, reducing pharmaceutical 
-            import dependency and improving healthcare access.
-          </p>
-        </div>
-      </div>
+    <div class="founder-message">
+      <blockquote>"Access to quality healthcare and medicines should not be determined by where a person lives."</blockquote>
+      <p>After more than a decade in pharmaceutical manufacturing — across FDA, EMA, and WHO-regulated environments — I became increasingly aware of the structural gaps facing healthcare systems across Africa. Medicines that are widely available elsewhere remain chronically out of reach in the communities that need them most.</p>
+      <p>AfriPharma was founded to help close that gap. Not through charity, but through business. Practical distribution infrastructure today. Pharmaceutical manufacturing tomorrow. A platform built to last — and built to serve.</p>
+      <p>Zimbabwe and Botswana are our starting points. The SADC region is our market. Nacala is where we intend to build something that will serve this continent for generations.</p>
     </div>
-  </section>
-  
-  <!-- Problem / Solution Section -->
-  <section class="section section-gray">
-    <div class="container">
-      <div class="section-title">
-        <h2>Addressing Africa's Pharmaceutical Challenge</h2>
-      </div>
-      
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start;">
-        <div>
-          <h3 style="color: var(--accent-red);">The Problem</h3>
-          <p>
-            Sub-Saharan Africa imports <strong>88% of its pharmaceuticals</strong>, creating:
-          </p>
-          <ul style="line-height: 2;">
-            <li>Supply chain vulnerabilities exposed by COVID-19</li>
-            <li>20-30% higher costs compared to local production</li>
-            <li>Limited access to essential medicines</li>
-            <li>Economic dependency and capital outflow</li>
-            <li>Lack of pharmaceutical manufacturing capacity</li>
-          </ul>
-        </div>
-        
-        <div>
-          <h3 style="color: var(--primary-blue);">Our Solution</h3>
-          <p>
-            AfriPharma is establishing a WHO PQ-aligned manufacturing facility:
-          </p>
-          <ul style="line-height: 2;">
-            <li>Local production of 7 WHO Essential Medicines</li>
-            <li>WHO Prequalification pathway for international standards</li>
-            <li>Strategic location for SADC distribution</li>
-            <li>150+ high-skilled pharmaceutical manufacturing jobs</li>
-            <li>$50M+ import substitution by Year 5</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-  
-  <!-- Why SADC Section -->
-  <section class="section">
-    <div class="container">
-      <div class="section-title">
-        <h2>Why SADC</h2>
-        <p class="section-subtitle">
-          Strategic location, government support, and regional gateway to 380M people
-        </p>
-      </div>
-      
-      <div class="card-grid">
-        <div class="card">
-          <div class="card-icon">🚢</div>
-          <h3>Deep-Water Port</h3>
-          <p>
-            Strategic access to SADC markets with efficient 
-            logistics for raw material imports and finished product exports.
-          </p>
-        </div>
-        
-        <div class="card">
-          <div class="card-icon">🎯</div>
-          <h3>SEZ Incentives</h3>
-          <p>
-            Special Economic Zone benefits including tax incentives, import duty waivers on equipment and raw materials, 
-            simplified customs procedures, and dedicated infrastructure support.
-          </p>
-        </div>
-        
-        <div class="card">
-          <div class="card-icon">🤝</div>
-          <h3>Government Support</h3>
-          <p>
-            Strong commitment to pharmaceutical manufacturing, 
-            alignment with national industrialization strategy, and WHO collaboration.
-          </p>
-        </div>
-        
-        <div class="card">
-          <div class="card-icon">📍</div>
-          <h3>Regional Gateway</h3>
-          <p>
-            Strategic access to major SADC markets.Growing 
-            $3.2B pharmaceutical market with 8-12% annual growth.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-  
-  <!-- Timeline Section -->
-  <section class="section section-gray">
-    <div class="container">
-      <div class="section-title">
-        <h2>Our Journey</h2>
-        <p class="section-subtitle">From vision to commercial production</p>
-      </div>
-      
-      <div style="max-width: 800px; margin: 0 auto;">
-        <div class="card" style="margin-bottom: 1.5rem;">
-          <h3>2024 - Foundation & Fundraising</h3>
-          <p>
-            <strong>Q4 2025:</strong> Corporate structure formalization, investor outreach, 
-           regulatory pathway planning
-          </p>
-        </div>
-        
-        <div class="card" style="margin-bottom: 1.5rem;">
-          <h3>2025 - Regulatory Approvals</h3>
-          <p>
-            <strong>Q3-Q4:</strong>  pharmaceutical license application, SEZ agreement 
-            finalization, WHO PQ pathway initiation, product development studies
-          </p>
-        </div>
-        
-        <div class="card" style="margin-bottom: 1.5rem;">
-          <h3>2026 - Facility Construction</h3>
-          <p>
-            <strong>Full Year:</strong> WHO GMP-compliant facility construction, equipment 
-            installation, staff recruitment and training, quality systems development
-          </p>
-        </div>
-        
-        <div class="card">
-          <h3>2027 - Commercial Launch</h3>
-          <p>
-            <strong>Q1:</strong> Commissioning and validation | <strong>Q2:</strong> First 
-            production runs | <strong>Q3-Q4:</strong> Commercial production and market launch
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-  
-  <!-- CTA Section -->
-  <section class="section" style="background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%); color: var(--white);">
-    <div class="container text-center">
-      <h2 style="color: var(--white); margin-bottom: 1rem;">Join Us in Building Pharmaceutical Sovereignty</h2>
-      <p style="font-size: 1.2rem; max-width: 700px; margin: 0 auto 2rem; opacity: 0.95;">
-        We're raising $12M to establish Africa's pharmaceutical future. Partner with us to create 
-        measurable impact across healthcare access, job creation, and economic development.
-      </p>
-      <div class="cta-buttons">
-        <a href="investment.html" class="btn btn-primary">Investment Opportunity</a>
-        <a href="contact.html" class="btn btn-secondary">Get In Touch</a>
-      </div>
-    </div>
-  </section>
-  
- 
-         </main>
+  </div>
+</section>
 
-  
-<!-- Shared footer slot -->
-<div id="footer-slot"></div>
+<!-- CTA -->
+<section class="section section-offwhite">
+  <div class="section-label">Get Involved</div>
+  <h2 class="section-title">Partner With AfriPharma.</h2>
+  <p class="section-intro">We welcome conversations across the healthcare ecosystem — suppliers, investors, healthcare providers, government agencies, and families seeking Care360 support.</p>
+  <div class="audience-grid">
+    <div class="audience-card">
+      <h4>Healthcare Providers &amp; Pharmacies</h4>
+      <p>Looking for a compliant, reliable distribution partner in Zimbabwe or the SADC region? We'd like to hear from you.</p>
+      <a href="mailto:info@afripharma-health.com">Contact Distribution Team →</a>
+    </div>
+    <div class="audience-card">
+      <h4>Investors &amp; DFI Partners</h4>
+      <p>AfriPharma is building a DFI-ready platform targeting IFC, AfDB, and DFC financing for its manufacturing phase. Investor materials available on request.</p>
+      <a href="mailto:info@afripharma-health.com">Request Investor Materials →</a>
+    </div>
+    <div class="audience-card">
+      <h4>Families — Care360™</h4>
+      <p>Supporting a loved one in Zimbabwe or across Southern Africa? Care360 provides trusted, coordinated healthcare support across the distance.</p>
+      <a href="care360.html">Learn About Care360 →</a>
+    </div>
+  </div>
+</section>
 
-<script>
-  fetch('/footer-public.html', { cache: 'no-cache' })
-    .then(r => r.text())
-    .then(html => {
-      const slot = document.getElementById('footer-slot');
-      slot.innerHTML = html;
-
-      const yearEl = document.getElementById('current-year');
-      if (yearEl) yearEl.textContent = new Date().getFullYear();
-    })
-    .catch(err => console.error('Footer load failed:', err));
-</script>
-
-<script src="/js/main.js"></script>
-  
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand-col">
+      <div class="footer-logo-text">Afri<span>Pharma</span> Health Systems</div>
+      <p>Precision Medicine. African Roots.</p>
+      <p>Building Africa's health infrastructure — one brick at a time.</p>
+      <p style="margin-top:14px">info@afripharma-health.com</p>
+    </div>
+    <div class="footer-col">
+      <h4>Platform</h4>
+      <a href="pharmacy.html">Pharmacy Services</a>
+      <a href="care360.html">Care360™</a>
+      <a href="distribution.html">Distribution</a>
+      <a href="manufacturing.html">Manufacturing Vision</a>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <a href="about.html">About Us</a>
+      <a href="partners.html">Partners &amp; Investors</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="footer-col">
+      <h4>Markets</h4>
+      <a href="#">Zimbabwe</a>
+      <a href="#">Botswana</a>
+      <a href="#">South Africa</a>
+      <a href="#">Zambia</a>
+      <a href="#">Mozambique</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 AfriPharma Health Systems. All rights reserved.</span>
+    <span>Precision Medicine. African Roots.</span>
+  </div>
+</footer>
+</body>
+</html>
 
