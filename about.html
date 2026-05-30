@@ -1,123 +1,151 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About AfriPharma | Building Pharmaceutical Sovereignty in Africa</title>
-  <meta name="description" content="Learn about AfriPharma's mission to establish WHO PQ-aligned pharmaceutical manufacturing in Southern Africa, serving 380M people across SADC with essential medicines.">
-  <meta name="keywords" content="AfriPharma mission, pharmaceutical sovereignty Africa, WHO prequalification, Southern Africa manufacturing, SADC healthcare">
-  <link rel="stylesheet" href="css/style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <script defer data-domain="afripharma-health.com" src="https://plausible.io/js/script.js"></script>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About AfriPharma Health Systems</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .values-grid { display:grid; grid-template-columns:repeat(5,1fr); gap:18px; }
+    .value-card {
+      background:var(--white); border:1px solid var(--border); border-radius:10px;
+      padding:28px 20px; text-align:center;
+      transition:transform 0.2s, box-shadow 0.2s;
+    }
+    .value-card:hover { transform:translateY(-4px); box-shadow:0 14px 36px rgba(6,33,58,0.09); }
+    .value-card .icon {
+      font-family:'Cormorant Garamond',serif; font-size:36px; font-weight:700;
+      color:var(--gold); line-height:1; margin-bottom:12px;
+    }
+    .value-card h3 {
+      font-family:'Cormorant Garamond',serif; font-size:17px; font-weight:700;
+      color:var(--navy); margin-bottom:8px;
+    }
+    .value-card p { font-size:13.5px; color:var(--muted); line-height:1.6; }
+    .team-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:22px; }
+    .team-card {
+      background:var(--white); border:1px solid var(--border); border-radius:12px; padding:30px 26px;
+    }
+    .team-card h3 { font-family:'Cormorant Garamond',serif; font-size:20px; font-weight:700; color:var(--navy); margin-bottom:4px; }
+    .team-card .role { font-size:13px; color:var(--gold); font-weight:500; margin-bottom:12px; }
+    .team-card p { font-size:14px; color:var(--muted); line-height:1.7; }
+    @media(max-width:900px){ .values-grid{grid-template-columns:repeat(2,1fr);} .team-grid{grid-template-columns:1fr;} }
+  </style>
 </head>
 <body>
-  
-  <body>
-  <!-- Skip to content link (accessibility improvement) -->
-  <a class="skip-link" href="#main-content">Skip to content</a>
 
-  <!-- Header / Navigation -->
-  <header class="header" role="banner">
-    <div class="container">
-      <nav class="nav-container" aria-label="Primary Navigation">
-        <div class="logo">
-          <img src="/images/afripharma-logo.png" alt="AfriPharma Health Systems Logo">
-          <div class="logo-text">
-            <h1>AfriPharma Health Systems</h1>
-            <p class="tagline">Precision Medicine. African Roots.</p>
-          </div>
-        </div>
-        <ul class="nav-menu">
-          <li><a href="/index.html">Home</a></li>
-          <li><a href="/about.html">About</a></li>
-          <li><a href="/products.html">Products</a></li>
-          <li><a href="/impact.html">Impact</a></li>
-          <li><a href="/investment.html">Investment</a></li>
-          <li><a href="/contact.html">Contact</a></li>
-        </ul>
-        <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">☰</button>
-      </nav>
+<header class="site-header">
+  <div class="brand">
+    <a href="index.html">
+      <img src="logo.png" alt="AfriPharma Health Systems" class="logo" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <span class="logo-text" style="display:none">Afri<span>Pharma</span></span>
+    </a>
+  </div>
+  <nav class="main-nav">
+    <a href="index.html">Home</a>
+    <a href="about.html" class="active">About</a>
+    <a href="care360.html">Care360</a>
+    <a href="pharmacy.html">Pharmacy</a>
+    <a href="distribution.html">Distribution</a>
+    <a href="manufacturing.html">Manufacturing</a>
+    <a href="partners.html">Partners</a>
+    <a href="contact.html" class="nav-cta">Contact</a>
+  </nav>
+</header>
+
+<section class="page-hero">
+  <div class="page-hero-content">
+    <div class="page-hero-eyebrow">Our Story</div>
+    <h1>About <em>AfriPharma</em></h1>
+    <p>Our Story. Our Mission. Our Commitment to Southern Africa.</p>
+  </div>
+</section>
+
+<!-- STORY -->
+<section class="section section-white">
+  <div class="section-label">Who We Are</div>
+  <h2 class="section-title">Built From the Ground Up<br>for Southern Africa.</h2>
+  <div class="two-col" style="margin-top:46px">
+    <div>
+      <p style="font-size:16.5px;color:var(--muted);margin-bottom:18px;line-height:1.85">AfriPharma Health Systems was founded by a team of pharmaceutical manufacturing professionals with more than 12 years of experience in sterile injectable manufacturing, quality systems, regulatory affairs, and healthcare operations.</p>
+      <p style="font-size:16.5px;color:var(--muted);margin-bottom:18px;line-height:1.85"> The team became increasingly aware of the structural healthcare access challenges facing Southern Africa: fragmented supply chains, insufficient local distribution infrastructure, and near-total dependence on imported medicines.</p>
+      <p style="font-size:16.5px;color:var(--muted);line-height:1.85">AfriPharma was created to help solve those challenges — not through aid, but through business. A practical, commercially sustainable platform that improves medicine access today, while building the infrastructure needed for long-term pharmaceutical self-sufficiency across the SADC region.</p>
     </div>
-  </header>
-
-  <!-- Main content starts -->
-  <main id="main-content" role="main">
-
-  <section class="section">
-    <div class="container">
+    <div style="text-align:center">
       
-      <div class="entity-notice">
-        <strong>Corporate Structure:</strong>
-        AfriPharma Health Systems Ltd, a Mauritius-based entity established to serve as the Group's holding and compliance vehicle, is currently being formalized under the Mauritius Financial Services Commission (FSC) as a Global Business Company (GBC).
-      </div>
-
-      <div class="section-title">
-        <h1>About AfriPharma Health Systems</h1>
-        <p class="section-subtitle">
-          Building pharmaceutical sovereignty in Africa through WHO-aligned manufacturing and supply resilience
-        </p>
-      </div>
-
-      <h2>The Challenge</h2>
-      <p>Africa imports 88% of its pharmaceuticals, creating supply chain vulnerabilities, higher costs (20-30% premium over local production), limited access to essential medicines, and economic dependency. The COVID-19 pandemic exposed these critical gaps, highlighting the urgent need for local pharmaceutical manufacturing capacity.</p>
-
-      <h2>Our Solution</h2>
-      <p>AfriPharma Health Systems is establishing a WHO Prequalification-aligned pharmaceutical manufacturing facility in Southern Africa to manufacture 7 WHO Essential Medicines in sterile injectable formats.</p>
-
-      <div class="card-grid">
-        <div class="card">
-          <h3>WHO GMP Compliance</h3>
-          <p>State-of-the-art facility designed to WHO Good Manufacturing Practice standards from inception, ensuring international quality standards.</p>
-        </div>
-        <div class="card">
-          <h3>21.6M Vials Capacity</h3>
-          <p>Annual production capacity to serve healthcare systems across 15 SADC countries with consistent supply.</p>
-        </div>
-        <div class="card">
-          <h3>Strategic Location</h3>
-          <p>Strategically positioned in Southern Africa with access to efficient regional distribution networks.</p>
-        </div>
-      </div>
-
-      <h2>Our Vision</h2>
-      <p>To become Africa's leading pharmaceutical manufacturer, contributing to pharmaceutical sovereignty across the continent, healthcare access for underserved populations, economic development through industrialization, skills development in pharmaceutical manufacturing, and regional trade and SADC integration.</p>
-
-      <h2>Why Southern Africa</h2>
-      <ul>
-        <li>Strategic gateway to 380M people in SADC</li>
-        <li>Access to ports and infrastructure for regional distribution</li>
-        <li>Special Economic Zone opportunities and investment incentives</li>
-        <li>Government commitment to pharmaceutical manufacturing across the region</li>
-        <li>Growing regional pharmaceutical market ($3.2B annually, 8-12% CAGR)</li>
-      </ul>
-
-      <h2>Our Commitment</h2>
-      <p>AfriPharma is committed to WHO quality standards, Good Manufacturing Practices (GMP), environmental sustainability, job creation and skills development, and an impact-driven business model that balances financial returns with measurable social outcomes.</p>
-
-      <h2>Corporate Governance</h2>
-      <p>AfriPharma Health Systems Ltd operates under Mauritius corporate governance framework, ensuring transparency, accountability, and investor protection aligned with international best practices. The company is being formalized under the Mauritius Financial Services Commission (FSC) as a Global Business Company (GBC).</p>
-
     </div>
-  </section>
+  </div>
+</section>
 
-   </main>
+<!-- MISSION / VISION / VALUES -->
+<section class="section section-offwhite">
+  <div class="cards-grid" style="grid-template-columns:repeat(3,1fr);margin-bottom:60px">
+    <div class="card">
+      <div class="card-icon"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg></div>
+      <h3>Our Mission</h3>
+      <p>To improve healthcare access across Southern Africa through pharmacy services, care coordination, pharmaceutical distribution, and future manufacturing — making quality medicines available to the communities that need them most.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon"><svg viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg></div>
+      <h3>Our Vision</h3>
+      <p>To become the leading integrated healthcare access platform and pharmaceutical manufacturer in Southern Africa — a platform built on operational credibility, regulatory excellence, and a genuine commitment to improving lives.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon"><svg viewBox="0 0 24 24"><path d="M11.5 2C6.81 2 3 5.81 3 10.5S6.81 19 11.5 19h.5v3c4.86-2.34 8-7 8-11.5C20 5.81 16.19 2 11.5 2zm1 14.5h-2v-2h2v2zm0-4h-2c0-3.25 3-3 3-5 0-1.1-.9-2-2-2s-2 .9-2 2h-2c0-2.21 1.79-4 4-4s4 1.79 4 4c0 2.5-3 2.75-3 5z"/></svg></div>
+      <h3>Our Approach</h3>
+      <p>Distribution first. Manufacturing second. AfriPharma's distribution operations generate the commercial track record and cash flows needed to support future WHO-aligned pharmaceutical manufacturing in the SADC region.</p>
+    </div>
+  </div>
 
-  <!-- Shared footer slot -->
-  <div id="footer-slot"></div>
+  <div class="section-label">Core Values</div>
+  <h2 class="section-title" style="margin-bottom:36px">What We Stand For.</h2>
+  <div class="values-grid">
+    <div class="value-card"><div class="icon">I</div><h3>Integrity</h3><p>Transparency and honesty in every interaction — with partners, patients, regulators, and investors.</p></div>
+    <div class="value-card"><div class="icon">E</div><h3>Excellence</h3><p>Pharmaceutical-grade quality standards applied to everything we build — from QMS to supply chain operations.</p></div>
+    <div class="value-card"><div class="icon">In</div><h3>Innovation</h3><p>Practical solutions to Africa's healthcare challenges — built with technology, data, and operational intelligence.</p></div>
+    <div class="value-card"><div class="icon">C</div><h3>Collaboration</h3><p>Stronger outcomes through partnerships with healthcare providers, governments, suppliers, and communities.</p></div>
+    <div class="value-card"><div class="icon">P</div><h3>Patient First</h3><p>Every decision anchored in improving outcomes and access for the patients we ultimately serve.</p></div>
+  </div>
+</section>
 
-  <script>
-    fetch('/footer-public.html', { cache: 'no-cache' })
-      .then(r => r.text())
-      .then(html => {
-        const slot = document.getElementById('footer-slot');
-        slot.innerHTML = html;
+<!-- LEADERSHIP TEAM -->
+<section class="section section-white">
+  <div class="section-label">Leadership</div>
+  <h2 class="section-title">The Team Behind the Platform.</h2>
+  <p class="section-intro">AfriPharma brings together pharmaceutical, regulatory, legal, and operational expertise across three continents.</p>
+  <div class="team-grid">
+    <div class="team-card">
+      
 
-        const yearEl = document.getElementById('current-year');
-        if (yearEl) yearEl.textContent = new Date().getFullYear();
-      })
-      .catch(err => console.error('Footer load failed:', err));
-  </script>
+<!-- MILESTONES -->
+<section class="section section-navy">
+  <div class="section-label">Milestones</div>
+  <h2 class="section-title">Where We Are Today.</h2>
+  <p class="section-intro">AfriPharma has moved from concept to operational entity in 2026 — with a clear roadmap to regional expansion and manufacturing.</p>
+  <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:0">
+    <div class="card-dark"><h3>April 2026</h3><p>AfriPharma Zimbabwe incorporated. AfriPharma Botswana incorporated.</p></div>
+    <div class="card-dark"><h3>MCAZ WDP Application</h3><p>Wholesale Distribution Permit application in progress. Harare Distribution Centre concept finalized — MCAZ-compliant zone layout in Msasa, Harare.</p></div>
+    
+    <div class="card-dark"><h3>Zambia Engagement</h3><p>Company registration underway.</p></div>
+  </div>
+</section>
 
-  <script src="/js/main.js"></script>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand-col">
+      <div class="footer-logo-text">Afri<span>Pharma</span> Health Systems</div>
+      <p>Precision Medicine. African Roots.</p>
+      <p>Building Africa's health infrastructure — one brick at a time.</p>
+      <p style="margin-top:14px">info@afripharma-health.com</p>
+    </div>
+    <div class="footer-col"><h4>Platform</h4><a href="pharmacy.html">Pharmacy Services</a><a href="care360.html">Care360™</a><a href="distribution.html">Distribution</a><a href="manufacturing.html">Manufacturing Vision</a></div>
+    <div class="footer-col"><h4>Company</h4><a href="about.html">About Us</a><a href="partners.html">Partners &amp; Investors</a><a href="contact.html">Contact</a></div>
+    <div class="footer-col"><h4>Markets</h4><a href="#">Zimbabwe</a><a href="#">Botswana</a><a href="#">South Africa</a><a href="#">Zambia</a><a href="#">Mozambique</a></div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 AfriPharma Health Systems. All rights reserved.</span>
+    <span>Precision Medicine. African Roots.</span>
+  </div>
+</footer>
 </body>
 </html>
