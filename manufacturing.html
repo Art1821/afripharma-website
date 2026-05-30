@@ -6,15 +6,23 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <style>
-    .spec-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin-top:36px; }
-    .spec-item {
-      background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1);
-      border-radius:10px; padding:22px;
+    .facts-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:22px; margin-top:36px; }
+    .fact-card {
+      background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12);
+      border-radius:12px; padding:30px 28px;
+      transition: background 0.2s;
     }
-    .spec-item .label { font-size:11px; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; color:var(--gold); margin-bottom:6px; }
-    .spec-item .value { font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:700; color:var(--white); margin-bottom:4px; }
-    .spec-item .desc { font-size:13px; color:rgba(255,255,255,0.55); line-height:1.5; }
-    @media(max-width:900px){ .spec-grid{grid-template-columns:1fr 1fr;} }
+    .fact-card:hover { background:rgba(255,255,255,0.09); }
+    .fact-card .fact-num {
+      font-family:'Cormorant Garamond',serif; font-size:44px; font-weight:700;
+      color:var(--gold); line-height:1; margin-bottom:14px;
+    }
+    .fact-card h4 {
+      font-family:'Cormorant Garamond',serif; font-size:20px; font-weight:700;
+      color:var(--white); margin-bottom:10px;
+    }
+    .fact-card p { font-size:14.5px; color:rgba(255,255,255,0.62); line-height:1.75; }
+    @media(max-width:900px){ .facts-grid{grid-template-columns:1fr;} }
   </style>
 </head>
 <body>
@@ -42,7 +50,7 @@
   <div class="page-hero-content">
     <div class="page-hero-eyebrow">Manufacturing Vision</div>
     <h1>Building For<br><em>Self-Reliance.</em><br>Building For<br>The Future.</h1>
-    <p>AfriPharma's long-term strategy: WHO-aligned sterile injectable manufacturing at Nacala SEZ — anchored by distribution cash flows and DFI financing.</p>
+    <p>AfriPharma's long-term strategy: WHO-aligned sterile injectable manufacturing — anchored by distribution cash flows and DFI financing.</p>
   </div>
 </section>
 
@@ -73,13 +81,32 @@
   <div class="section-label">Anchor Product</div>
   <h2 class="section-title">Introducing ParaFlow™</h2>
   <p class="section-intro">AfriPharma's anchor manufacturing product — a paracetamol IV solution manufactured to EU GMP Annex 1 standards, targeting WHO Prequalification.</p>
-  <div class="spec-grid">
-    <div class="spec-item"><div class="label">Batch Size</div><div class="value">2,000 L</div><div class="desc">Per manufacturing batch</div></div>
-    <div class="spec-item"><div class="label">Fill Volume</div><div class="value">2.1 mL</div><div class="desc">Unit fill volume</div></div>
-    <div class="spec-item"><div class="label">Sterilization</div><div class="value">121°C × 15 min</div><div class="desc">Terminal sterilization — F₀ ≥8 min</div></div>
-    <div class="spec-item"><div class="label">Filtration</div><div class="value">0.22 µm</div><div class="desc">Sterilizing filtration — bubble point ≥3.5 bar</div></div>
-    <div class="spec-item"><div class="label">Assay</div><div class="value">99–101%</div><div class="desc">Paracetamol assay specification</div></div>
-    <div class="spec-item"><div class="label">Standard</div><div class="value">EU GMP Annex 1</div><div class="desc">Aligned to international sterile manufacturing standards</div></div>
+  <div class="facts-grid">
+
+    <div class="fact-card">
+      <div class="fact-num">&lt;2%</div>
+      <h4>Africa Produces Less Than 2% of the Medicines It Consumes</h4>
+      <p>Sub-Saharan Africa imports the vast majority of its pharmaceutical supply. ParaFlow is designed to directly address that gap — manufacturing paracetamol IV locally within the SADC region and reducing dependence on distant supply chains.</p>
+    </div>
+
+    <div class="fact-card">
+      <div class="fact-num">WHO</div>
+      <h4>Paracetamol IV Is on the WHO Essential Medicines List</h4>
+      <p>Paracetamol IV is globally recognised as a critical medicine that every functioning health system must have reliably available. Producing it locally means Southern African health systems are no longer dependent on imports for one of their most essential drugs.</p>
+    </div>
+
+    <div class="fact-card">
+      <div class="fact-num">100%</div>
+      <h4>Currently 100% Imported Into Southern Africa</h4>
+      <p>Most paracetamol IV used across Zimbabwe, Zambia, Botswana, and Mozambique is imported from India, Europe, or South Africa — creating supply chain fragility and price volatility that locally manufactured product directly eliminates.</p>
+    </div>
+
+    <div class="fact-card">
+      <div class="fact-num">PQ</div>
+      <h4>WHO Prequalification Unlocks Continental Procurement</h4>
+      <p>A WHO-prequalified ParaFlow product can be purchased by UNICEF Supply Division, UNFPA, and government tender programs across Africa — giving AfriPharma access to large-scale institutional health contracts beyond the SADC region.</p>
+    </div>
+
   </div>
   <div style="margin-top:44px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:32px">
     <h4 style="font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:700;color:var(--gold);margin-bottom:12px">WHO Prequalification Pathway</h4>
@@ -87,24 +114,7 @@
   </div>
 </section>
 
-<!-- NACALA -->
-<section class="section section-white">
-  <div class="two-col">
-    <div>
-      <div class="section-label">Manufacturing Site</div>
-      <h2 class="section-title">Nacala SEZ,<br>Mozambique.</h2>
-      <p style="font-size:16px;color:var(--muted);margin-bottom:16px;line-height:1.85">The Nacala Special Economic Zone in northern Mozambique has been identified as AfriPharma's preferred manufacturing anchor — strategically positioned for SADC-wide distribution, with favorable investment incentives and deep-water port access.</p>
-      <p style="font-size:16px;color:var(--muted);line-height:1.85">The Nacala Corridor connects Mozambique, Malawi, and Zambia — providing AfriPharma with a logistics backbone that serves multiple SADC markets from a single manufacturing base.</p>
-    </div>
-    <div>
-      <div style="background:var(--offwhite);border-radius:12px;padding:32px;border:1px solid var(--border);margin-bottom:18px">
-        <h4 style="font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:700;color:var(--navy);margin-bottom:14px">Facility Scope</h4>
-        <ul class="check-list">
-          <li><div class="check-bullet"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg></div>Sterile injectables manufacturing — paracetamol IV, metronidazole IV, sodium bicarbonate injection</li>
-          <li><div class="check-bullet"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg></div>QC/microbiological laboratory (120–150 m²)</li>
-          <li><div class="check-bullet"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg></div>EU GMP Annex 1 cleanroom design</li>
-          <li><div class="check-bullet"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg></div>IQ/OQ/PQ and PPQ validation framework</li>
-        </ul>
+
       </div>
     </div>
   </div>
