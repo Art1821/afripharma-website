@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pharmaceutical Distribution — AfriPharma Health Systems</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .serve-grid { display:grid; grid-template-columns:repeat(5,1fr); gap:14px; }
+    .serve-card {
+      background:var(--white); border:1px solid var(--border); border-radius:10px;
+      padding:22px 16px; text-align:center;
+      transition:border-color 0.2s, transform 0.2s;
+    }
+    .serve-card:hover { border-color:var(--blue); transform:translateY(-3px); }
+    .serve-card h3 { font-family:'Cormorant Garamond',serif; font-size:18px; font-weight:700; color:var(--navy); }
+    @media(max-width:900px){ .serve-grid{grid-template-columns:repeat(2,1fr);} }
+  </style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="brand">
+    <a href="index.html">
+      <img src="logo.png" alt="AfriPharma Health Systems" class="logo" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <span class="logo-text" style="display:none">Afri<span>Pharma</span></span>
+    </a>
+  </div>
+  <nav class="main-nav">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="care360.html">Care360</a>
+    <a href="pharmacy.html">Pharmacy</a>
+    <a href="distribution.html" class="active">Distribution</a>
+    <a href="manufacturing.html">Manufacturing</a>
+    <a href="partners.html">Partners</a>
+    <a href="contact.html" class="nav-cta">Contact</a>
+  </nav>
+</header>
+
+<section class="page-hero">
+  <div class="page-hero-content">
+    <div class="page-hero-eyebrow">Pharmaceutical Distribution</div>
+    <h1>Reliable Supply.<br><em>Healthier Communities.</em></h1>
+    <p>A MCAZ-compliant pharmaceutical distribution platform — connecting manufacturers to patients across Zimbabwe and the SADC region.</p>
+  </div>
+</section>
+
+<!-- OVERVIEW -->
+<section class="section section-white">
+  <div class="two-col">
+    <div>
+      <div class="section-label">The Platform</div>
+      <h2 class="section-title">Distribution Infrastructure<br>Built for Southern Africa.</h2>
+      <p style="font-size:16px;color:var(--muted);margin-bottom:16px;line-height:1.85">AfriPharma is developing a fully compliant pharmaceutical distribution platform in Zimbabwe — with a Harare Distribution Centre being established in Msasa, and a MCAZ Wholesale Distribution Permit (WDP) application in progress.</p>
+      <p style="font-size:16px;color:var(--muted);margin-bottom:28px;line-height:1.85">Our distribution operations are designed to meet the highest regulatory standards from day one — building the compliance track record needed for DFI engagement, institutional supplier partnerships, and regional expansion.</p>
+      <div class="badge-group">
+        <div class="badge">MCAZ — Zimbabwe</div>
+        <div class="badge">BoMRA — Botswana</div>
+        <div class="badge">SAHPRA — South Africa</div>
+        <div class="badge">ZAMRA — Zambia</div>
+        <div class="badge">ZAZIBONA</div>
+        <div class="badge">GDP Aligned</div>
+      </div>
+    </div>
+    <div>
+      <div style="background:var(--offwhite);border-radius:12px;padding:36px;border:1px solid var(--border)">
+        <div class="section-label" style="margin-bottom:12px">Harare Distribution Centre</div>
+        <h3 style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;color:var(--navy);margin-bottom:14px">Msasa, Harare — Zimbabwe</h3>
+        <ul class="check-list">
+          <li><div class="check-bullet"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg></div>MCAZ-compliant zone layout</li>
+          <li><div class="check-bullet"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg></div>Quarantine and rejected goods segregation</li>
+          <li><div class="check-bullet"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg></div>Temperature monitoring (T1–T4 points)</li>
+          <li><div class="check-bullet"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg></div>Cold-chain integrity systems</li>
+          <li><div class="check-bullet"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg></div>CCTV surveillance and pest control</li>
+          <li><div class="check-bullet"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg></div>Responsible Pharmacist workstation</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHO WE SERVE -->
+<section class="section section-offwhite">
+  <div class="section-label">Customers</div>
+  <h2 class="section-title">Who We Serve.</h2>
+  <p class="section-intro">AfriPharma's distribution platform is built to serve every node of the healthcare supply chain.</p>
+  <div class="serve-grid">
+    <div class="serve-card"><h3>Hospitals</h3></div>
+    <div class="serve-card"><h3>Clinics</h3></div>
+    <div class="serve-card"><h3>Pharmacies</h3></div>
+    <div class="serve-card"><h3>NGOs</h3></div>
+    <div class="serve-card"><h3>Healthcare Providers</h3></div>
+  </div>
+</section>
+
+<!-- FOCUS AREAS -->
+<section class="section section-white">
+  <div class="two-col-wide">
+    <div>
+      <div class="section-label">Distribution Focus</div>
+      <h2 class="section-title">Our Distribution<br>Commitments.</h2>
+      <ul class="check-list" style="margin-top:30px">
+        <li><div class="check-bullet"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg></div><strong>Quality-assured medicines</strong> — sourced exclusively from registered, reputable manufacturers with full documentation</li>
+        <li><div class="check-bullet"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg></div><strong>Regulatory compliance</strong> — MCAZ WDP application in progress; GDP-aligned SOPs operational from day one</li>
+        <li><div class="check-bullet"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg></div><strong>Cold-chain integrity</strong> — temperature-controlled storage and transport for products requiring refrigeration</li>
+        <li><div class="check-bullet"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg></div><strong>Supply-chain resilience</strong> — diversified supplier base to ensure consistent product availability</li>
+        <li><div class="check-bullet"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg></div><strong>Technology-enabled operations</strong> — digital inventory management, order tracking, and documentation systems</li>
+        <li><div class="check-bullet"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg></div><strong>QMS and SOP framework</strong> — comprehensive Quality Management System aligned to MCAZ SOP LE 67 requirements</li>
+      </ul>
+    </div>
+    <div>
+      <div style="background:var(--offwhite);border-radius:12px;padding:32px;border:1px solid var(--border);margin-bottom:20px">
+        <h4 style="font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:700;color:var(--navy);margin-bottom:12px">Supplier Partnerships</h4>
+        <p style="font-size:14.5px;color:var(--muted);margin-bottom:16px;line-height:1.7">AfriPharma has issued RFQs and is in active discussions with leading pharmaceutical manufacturers.</p>
+        <div class="badge-group">
+          <div class="badge">AdvaCare</div>
+          <div class="badge">Cipla SA</div>
+          <div class="badge">Sun Pharma SA</div>
+          <div class="badge">Aspen</div>
+          <div class="badge">Kenvue</div>
+          <div class="badge">P&amp;G SA</div>
+          <div class="badge">Dr. Reddy's</div>
+        </div>
+      </div>
+      <div style="background:var(--navy);border-radius:12px;padding:32px;color:var(--white)">
+        <h4 style="font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:700;color:var(--gold);margin-bottom:12px">Opening SKU Strategy</h4>
+        <p style="font-size:14.5px;color:rgba(255,255,255,0.65);line-height:1.7">AfriPharma's opening product focus is intentionally narrow and high-volume: <strong style="color:white">Aspirin 81mg tablets</strong> and <strong style="color:white">Terbinafine HCL Gel</strong> — products with strong market demand and proven supply chains.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REGIONAL EXPANSION -->
+<section class="section section-navy">
+  <div class="section-label">Regional Expansion</div>
+  <h2 class="section-title">From Zimbabwe<br>to the SADC Region.</h2>
+  <p class="section-intro">AfriPharma's distribution footprint is being built market by market — with Zimbabwe as the operational anchor and Botswana, South Africa, and Zambia in the pipeline.</p>
+  <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:10px">
+    <div class="card-dark"><h3>Zimbabwe — Phase 1</h3><p>Primary market. MCAZ WDP application active. Harare DC in Msasa under development. Stanbic identified as primary banking partner.</p></div>
+    <div class="card-dark"><h3>Botswana — Phase 1</h3><p>Entity incorporated April 2026. BURS TIN registered. BoMRA compliance framework prepared. Banking package in progress.</p></div>
+    <div class="card-dark"><h3>South Africa — Phase 2</h3><p>SAHPRA-aligned compliance preparation underway. Entity formation planned. Tinashe Chinoingira leading South Africa technical and supply chain development.</p></div>
+    <div class="card-dark"><h3>Zambia — Phase 3</h3><p>ZDA engagement active. ZAMRA and ZAMSA introduction documents prepared. Ministry of Health and Ministry of Commerce and Trade outreach in progress.</p></div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand-col">
+      <div class="footer-logo-text">Afri<span>Pharma</span> Health Systems</div>
+      <p>Precision Medicine. African Roots.</p>
+      <p>Building Africa's health infrastructure — one brick at a time.</p>
+      <p style="margin-top:14px">info@afripharma-health.com</p>
+    </div>
+    <div class="footer-col"><h4>Platform</h4><a href="pharmacy.html">Pharmacy Services</a><a href="care360.html">Care360™</a><a href="distribution.html">Distribution</a><a href="manufacturing.html">Manufacturing Vision</a></div>
+    <div class="footer-col"><h4>Company</h4><a href="about.html">About Us</a><a href="partners.html">Partners &amp; Investors</a><a href="contact.html">Contact</a></div>
+    <div class="footer-col"><h4>Markets</h4><a href="#">Zimbabwe</a><a href="#">Botswana</a><a href="#">South Africa</a><a href="#">Zambia</a><a href="#">Mozambique</a></div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 AfriPharma Health Systems. All rights reserved.</span>
+    <span>Precision Medicine. African Roots.</span>
+  </div>
+</footer>
+</body>
+</html>
