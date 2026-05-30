@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — AfriPharma Health Systems</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 3fr 2fr;
+      gap: 60px;
+      align-items: start;
+    }
+
+    /* ── FORM ── */
+    .contact-form-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 44px 40px;
+    }
+    .contact-form-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px; font-weight: 700;
+      color: var(--navy); margin-bottom: 6px;
+    }
+    .contact-form-card .sub {
+      font-size: 14.5px; color: var(--muted);
+      margin-bottom: 32px; line-height: 1.6;
+    }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+    .form-row.full { grid-template-columns: 1fr; }
+
+    .field { display: flex; flex-direction: column; gap: 6px; }
+    .field label {
+      font-size: 11.5px; font-weight: 600;
+      color: var(--navy); letter-spacing: 0.06em; text-transform: uppercase;
+    }
+    .field label .req { color: var(--blue); margin-left: 2px; }
+    .field input,
+    .field select,
+    .field textarea {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px; color: var(--text);
+      border: 1.5px solid rgba(0,0,0,0.12);
+      border-radius: 6px; padding: 11px 14px;
+      background: var(--white); outline: none; width: 100%;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus {
+      border-color: var(--blue);
+      box-shadow: 0 0 0 3px rgba(11,95,165,0.08);
+    }
+    .field textarea { resize: vertical; min-height: 120px; }
+
+    .submit-btn {
+      width: 100%; margin-top: 24px;
+      background: var(--blue); color: var(--white);
+      border: none; border-radius: 6px;
+      padding: 14px 28px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px; font-weight: 600;
+      cursor: pointer; letter-spacing: 0.02em;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .submit-btn:hover { background: var(--blue-light); transform: translateY(-1px); }
+
+    .form-note {
+      font-size: 12px; color: var(--muted);
+      text-align: center; margin-top: 12px; line-height: 1.6;
+    }
+
+    /* success / error states */
+    .form-success {
+      display: none;
+      background: rgba(34,197,94,0.08);
+      border: 1.5px solid #16a34a;
+      border-radius: 8px; padding: 20px 22px;
+      margin-top: 20px;
+    }
+    .form-success p { font-size: 14.5px; color: #15803d; line-height: 1.65; }
+
+    /* ── SIDEBAR ── */
+    .contact-sidebar { position: sticky; top: 90px; }
+
+    .contact-detail-card {
+      background: var(--navy); border-radius: 12px;
+      padding: 32px 28px; margin-bottom: 18px;
+      color: var(--white);
+    }
+    .contact-detail-card h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 13px; font-weight: 600;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 18px;
+    }
+    .detail-row {
+      display: flex; gap: 12px; align-items: flex-start;
+      padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.07);
+      font-size: 14px;
+    }
+    .detail-row:last-child { border-bottom: none; }
+    .detail-row .icon { color: var(--gold); flex-shrink: 0; font-size: 16px; margin-top: 1px; }
+    .detail-row .info { line-height: 1.6; }
+    .detail-row .info strong { display: block; color: var(--white); font-size: 13px; margin-bottom: 2px; }
+    .detail-row .info span { color: rgba(255,255,255,0.6); font-size: 13px; }
+    .detail-row .info a { color: var(--gold); text-decoration: none; font-size: 13px; }
+    .detail-row .info a:hover { text-decoration: underline; }
+
+    .dept-cards { display: flex; flex-direction: column; gap: 12px; }
+    .dept-card {
+      background: var(--offwhite); border: 1px solid var(--border);
+      border-radius: 10px; padding: 18px 20px;
+      transition: border-color 0.2s;
+    }
+    .dept-card:hover { border-color: var(--blue); }
+    .dept-card h5 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 16px; font-weight: 700;
+      color: var(--navy); margin-bottom: 4px;
+    }
+    .dept-card p { font-size: 13px; color: var(--muted); margin-bottom: 8px; line-height: 1.5; }
+    .dept-card a { font-size: 13px; font-weight: 600; color: var(--blue); text-decoration: none; }
+    .dept-card a:hover { text-decoration: underline; }
+
+    @media (max-width: 900px) {
+      .contact-layout { grid-template-columns: 1fr; }
+      .contact-sidebar { position: static; }
+      .form-row { grid-template-columns: 1fr; }
+      .contact-form-card { padding: 28px 22px; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="brand">
+    <a href="index.html">
+      <img src="logo.png" alt="AfriPharma Health Systems" class="logo"
+        onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <span class="logo-text" style="display:none">Afri<span>Pharma</span></span>
+    </a>
+  </div>
+  <nav class="main-nav">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="care360.html">Care360</a>
+    <a href="pharmacy.html">Pharmacy</a>
+    <a href="distribution.html">Distribution</a>
+    <a href="manufacturing.html">Manufacturing</a>
+    <a href="partners.html">Partners</a>
+    <a href="contact.html" class="nav-cta active">Contact</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="page-hero">
+  <div class="page-hero-content">
+    <div class="page-hero-eyebrow">Get In Touch</div>
+    <h1>Let's Build<br><em>Something Together.</em></h1>
+    <p>Whether you're a healthcare provider, investor, supplier, government agency, or a family seeking Care360 support — we'd like to hear from you.</p>
+  </div>
+</section>
+
+<!-- MAIN CONTACT SECTION -->
+<section class="section section-offwhite">
+  <div class="contact-layout">
+
+    <!-- FORM -->
+    <div>
+      <div class="contact-form-card">
+        <h3>Send Us a Message</h3>
+        <p class="sub">We aim to respond within 2 business days. For Care360 enrolment, please use the <a href="care360enrol.html" style="color:var(--blue);font-weight:600">enrolment form</a> instead.</p>
+
+        <!--
+          FORMSPREE SETUP (takes 2 minutes):
+          1. Go to formspree.io and create a free account
+          2. Click "New Form" and name it "AfriPharma Contact"
+          3. Copy your form ID — it looks like: https://formspree.io/f/xyzabcde
+          4. Replace YOUR_FORMSPREE_ID below with that ID
+          5. Submissions will arrive at info@afripharma-health.com
+        -->
+        <form
+          id="contactForm"
+          action="https://formspree.io/f/YOUR_FORMSPREE_ID"
+          method="POST">
+
+          <div class="form-row">
+            <div class="field">
+              <label>First Name <span class="req">*</span></label>
+              <input type="text" name="first_name" placeholder="e.g. Arthur" required>
+            </div>
+            <div class="field">
+              <label>Last Name <span class="req">*</span></label>
+              <input type="text" name="last_name" placeholder="e.g. Mudehwe" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="field">
+              <label>Email Address <span class="req">*</span></label>
+              <input type="email" name="email" placeholder="your@email.com" required>
+            </div>
+            <div class="field">
+              <label>Phone / WhatsApp</label>
+              <input type="tel" name="phone" placeholder="+1 555 000 0000">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="field">
+              <label>Organisation / Company</label>
+              <input type="text" name="organisation" placeholder="Your company or institution">
+            </div>
+            <div class="field">
+              <label>Country <span class="req">*</span></label>
+              <select name="country" required>
+                <option value="">— Select country —</option>
+                <option>United States</option>
+                <option>United Kingdom</option>
+                <option>Canada</option>
+                <option>Australia</option>
+                <option>Zimbabwe</option>
+                <option>Botswana</option>
+                <option>South Africa</option>
+                <option>Zambia</option>
+                <option>Mozambique</option>
+                <option>Other</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row full" style="margin-bottom:16px">
+            <div class="field">
+              <label>I am a… <span class="req">*</span></label>
+              <select name="enquiry_type" required>
+                <option value="">— Select one —</option>
+                <option>Healthcare provider / Hospital / Clinic</option>
+                <option>Pharmacy</option>
+                <option>Pharmaceutical supplier / Manufacturer</option>
+                <option>Investor / DFI / Development finance</option>
+                <option>Government / Regulatory authority</option>
+                <option>NGO / Public health organisation</option>
+                <option>Family seeking Care360 support</option>
+                <option>Media / Press</option>
+                <option>Other</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row full" style="margin-bottom:16px">
+            <div class="field">
+              <label>Subject <span class="req">*</span></label>
+              <input type="text" name="subject" placeholder="Brief subject of your enquiry" required>
+            </div>
+          </div>
+
+          <div class="form-row full" style="margin-bottom:0">
+            <div class="field">
+              <label>Message <span class="req">*</span></label>
+              <textarea name="message" placeholder="Tell us about your enquiry, partnership interest, or how we can help..." required></textarea>
+            </div>
+          </div>
+
+          <!-- Hidden field to identify source -->
+          <input type="hidden" name="_subject" value="New AfriPharma Website Enquiry">
+          <input type="hidden" name="_next" value="https://afripharma-health.com/contact.html?submitted=true">
+
+          <button type="submit" class="submit-btn">Send Message →</button>
+          <p class="form-note">Your information is kept confidential and used only to respond to your enquiry.</p>
+        </form>
+
+        <!-- Success message shown after submission -->
+        <div class="form-success" id="formSuccess">
+          <p><strong>✓ Message sent successfully.</strong> Thank you for reaching out to AfriPharma. We'll respond to <span id="submittedEmail"></span> within 2 business days.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SIDEBAR -->
+    <div class="contact-sidebar">
+
+      <div class="contact-detail-card">
+        <h4>Contact Details</h4>
+        <div class="detail-row">
+          <div class="icon">✉</div>
+          <div class="info">
+            <strong>General Enquiries</strong>
+            <a href="mailto:info@afripharma-health.com">info@afripharma-health.com</a>
+          </div>
+        </div>
+        <div class="detail-row">
+          <div class="icon">✉</div>
+          <div class="info">
+            <strong>Care360 Support</strong>
+            <a href="mailto:care360@afripharma-health.com">care360@afripharma-health.com</a>
+          </div>
+        </div>
+        <div class="detail-row">
+          <div class="icon">📍</div>
+          <div class="info">
+            <strong>AfriPharma Zimbabwe</strong>
+            <span>Reg. #98533A0242026 · Harare, Zimbabwe</span>
+          </div>
+        </div>
+        <div class="detail-row">
+          <div class="icon">📍</div>
+          <div class="info">
+            <strong>AfriPharma Botswana</strong>
+            <span>UIN BW00009667370 · Botswana</span>
+          </div>
+        </div>
+        <div class="detail-row">
+          <div class="icon">🕐</div>
+          <div class="info">
+            <strong>Response Time</strong>
+            <span>Within 2 business days</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="dept-cards">
+        <div class="dept-card">
+          <h5>Care360™ Families</h5>
+          <p>To enrol a loved one in Care360 healthcare coordination.</p>
+          <a href="care360enrol.html">Start Enrolment →</a>
+        </div>
+        <div class="dept-card">
+          <h5>Investors &amp; DFI Partners</h5>
+          <p>Investor materials and financial model available on request.</p>
+          <a href="mailto:info@afripharma-health.com">Request Materials →</a>
+        </div>
+        <div class="dept-card">
+          <h5>Distribution Partners</h5>
+          <p>Pharmacies, hospitals, and healthcare providers in Zimbabwe and SADC.</p>
+          <a href="mailto:info@afripharma-health.com">Contact Distribution →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand-col">
+      <div class="footer-logo-text">Afri<span>Pharma</span> Health Systems</div>
+      <p>Precision Medicine. African Roots.</p>
+      <p>Building Africa's health infrastructure — one brick at a time.</p>
+      <p style="margin-top:14px">info@afripharma-health.com</p>
+    </div>
+    <div class="footer-col">
+      <h4>Platform</h4>
+      <a href="pharmacy.html">Pharmacy Services</a>
+      <a href="care360.html">Care360™</a>
+      <a href="distribution.html">Distribution</a>
+      <a href="manufacturing.html">Manufacturing Vision</a>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <a href="about.html">About Us</a>
+      <a href="partners.html">Partners &amp; Investors</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="footer-col">
+      <h4>Support</h4>
+      <a href="care360enrol.html">Care360 Enrolment</a>
+      <a href="mailto:care360@afripharma-health.com">Care360 Support</a>
+      <a href="mailto:info@afripharma-health.com">General Enquiries</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 AfriPharma Health Systems. All rights reserved.</span>
+    <span>Precision Medicine. African Roots.</span>
+  </div>
+</footer>
+
+<script>
+  // Show success message if redirected back after Formspree submission
+  if (window.location.search.includes('submitted=true')) {
+    document.getElementById('contactForm').style.display = 'none';
+    const success = document.getElementById('formSuccess');
+    success.style.display = 'block';
+  }
+
+  // Capture email for success message
+  document.querySelector('input[type="email"]')?.addEventListener('input', function() {
+    document.getElementById('submittedEmail').textContent = this.value;
+  });
+</script>
+
+</body>
+</html>
