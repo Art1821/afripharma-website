@@ -1,69 +1,74 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
-  <!-- Homepage -->
   <url>
-    <loc>https://afripharma-health.com/index.html</loc>
-    <lastmod>2026-05-29</lastmod>
-    <changefreq>weekly</changefreq>
+    <loc>https://afripharma-health.com/</loc>
     <priority>1.0</priority>
   </url>
 
-  <!-- About -->
   <url>
     <loc>https://afripharma-health.com/about.html</loc>
-    <lastmod>2026-05-29</lastmod>
-    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
-  <!-- Care360 Landing Page -->
   <url>
     <loc>https://afripharma-health.com/care360.html</loc>
-    <lastmod>2026-05-29</lastmod>
-    <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
-  <!-- Care360 Enrolment Subpage -->
   <url>
     <loc>https://afripharma-health.com/care360enrol.html</loc>
-    <lastmod>2026-05-29</lastmod>
-    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
-  <!-- Pharmacy -->
+  <url>
+    <loc>https://afripharma-health.com/care360-faq.html</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://afripharma-health.com/care360-account.html</loc>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://afripharma-health.com/care360-thank-you.html</loc>
+    <priority>0.3</priority>
+  </url>
+
+  <url>
+    <loc>https://afripharma-health.com/care360-cancelled.html</loc>
+    <priority>0.3</priority>
+  </url>
+
+  <url>
+    <loc>https://afripharma-health.com/care360-privacy-terms.html</loc>
+    <priority>0.5</priority>
+  </url>
+
   <url>
     <loc>https://afripharma-health.com/pharmacy.html</loc>
-    <lastmod>2026-05-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
 
-  <!-- Distribution -->
   <url>
     <loc>https://afripharma-health.com/distribution.html</loc>
-    <lastmod>2026-05-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
 
-  <!-- Manufacturing -->
   <url>
     <loc>https://afripharma-health.com/manufacturing.html</loc>
-    <lastmod>2026-05-29</lastmod>
-    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://afripharma-health.com/partners.html</loc>
     <priority>0.7</priority>
   </url>
 
-  <!-- Partners & Investors -->
   <url>
-    <loc>https://afripharma-health.com/partners.html</loc>
-    <lastmod>2026-05-29</lastmod>
-    <changefreq>monthly</changefreq>
+    <loc>https://afripharma-health.com/contact.html</loc>
     <priority>0.7</priority>
   </url>
 
 </urlset>
-
