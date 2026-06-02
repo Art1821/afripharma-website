@@ -474,6 +474,49 @@ In a medical emergency, patients should contact local emergency services or proc
 </form>
 
 </section>
+</form>
+
+</section>
+
+<script>
+
+let selectedPlan = "Essential";
+let selectedPrice = "$19/month";
+
+function selectPlan(card) {
+
+  document.querySelectorAll(".plan-card").forEach(function(item) {
+    item.classList.remove("active");
+  });
+
+  card.classList.add("active");
+
+  selectedPlan = card.getAttribute("data-plan");
+  selectedPrice = card.getAttribute("data-price");
+
+  document.getElementById("selectedPlanField").value = selectedPlan;
+  document.getElementById("selectedMonthlyField").value = selectedPrice;
+}
+
+function handleStripe() {
+
+  const stripeLinks = {
+    "Essential": "https://buy.stripe.com/bJe7sN54H2NL1JhbRR9Ve00",
+    "Plus": "https://buy.stripe.com/cNi8wRfJlewtfA7cVV9Ve02",
+    "Platinum": "https://buy.stripe.com/fZu3cx8gT4VT87F3ll9Ve01"
+  };
+
+  window.location.href = stripeLinks[selectedPlan];
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+
+  document.getElementById("selectedPlanField").value = selectedPlan;
+  document.getElementById("selectedMonthlyField").value = selectedPrice;
+
+});
+
+</script>
 
 </body>
 </html>
