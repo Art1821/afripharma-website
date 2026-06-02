@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AfriPharma360™ — Healthcare Coordination for Diaspora Families</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --teal:#007C7C;
+  --teal-lt:#00A8A8;
+  --coral:#E8845A;
+  --dark:#0A1F1F;
+  --white:#F2F8F8;
+  --muted:rgba(242,248,248,0.62);
+  --light:#F7FBFB;
+  --navy:#06213a;
+  --text:#243b3b;
+}
+
+body {
+  font-family:'Outfit', sans-serif;
+  color:var(--text);
+  background:#fff;
+}
+
+a { text-decoration:none; }
+
+.hero {
+  min-height:100vh;
+  background:linear-gradient(160deg,#0A1F1F,#061616,#0D2626);
+  color:var(--white);
+  position:relative;
+  overflow:hidden;
+}
+
+.hero::before {
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(ellipse 80% 60% at 70% 20%, rgba(0,124,124,0.25), transparent 60%),
+    radial-gradient(ellipse 50% 40% at 20% 80%, rgba(232,132,90,0.15), transparent 55%);
+}
+
+nav {
+  position:relative;
+  z-index:2;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:26px 7%;
+  border-bottom:1px solid rgba(255,255,255,0.1);
+  background:rgba(10,31,31,0.45);
+  backdrop-filter:blur(10px);
+}
+
+.logo-text {
+  font-family:'Lora',serif;
+  font-size:1.2rem;
+  font-weight:700;
+  color:#fff;
+}
+
+.logo-text span { color:var(--teal-lt); }
+
+.nav-links {
+  display:flex;
+  list-style:none;
+  gap:30px;
+}
+
+.nav-links a {
+  color:var(--muted);
+  font-size:.9rem;
+  font-weight:500;
+}
+
+.nav-links a:hover { color:#fff; }
+
+.nav-cta {
+  background:var(--teal);
+  color:#fff;
+  padding:11px 24px;
+  border-radius:50px;
+  font-weight:700;
+}
+
+.hero-content {
+  position:relative;
+  z-index:2;
+  display:grid;
+  grid-template-columns:1.05fr .95fr;
+  gap:50px;
+  align-items:center;
+  padding:80px 7%;
+  max-width:1350px;
+  margin:auto;
+}
+
+.eyebrow {
+  display:inline-flex;
+  padding:8px 16px;
+  border-radius:40px;
+  background:rgba(255,255,255,0.07);
+  color:var(--muted);
+  font-size:.75rem;
+  text-transform:uppercase;
+  letter-spacing:.12em;
+  margin-bottom:28px;
+}
+
+.hero-story {
+  font-family:'Lora',serif;
+  font-style:italic;
+  color:var(--coral);
+  font-size:1.25rem;
+  line-height:1.6;
+  margin-bottom:18px;
+}
+
+.hero h1 {
+  font-family:'Lora',serif;
+  font-size:clamp(2.5rem,5vw,4rem);
+  line-height:1.12;
+  margin-bottom:24px;
+}
+
+.hero h1 em {
+  color:var(--teal-lt);
+  font-style:italic;
+}
+
+.hero-subhead {
+  color:var(--muted);
+  font-size:1.08rem;
+  line-height:1.75;
+  max-width:610px;
+  margin-bottom:36px;
+}
+
+.hero-subhead strong { color:#fff; }
+
+.cta-group {
+  display:flex;
+  gap:18px;
+  flex-wrap:wrap;
+  margin-bottom:42px;
+}
+
+.cta-primary {
+  background:var(--teal);
+  color:#fff;
+  padding:16px 30px;
+  border-radius:50px;
+  font-weight:700;
+}
+
+.cta-secondary {
+  color:var(--white);
+  padding:16px 20px;
+  font-weight:600;
+}
+
+.trust-row {
+  display:flex;
+  gap:24px;
+  flex-wrap:wrap;
+  padding-top:30px;
+  border-top:1px solid rgba(255,255,255,0.1);
+}
+
+.trust-item .value {
+  font-family:'Lora',serif;
+  font-size:1.6rem;
+  font-weight:700;
+}
+
+.trust-item .label {
+  display:block;
+  font-size:.72rem;
+  text-transform:uppercase;
+  color:var(--muted);
+}
+
+.badge {
+  border:1px solid rgba(255,255,255,0.12);
+  padding:10px 16px;
+  border-radius:10px;
+  color:var(--muted);
+  font-size:.78rem;
+  text-transform:uppercase;
+}
+
+.care-card {
+  background:rgba(255,255,255,0.06);
+  border:1px solid rgba(255,255,255,0.12);
+  border-radius:24px;
+  padding:30px;
+  box-shadow:0 30px 70px rgba(0,0,0,0.35);
+}
+
+.card-header {
+  display:flex;
+  justify-content:space-between;
+  margin-bottom:22px;
+}
+
+.card-title {
+  display:block;
+  color:var(--muted);
+  text-transform:uppercase;
+  font-size:.72rem;
+  letter-spacing:.12em;
+}
+
+.card-name {
+  font-family:'Lora',serif;
+  font-size:1.3rem;
+  font-weight:700;
+}
+
+.status {
+  background:rgba(46,204,113,0.15);
+  color:#2ECC71;
+  padding:6px 12px;
+  border-radius:30px;
+  font-size:.75rem;
+  font-weight:700;
+}
+
+.activity {
+  background:rgba(255,255,255,0.05);
+  border:1px solid rgba(255,255,255,0.08);
+  padding:15px;
+  border-radius:14px;
+  margin-bottom:14px;
+}
+
+.activity strong { display:block; color:#fff; margin-bottom:4px; }
+.activity span { color:var(--muted); font-size:.85rem; }
+
+.coord {
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin-top:18px;
+  background:rgba(0,124,124,0.12);
+  padding:14px;
+  border-radius:14px;
+}
+
+.avatar {
+  background:var(--teal);
+  color:#fff;
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:700;
+}
+
+.plans-strip {
+  position:relative;
+  z-index:2;
+  display:flex;
+  gap:25px;
+  overflow-x:auto;
+  background:rgba(10,31,31,0.8);
+  border-top:1px solid rgba(255,255,255,0.12);
+  padding:18px 7%;
+}
+
+.plan-pill strong { color:#fff; display:block; }
+.plan-pill span { color:var(--muted); font-size:.85rem; }
+
+section.content {
+  padding:80px 7%;
+}
+
+.section-title {
+  font-family:'Lora',serif;
+  font-size:2.4rem;
+  color:var(--navy);
+  margin-bottom:18px;
+}
+
+.section-intro {
+  font-size:1.1rem;
+  line-height:1.7;
+  max-width:760px;
+  margin-bottom:36px;
+  color:#536666;
+}
+
+.grid-3 {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:24px;
+}
+
+.card {
+  background:#fff;
+  border:1px solid #e3eeee;
+  border-radius:18px;
+  padding:28px;
+  box-shadow:0 12px 30px rgba(0,0,0,0.05);
+}
+
+.card h3 {
+  color:var(--navy);
+  margin-bottom:10px;
+  font-size:1.25rem;
+}
+
+.card p {
+  color:#536666;
+  line-height:1.7;
+}
+
+.plans {
+  background:var(--light);
+}
+
+.price {
+  font-family:'Lora',serif;
+  font-size:2.3rem;
+  color:var(--teal);
+  margin:12px 0;
+}
+
+.card ul {
+  margin-top:16px;
+  padding-left:18px;
+  color:#536666;
+  line-height:1.9;
+}
+
+.disclaimer {
+  background:#fff7ed;
+  border:1px solid #fed7aa;
+  color:#7c2d12;
+  padding:24px;
+  border-radius:16px;
+  line-height:1.75;
+  margin-top:36px;
+}
+
+.footer {
+  background:#061616;
+  color:var(--muted);
+  padding:45px 7%;
+}
+
+.footer a { color:var(--teal-lt); }
+
+@media(max-width:900px){
+  .nav-links { display:none; }
+  .hero-content { grid-template-columns:1fr; padding:55px 7%; }
+  .grid-3 { grid-template-columns:1fr; }
+}
+</style>
+</head>
+
+<body>
+
+<section class="hero">
+  <nav>
+    <a href="index.html">
+      <div class="logo-text">Afri<span>Pharma</span>360™</div>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="#how-it-works">How it works</a></li>
+      <li><a href="#plans">Plans & pricing</a></li>
+      <li><a href="care360-faq.html">FAQ</a></li>
+      <li><a href="care360-account.html">Manage Account</a></li>
+    </ul>
+
+    <a href="afripharma360-enrol.html" class="nav-cta">Enrol a loved one</a>
+  </nav>
+
+  <div class="hero-content">
+    <div>
+      <div class="eyebrow">Now serving Harare &amp; Bulawayo</div>
+
+      <p class="hero-story">
+        You're thousands of miles away.<br>
+        They're managing alone.
+      </p>
+
+      <h1>
+        Your family's health,<br>
+        <em>watched over</em> — every day.
+      </h1>
+
+      <p class="hero-subhead">
+        <strong>AfriPharma360™</strong> is AfriPharma’s healthcare coordination and family support platform — connecting diaspora families to professional on-the-ground care coordination for loved ones in Zimbabwe through medication management, healthcare navigation, appointment support, and ongoing wellness communication.
+      </p>
+
+      <div class="cta-group">
+        <a href="afripharma360-enrol.html" class="cta-primary">Enrol a loved one →</a>
+        <a href="#how-it-works" class="cta-secondary">See how it works</a>
+      </div>
+
+      <div class="trust-row">
+        <div class="trust-item">
+          <span class="value">$19</span>
+          <span class="label">Starting per month</span>
+        </div>
+        <div class="trust-item">
+          <span class="value">24 hrs</span>
+          <span class="label">Coordinator intro</span>
+        </div>
+        <div class="trust-item">
+          <span class="value">Local</span>
+          <span class="label">Care coordination</span>
+        </div>
+        <div class="badge">Zimbabwe-based<br>care coordination</div>
+      </div>
+    </div>
+
+    <div class="care-card">
+      <div class="card-header">
+        <div>
+          <span class="card-title">Sample care profile</span>
+          <span class="card-name">Loved One, 71</span>
+        </div>
+        <div class="status">Active</div>
+      </div>
+
+      <div class="activity">
+        <strong>Medication refill support</strong>
+        <span>Prescription coordination reminder created</span>
+      </div>
+
+      <div class="activity">
+        <strong>Appointment support</strong>
+        <span>Clinic visit reminder confirmed</span>
+      </div>
+
+      <div class="activity">
+        <strong>Family update prepared</strong>
+        <span>Wellness communication sent to sponsor</span>
+      </div>
+
+      <div class="coord">
+        <div class="avatar">AP</div>
+        <div>
+          <strong>AfriPharma360 Coordinator</strong><br>
+          <span>Healthcare coordination support</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="plans-strip">
+    <div class="plan-pill">
+      <strong>Essential</strong>
+      <span>$19 / month</span>
+    </div>
+    <div class="plan-pill">
+      <strong>Plus</strong>
+      <span>$49 / month · Most popular</span>
+    </div>
+    <div class="plan-pill">
+      <strong>Platinum</strong>
+      <span>$99 / month · Full coordination</span>
+    </div>
+    <div class="plan-pill">
+      <span>AfriPharma360™ is a healthcare coordination service, not a clinical or emergency medical service.</span>
+    </div>
+  </div>
+</section>
+
+<section class="content" id="how-it-works">
+  <h2 class="section-title">How AfriPharma360™ Works</h2>
+  <p class="section-intro">
+    AfriPharma360™ gives families a structured way to support loved ones in Zimbabwe through coordinated communication, reminders, follow-up, and healthcare navigation.
+  </p>
+
+  <div class="grid-3">
+    <div class="card">
+      <h3>1. Enrol</h3>
+      <p>Complete the online enrolment form with sponsor details, patient information, location, medications, and support needs.</p>
+    </div>
+
+    <div class="card">
+      <h3>2. Verify</h3>
+      <p>An AfriPharma360 coordinator reviews the enrolment, confirms payment, assigns a reference number, and contacts the sponsor.</p>
+    </div>
+
+    <div class="card">
+      <h3>3. Support</h3>
+      <p>Ongoing support begins according to the selected plan, including medication coordination, appointment support, and family updates.</p>
+    </div>
+  </div>
+</section>
+
+<section class="content plans" id="plans">
+  <h2 class="section-title">Plans & Pricing</h2>
+  <p class="section-intro">
+    Choose the level of support that best fits your loved one’s needs.
+  </p>
+
+  <div class="grid-3">
+    <div class="card">
+      <h3>Essential</h3>
+      <div class="price">$19/mo</div>
+      <ul>
+        <li>Care profile setup</li>
+        <li>Medication tracking</li>
+        <li>Refill reminders</li>
+        <li>Monthly family update</li>
+        <li>WhatsApp support</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Plus</h3>
+      <div class="price">$49/mo</div>
+      <ul>
+        <li>Everything in Essential</li>
+        <li>Medication coordination</li>
+        <li>Pharmacy coordination support</li>
+        <li>Appointment scheduling support</li>
+        <li>Priority communication</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Platinum</h3>
+      <div class="price">$99/mo</div>
+      <ul>
+        <li>Everything in Plus</li>
+        <li>Dedicated coordinator</li>
+        <li>Wellness verification calls</li>
+        <li>Enhanced family reporting</li>
+        <li>Escalation support</li>
+      </ul>
+    </div>
+  </div>
+
+  <div style="margin-top:35px;">
+    <a href="afripharma360-enrol.html" class="cta-primary">Start Enrolment →</a>
+  </div>
+
+  <div class="disclaimer">
+    <strong>Important Service Disclaimer:</strong><br>
+    AfriPharma360™ is a healthcare coordination and family support service. AfriPharma360™ does not diagnose medical conditions, prescribe medications, dispense medicines, provide medical treatment, or replace the relationship between a patient and licensed healthcare providers. AfriPharma360™ is not an emergency medical service. In a medical emergency, patients should contact local emergency services or proceed to the nearest licensed healthcare facility.
+  </div>
+</section>
+
+<section class="content">
+  <h2 class="section-title">Why Families Choose AfriPharma360™</h2>
+
+  <div class="grid-3">
+    <div class="card">
+      <h3>Peace of Mind</h3>
+      <p>Families abroad gain visibility into what is happening on the ground without needing to manage everything alone.</p>
+    </div>
+
+    <div class="card">
+      <h3>Structured Coordination</h3>
+      <p>AfriPharma360 brings structure to medication reminders, appointment support, communication, and wellness follow-up.</p>
+    </div>
+
+    <div class="card">
+      <h3>Built for Diaspora Families</h3>
+      <p>The service is designed specifically for people supporting loved ones from outside Zimbabwe.</p>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <p><strong>AfriPharma360™</strong> — Healthcare Support for the People Who Matter Most.</p>
+  <p style="margin-top:10px;">
+    <a href="afripharma360-enrol.html">Enrol</a> ·
+    <a href="care360-faq.html">FAQ</a> ·
+    <a href="care360-account.html">Manage Account</a> ·
+    <a href="care360-privacy-terms.html">Privacy & Terms</a>
+  </p>
+  <p style="margin-top:16px;font-size:.85rem;">
+    AfriPharma360™ is a healthcare coordination service, not a clinical or emergency medical service.
+  </p>
+</footer>
+
+</body>
+</html>
