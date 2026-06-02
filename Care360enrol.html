@@ -443,7 +443,7 @@
   <nav class="main-nav">
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
-    <a href="care360.html" class="active">Afripharma360</a>
+    <a href="care360.html" class="active">Care360</a>
     <a href="pharmacy.html">Pharmacy</a>
     <a href="distribution.html">Distribution</a>
     <a href="manufacturing.html">Manufacturing</a>
@@ -455,9 +455,9 @@
 <!-- HERO -->
 <section class="enrol-hero">
   <div class="enrol-hero-inner">
-    <div class="eyebrow">Afripharma360™ Enrolment</div>
-    <h1>Enrol Your Loved One<br>in <em>Afripharma360™</em></h1>
-    <p>Complete the form below to set up AfriPharma360™ coordinated healthcare support for your family member in Zimbabwe. The process takes about 5–10 minutes.</p>
+    <div class="eyebrow">Care360™ Enrolment</div>
+    <h1>Enrol Your Loved One<br>in <em>Care360™</em></h1>
+    <p>Complete the form below to set up coordinated healthcare support for your family member in Zimbabwe. The process takes about 5–10 minutes.</p>
   </div>
 </section>
 
@@ -533,9 +533,9 @@
       type="hidden"
       name="_redirect"
       value="https://afripharma-health.com/care360-thank-you.html">
-    <input type="hidden" id="selectedPlanField" name="Selected Afripharma360 Plan">
+    <input type="hidden" id="selectedPlanField" name="Selected Care360 Plan">
     <input type="hidden" id="selectedMonthlyField" name="Selected Monthly Price">
-    <input type="hidden" name="_subject" value="New Afripharma360 Enrollment Request">
+    <input type="hidden" name="_subject" value="New Care360 Enrollment Request">
     
 
     <div class="form-layout">
@@ -892,7 +892,7 @@
           <div class="block-subtitle">Submit the enrollment request first, then complete payment using Stripe or PayPal.</div>
 
           <div class="payment-total" id="paymentTotal">
-            <div class="t-row"><span>Afripharma360 Plan</span><span id="ptTier">—</span></div>
+            <div class="t-row"><span>Care360 Plan</span><span id="ptTier">—</span></div>
             <div class="t-row"><span>Monthly Subscription</span><span id="ptMonthly">—</span></div>
             <div class="t-row total"><span>Total Today</span><span id="ptTotal">—</span></div>
           </div>
@@ -1027,7 +1027,7 @@ function updateSummary() {
   document.getElementById('sumCity').textContent = document.getElementById('patientCity')?.value || '—';
   document.getElementById('sumTotal').textContent = selectedMonthly ? '$' + selectedMonthly : '—';
 
-  document.getElementById('ptTier').textContent = selectedTier ? 'Afripharma360 ' + selectedTier : '—';
+  document.getElementById('ptTier').textContent = selectedTier ? 'Care360 ' + selectedTier : '—';
   document.getElementById('ptMonthly').textContent = selectedMonthly ? '$' + selectedMonthly + '/month' : '—';
   document.getElementById('ptTotal').textContent = selectedMonthly ? '$' + selectedMonthly : '—';
 }
@@ -1181,22 +1181,22 @@ function handleStripe() {
 
 function handlePayPal() {
   if (!selectedTier) {
-    alert('Please select an AfriPharma360 plan before proceeding to payment.');
+    alert('Please select a Care360 plan before proceeding to payment.');
     return;
   }
 
   const paypalLinks = {
-    'Essential': 'https://www.paypal.com/ncp/payment/7QU3779P226RJ',
-    'Plus': 'https://www.paypal.com/ncp/payment/RYLM7ZKK6HZ66',
-    'Platinum': 'https://www.paypal.com/ncp/payment/GNX29J8QSAPTC'
-  };
+  'Essential': 'https://www.paypal.com/ncp/payment/7QU3779P226RJ',
+  'Plus': 'https://www.paypal.com/ncp/payment/RYLM7ZKK6HZ66',
+  'Platinum': 'https://www.paypal.com/ncp/payment/GNX29J8QSAPTC'
+};
 
   const url = paypalLinks[selectedTier];
 
-  if (url) {
+  if (url && !url.includes('REPLACE')) {
     window.location.href = url;
   } else {
-    alert('PayPal subscription link for AfriPharma360 ' + selectedTier + ' is not configured yet.');
+    alert('PayPal subscription link for Care360 ' + selectedTier + ' is not configured yet.');
   }
 }
 
