@@ -1181,23 +1181,22 @@ function handleStripe() {
 
 function handlePayPal() {
   if (!selectedTier) {
-    alert('Please select a Afripharma360 plan before proceeding to payment.');
+    alert('Please select an AfriPharma360 plan before proceeding to payment.');
     return;
   }
 
   const paypalLinks = {
-    const paypalLinks = {
-  'Essential': 'https://www.paypal.com/ncp/payment/7QU3779P226RJ',
-  'Plus': 'https://www.paypal.com/ncp/payment/RYLM7ZKK6HZ66',
-  'Platinum': 'https://www.paypal.com/ncp/payment/GNX29J8QSAPTC'
-};
+    'Essential': 'https://www.paypal.com/ncp/payment/7QU3779P226RJ',
+    'Plus': 'https://www.paypal.com/ncp/payment/RYLM7ZKK6HZ66',
+    'Platinum': 'https://www.paypal.com/ncp/payment/GNX29J8QSAPTC'
+  };
 
   const url = paypalLinks[selectedTier];
 
-  if (url && !url.includes('REPLACE')) {
+  if (url) {
     window.location.href = url;
   } else {
-    alert('PayPal subscription link for Afripharma360 ' + selectedTier + ' is not configured yet.');
+    alert('PayPal subscription link for AfriPharma360 ' + selectedTier + ' is not configured yet.');
   }
 }
 
