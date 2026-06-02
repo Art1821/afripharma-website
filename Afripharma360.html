@@ -1,594 +1,433 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AfriPharma360™ — Healthcare Coordination for Diaspora Families</title>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Afripharma360™ — AfriPharma Health Systems</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .tiers-grid {
+      display:grid; grid-template-columns:repeat(3,1fr); gap:24px;
+    }
+    .tier-card {
+      background:var(--white); border:1px solid var(--border);
+      border-radius:12px; padding:36px 30px;
+      transition:transform 0.2s, box-shadow 0.2s;
+      position:relative; overflow:hidden;
+      display:flex; flex-direction:column;
+    }
+    .tier-card:hover { transform:translateY(-5px); box-shadow:0 20px 50px rgba(6,33,58,0.1); }
+    .tier-card.featured { border-color:var(--gold); box-shadow:0 8px 30px rgba(200,155,60,0.12); }
+    .tier-card.featured::before {
+      content:'Most Popular';
+      position:absolute; top:16px; right:-30px;
+      background:var(--gold); color:var(--navy);
+      font-size:10px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase;
+      padding:5px 40px; transform:rotate(45deg);
+    }
+    .tier-num {
+      font-family:'Cormorant Garamond',serif; font-size:64px; font-weight:700;
+      color:rgba(11,95,165,0.06); line-height:1; margin-bottom:10px;
+    }
+    .tier-card h3 {
+      font-family:'Cormorant Garamond',serif; font-size:28px; font-weight:700;
+      color:var(--navy); margin-bottom:6px;
+    }
+    .tier-price {
+      font-family:'Cormorant Garamond',serif; font-size:44px; font-weight:700;
+      color:var(--blue); line-height:1; margin-bottom:8px;
+    }
+    .tier-price span { font-size:15px; font-weight:400; color:var(--muted); }
+    .tier-target {
+      font-size:13px; color:var(--muted); font-style:italic;
+      margin-bottom:20px; line-height:1.55; min-height:38px;
+    }
+    .tier-divider {
+      height:1px; background:var(--border); margin-bottom:20px;
+    }
+    .tier-features { list-style:none; margin-bottom:28px; flex:1; }
+    .tier-features li {
+      font-size:14px; color:var(--muted); padding:7px 0;
+      border-bottom:1px solid var(--border);
+      display:flex; gap:10px; align-items:flex-start;
+    }
+    .tier-features li:last-child { border-bottom:none; }
+    .tier-features li::before { content:'✓'; color:var(--blue); font-weight:700; flex-shrink:0; margin-top:1px; }
+    .tier-cta {
+      display:block; width:100%; padding:13px;
+      text-align:center; border-radius:6px;
+      font-size:14px; font-weight:600; text-decoration:none;
+      background:var(--offwhite); color:var(--navy);
+      border:1.5px solid rgba(0,0,0,0.1);
+      transition:all 0.2s; margin-top:auto;
+    }
+    .tier-cta:hover { background:var(--blue); color:var(--white); border-color:var(--blue); }
+    .tier-card.featured .tier-cta {
+      background:var(--gold); color:var(--navy); border-color:var(--gold);
+    }
+    .tier-card.featured .tier-cta:hover { background:var(--gold-light); }
 
-<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    .how-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:22px; }
 
-<style>
-* { box-sizing: border-box; margin: 0; padding: 0; }
+    .addons-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+    .addon-card {
+      background:var(--white); border:1px solid var(--border);
+      border-radius:10px; padding:26px 22px;
+    }
+    .addon-card h4 {
+      font-family:'Cormorant Garamond',serif; font-size:19px;
+      font-weight:700; color:var(--navy); margin-bottom:4px;
+    }
+    .addon-card .addon-price {
+      font-size:22px; font-weight:700; color:var(--blue);
+      font-family:'Cormorant Garamond',serif; margin-bottom:8px;
+    }
+    .addon-card p { font-size:13.5px; color:var(--muted); line-height:1.6; }
+    .addon-card .coming {
+      font-size:10.5px; font-weight:700; letter-spacing:0.12em;
+      text-transform:uppercase; color:var(--muted); margin-bottom:8px;
+    }
 
-:root {
-  --teal:#007C7C;
-  --teal-lt:#00A8A8;
-  --coral:#E8845A;
-  --dark:#0A1F1F;
-  --white:#F2F8F8;
-  --muted:rgba(242,248,248,0.62);
-  --light:#F7FBFB;
-  --navy:#06213a;
-  --text:#243b3b;
-}
+    .services-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:20px; }
 
-body {
-  font-family:'Outfit', sans-serif;
-  color:var(--text);
-  background:#fff;
-}
+    .disclaimer-box {
+      background:#fefce8; border:1.5px solid #eab308;
+      border-radius:8px; padding:16px 22px; margin-top:50px;
+    }
+    .disclaimer-box p { font-size:13px; color:#78350f; line-height:1.75; }
 
-a { text-decoration:none; }
+    .signature-note {
+      margin-top:32px; padding:22px 28px;
+      background:var(--offwhite); border-radius:8px;
+      border:1px solid var(--border);
+      display:flex; justify-content:space-between; align-items:center;
+      gap:20px; flex-wrap:wrap;
+    }
+    .signature-note p { font-size:14.5px; color:var(--muted); line-height:1.6; }
+    .signature-note strong { color:var(--navy); }
+    .signature-note a {
+      font-size:13.5px; font-weight:600; color:var(--blue);
+      text-decoration:none; white-space:nowrap;
+    }
+    .signature-note a:hover { text-decoration:underline; }
 
-.hero {
-  min-height:100vh;
-  background:linear-gradient(160deg,#0A1F1F,#061616,#0D2626);
-  color:var(--white);
-  position:relative;
-  overflow:hidden;
-}
-
-.hero::before {
-  content:"";
-  position:absolute;
-  inset:0;
-  background:
-    radial-gradient(ellipse 80% 60% at 70% 20%, rgba(0,124,124,0.25), transparent 60%),
-    radial-gradient(ellipse 50% 40% at 20% 80%, rgba(232,132,90,0.15), transparent 55%);
-}
-
-nav {
-  position:relative;
-  z-index:2;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:26px 7%;
-  border-bottom:1px solid rgba(255,255,255,0.1);
-  background:rgba(10,31,31,0.45);
-  backdrop-filter:blur(10px);
-}
-
-.logo-text {
-  font-family:'Lora',serif;
-  font-size:1.2rem;
-  font-weight:700;
-  color:#fff;
-}
-
-.logo-text span { color:var(--teal-lt); }
-
-.nav-links {
-  display:flex;
-  list-style:none;
-  gap:30px;
-}
-
-.nav-links a {
-  color:var(--muted);
-  font-size:.9rem;
-  font-weight:500;
-}
-
-.nav-links a:hover { color:#fff; }
-
-.nav-cta {
-  background:var(--teal);
-  color:#fff;
-  padding:11px 24px;
-  border-radius:50px;
-  font-weight:700;
-}
-
-.hero-content {
-  position:relative;
-  z-index:2;
-  display:grid;
-  grid-template-columns:1.05fr .95fr;
-  gap:50px;
-  align-items:center;
-  padding:80px 7%;
-  max-width:1350px;
-  margin:auto;
-}
-
-.eyebrow {
-  display:inline-flex;
-  padding:8px 16px;
-  border-radius:40px;
-  background:rgba(255,255,255,0.07);
-  color:var(--muted);
-  font-size:.75rem;
-  text-transform:uppercase;
-  letter-spacing:.12em;
-  margin-bottom:28px;
-}
-
-.hero-story {
-  font-family:'Lora',serif;
-  font-style:italic;
-  color:var(--coral);
-  font-size:1.25rem;
-  line-height:1.6;
-  margin-bottom:18px;
-}
-
-.hero h1 {
-  font-family:'Lora',serif;
-  font-size:clamp(2.5rem,5vw,4rem);
-  line-height:1.12;
-  margin-bottom:24px;
-}
-
-.hero h1 em {
-  color:var(--teal-lt);
-  font-style:italic;
-}
-
-.hero-subhead {
-  color:var(--muted);
-  font-size:1.08rem;
-  line-height:1.75;
-  max-width:610px;
-  margin-bottom:36px;
-}
-
-.hero-subhead strong { color:#fff; }
-
-.cta-group {
-  display:flex;
-  gap:18px;
-  flex-wrap:wrap;
-  margin-bottom:42px;
-}
-
-.cta-primary {
-  background:var(--teal);
-  color:#fff;
-  padding:16px 30px;
-  border-radius:50px;
-  font-weight:700;
-}
-
-.cta-secondary {
-  color:var(--white);
-  padding:16px 20px;
-  font-weight:600;
-}
-
-.trust-row {
-  display:flex;
-  gap:24px;
-  flex-wrap:wrap;
-  padding-top:30px;
-  border-top:1px solid rgba(255,255,255,0.1);
-}
-
-.trust-item .value {
-  font-family:'Lora',serif;
-  font-size:1.6rem;
-  font-weight:700;
-}
-
-.trust-item .label {
-  display:block;
-  font-size:.72rem;
-  text-transform:uppercase;
-  color:var(--muted);
-}
-
-.badge {
-  border:1px solid rgba(255,255,255,0.12);
-  padding:10px 16px;
-  border-radius:10px;
-  color:var(--muted);
-  font-size:.78rem;
-  text-transform:uppercase;
-}
-
-.care-card {
-  background:rgba(255,255,255,0.06);
-  border:1px solid rgba(255,255,255,0.12);
-  border-radius:24px;
-  padding:30px;
-  box-shadow:0 30px 70px rgba(0,0,0,0.35);
-}
-
-.card-header {
-  display:flex;
-  justify-content:space-between;
-  margin-bottom:22px;
-}
-
-.card-title {
-  display:block;
-  color:var(--muted);
-  text-transform:uppercase;
-  font-size:.72rem;
-  letter-spacing:.12em;
-}
-
-.card-name {
-  font-family:'Lora',serif;
-  font-size:1.3rem;
-  font-weight:700;
-}
-
-.status {
-  background:rgba(46,204,113,0.15);
-  color:#2ECC71;
-  padding:6px 12px;
-  border-radius:30px;
-  font-size:.75rem;
-  font-weight:700;
-}
-
-.activity {
-  background:rgba(255,255,255,0.05);
-  border:1px solid rgba(255,255,255,0.08);
-  padding:15px;
-  border-radius:14px;
-  margin-bottom:14px;
-}
-
-.activity strong { display:block; color:#fff; margin-bottom:4px; }
-.activity span { color:var(--muted); font-size:.85rem; }
-
-.coord {
-  display:flex;
-  align-items:center;
-  gap:12px;
-  margin-top:18px;
-  background:rgba(0,124,124,0.12);
-  padding:14px;
-  border-radius:14px;
-}
-
-.avatar {
-  background:var(--teal);
-  color:#fff;
-  width:42px;
-  height:42px;
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-weight:700;
-}
-
-.plans-strip {
-  position:relative;
-  z-index:2;
-  display:flex;
-  gap:25px;
-  overflow-x:auto;
-  background:rgba(10,31,31,0.8);
-  border-top:1px solid rgba(255,255,255,0.12);
-  padding:18px 7%;
-}
-
-.plan-pill strong { color:#fff; display:block; }
-.plan-pill span { color:var(--muted); font-size:.85rem; }
-
-section.content {
-  padding:80px 7%;
-}
-
-.section-title {
-  font-family:'Lora',serif;
-  font-size:2.4rem;
-  color:var(--navy);
-  margin-bottom:18px;
-}
-
-.section-intro {
-  font-size:1.1rem;
-  line-height:1.7;
-  max-width:760px;
-  margin-bottom:36px;
-  color:#536666;
-}
-
-.grid-3 {
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:24px;
-}
-
-.card {
-  background:#fff;
-  border:1px solid #e3eeee;
-  border-radius:18px;
-  padding:28px;
-  box-shadow:0 12px 30px rgba(0,0,0,0.05);
-}
-
-.card h3 {
-  color:var(--navy);
-  margin-bottom:10px;
-  font-size:1.25rem;
-}
-
-.card p {
-  color:#536666;
-  line-height:1.7;
-}
-
-.plans {
-  background:var(--light);
-}
-
-.price {
-  font-family:'Lora',serif;
-  font-size:2.3rem;
-  color:var(--teal);
-  margin:12px 0;
-}
-
-.card ul {
-  margin-top:16px;
-  padding-left:18px;
-  color:#536666;
-  line-height:1.9;
-}
-
-.disclaimer {
-  background:#fff7ed;
-  border:1px solid #fed7aa;
-  color:#7c2d12;
-  padding:24px;
-  border-radius:16px;
-  line-height:1.75;
-  margin-top:36px;
-}
-
-.footer {
-  background:#061616;
-  color:var(--muted);
-  padding:45px 7%;
-}
-
-.footer a { color:var(--teal-lt); }
-
-@media(max-width:900px){
-  .nav-links { display:none; }
-  .hero-content { grid-template-columns:1fr; padding:55px 7%; }
-  .grid-3 { grid-template-columns:1fr; }
-}
-</style>
+    @media(max-width:900px){
+      .tiers-grid { grid-template-columns:1fr; }
+      .how-grid { grid-template-columns:1fr; }
+      .addons-grid { grid-template-columns:1fr; }
+      .services-grid { grid-template-columns:1fr 1fr; }
+    }
+  </style>
 </head>
-
 <body>
 
-<section class="hero">
-  <nav>
+<header class="site-header">
+  <div class="brand">
     <a href="index.html">
-      <div class="logo-text">Afri<span>Pharma</span>360™</div>
+      <img src="logo.png" alt="AfriPharma Health Systems" class="logo"
+        onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <span class="logo-text" style="display:none">Afri<span>Pharma</span></span>
     </a>
-
-    <ul class="nav-links">
-      <li><a href="#how-it-works">How it works</a></li>
-      <li><a href="#plans">Plans & pricing</a></li>
-      <li><a href="care360-faq.html">FAQ</a></li>
-      <li><a href="care360-account.html">Manage Account</a></li>
-    </ul>
-
-    <a href="afripharma360-enrol.html" class="nav-cta">Enrol a loved one</a>
+  </div>
+  <nav class="main-nav">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="care360.html" class="active">Afripharma360</a>
+    <a href="pharmacy.html">Pharmacy</a>
+    <a href="distribution.html">Distribution</a>
+    <a href="manufacturing.html">Manufacturing</a>
+    <a href="partners.html">Partners</a>
+    <a href="contact.html" class="nav-cta">Contact</a>
   </nav>
+</header>
 
-  <div class="hero-content">
+<!-- HERO -->
+<section class="page-hero">
+  <div class="page-hero-content">
+    <div class="page-hero-eyebrow">Care360™</div>
+    <h1>Healthcare Support<br>for the People<br><em>Who Matter Most.</em></h1>
+    <p>Trusted healthcare coordination for diaspora families supporting loved ones in Zimbabwe — medication management, appointment support, and family peace of mind.</p>
+    <div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:28px">
+      <a href="care360enrol.html" class="btn-gold">Enrol Now →</a>
+      <a href="#plans"
+        style="display:inline-block;border:1.5px solid rgba(255,255,255,0.35);color:white;
+               padding:13px 26px;border-radius:4px;text-decoration:none;font-weight:500;font-size:14px">
+        View Plans ↓
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- THE CHALLENGE -->
+<section class="section section-white">
+  <div class="two-col">
     <div>
-      <div class="eyebrow">Now serving Harare &amp; Bulawayo</div>
-
-      <p class="hero-story">
-        You're thousands of miles away.<br>
-        They're managing alone.
+      <div class="section-label">Why Afripharma360 Exists</div>
+      <h2 class="section-title">Millions of Africans<br>Support Family From Abroad.</h2>
+      <p style="font-size:16px;color:var(--muted);margin-bottom:16px;line-height:1.85">
+        Whether in the US, UK, Canada, or Australia — African diaspora families often carry the
+        responsibility of coordinating healthcare for parents and loved ones back home. The distance
+        makes it difficult. Reliable, professional local support is hard to find.
       </p>
-
-      <h1>
-        Your family's health,<br>
-        <em>watched over</em> — every day.
-      </h1>
-
-      <p class="hero-subhead">
-        <strong>AfriPharma360™</strong> is AfriPharma’s healthcare coordination and family support platform — connecting diaspora families to professional on-the-ground care coordination for loved ones in Zimbabwe through medication management, healthcare navigation, appointment support, and ongoing wellness communication.
+      <p style="font-size:16px;color:var(--muted);line-height:1.85">
+        Afripharma360 was built specifically to bridge that gap — giving families a trusted, coordinated
+        healthcare support service they can count on, no matter where they are in the world.
       </p>
-
-      <div class="cta-group">
-        <a href="afripharma360-enrol.html" class="cta-primary">Enrol a loved one →</a>
-        <a href="#how-it-works" class="cta-secondary">See how it works</a>
-      </div>
-
-      <div class="trust-row">
-        <div class="trust-item">
-          <span class="value">$19</span>
-          <span class="label">Starting per month</span>
-        </div>
-        <div class="trust-item">
-          <span class="value">24 hrs</span>
-          <span class="label">Coordinator intro</span>
-        </div>
-        <div class="trust-item">
-          <span class="value">Local</span>
-          <span class="label">Care coordination</span>
-        </div>
-        <div class="badge">Zimbabwe-based<br>care coordination</div>
-      </div>
     </div>
-
-    <div class="care-card">
-      <div class="card-header">
-        <div>
-          <span class="card-title">Sample care profile</span>
-          <span class="card-name">Loved One, 71</span>
-        </div>
-        <div class="status">Active</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+      <div style="background:var(--offwhite);border-radius:10px;padding:24px;border:1px solid var(--border);text-align:center">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:40px;font-weight:700;color:var(--gold);line-height:1;margin-bottom:8px">3</div>
+        <div style="font-size:13px;color:var(--muted);line-height:1.5">Service tiers — Essential to Platinum</div>
       </div>
-
-      <div class="activity">
-        <strong>Medication refill support</strong>
-        <span>Prescription coordination reminder created</span>
+      <div style="background:var(--offwhite);border-radius:10px;padding:24px;border:1px solid var(--border);text-align:center">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:40px;font-weight:700;color:var(--gold);line-height:1;margin-bottom:8px">2</div>
+        <div style="font-size:13px;color:var(--muted);line-height:1.5">Cities served — Harare &amp; Bulawayo</div>
       </div>
-
-      <div class="activity">
-        <strong>Appointment support</strong>
-        <span>Clinic visit reminder confirmed</span>
+      <div style="background:var(--offwhite);border-radius:10px;padding:24px;border:1px solid var(--border);text-align:center">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:40px;font-weight:700;color:var(--gold);line-height:1;margin-bottom:8px">$19</div>
+        <div style="font-size:13px;color:var(--muted);line-height:1.5">Starting from per month</div>
       </div>
-
-      <div class="activity">
-        <strong>Family update prepared</strong>
-        <span>Wellness communication sent to sponsor</span>
+      <div style="background:var(--offwhite);border-radius:10px;padding:24px;border:1px solid var(--border);text-align:center">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:40px;font-weight:700;color:var(--gold);line-height:1;margin-bottom:8px">24h</div>
+        <div style="font-size:13px;color:var(--muted);line-height:1.5">Coordinator intro after enrolment</div>
       </div>
-
-      <div class="coord">
-        <div class="avatar">AP</div>
-        <div>
-          <strong>AfriPharma360 Coordinator</strong><br>
-          <span>Healthcare coordination support</span>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="plans-strip">
-    <div class="plan-pill">
-      <strong>Essential</strong>
-      <span>$19 / month</span>
-    </div>
-    <div class="plan-pill">
-      <strong>Plus</strong>
-      <span>$49 / month · Most popular</span>
-    </div>
-    <div class="plan-pill">
-      <strong>Platinum</strong>
-      <span>$99 / month · Full coordination</span>
-    </div>
-    <div class="plan-pill">
-      <span>AfriPharma360™ is a healthcare coordination service, not a clinical or emergency medical service.</span>
     </div>
   </div>
 </section>
 
-<section class="content" id="how-it-works">
-  <h2 class="section-title">How AfriPharma360™ Works</h2>
-  <p class="section-intro">
-    AfriPharma360™ gives families a structured way to support loved ones in Zimbabwe through coordinated communication, reminders, follow-up, and healthcare navigation.
-  </p>
-
-  <div class="grid-3">
+<!-- SERVICES -->
+<section class="section section-offwhite">
+  <div class="section-label">What's Covered</div>
+  <h2 class="section-title">What Afripharma360 Provides.</h2>
+  <p class="section-intro">Every Afripharma360 plan is built around the core services families need most — with more support at higher tiers.</p>
+  <div class="services-grid">
     <div class="card">
-      <h3>1. Enrol</h3>
-      <p>Complete the online enrolment form with sponsor details, patient information, location, medications, and support needs.</p>
+      <div class="card-icon"><svg viewBox="0 0 24 24"><path d="M20 6h-2.18c.07-.44.18-.88.18-1.36C18 2.06 15.96 0 13.36 0c-1.46 0-2.75.67-3.64 1.71L9 3 7.28 1.71C6.39.67 5.1 0 3.64 0 1.04 0-1 2.06-1 4.64c0 .48.11.92.18 1.36H-2v2h2v12h20V8h2V6h-2z"/></svg></div>
+      <h3>Medication Coordination</h3>
+      <p>Prescription tracking, refill reminders, and medication management to ensure your loved one never runs out of essential medicines.</p>
     </div>
-
     <div class="card">
-      <h3>2. Verify</h3>
-      <p>An AfriPharma360 coordinator reviews the enrolment, confirms payment, assigns a reference number, and contacts the sponsor.</p>
+      <div class="card-icon"><svg viewBox="0 0 24 24"><path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/></svg></div>
+      <h3>Appointment Support</h3>
+      <p>Scheduling, reminders, and coordination for doctor visits, specialist appointments, and follow-up care.</p>
     </div>
-
     <div class="card">
-      <h3>3. Support</h3>
-      <p>Ongoing support begins according to the selected plan, including medication coordination, appointment support, and family updates.</p>
+      <div class="card-icon"><svg viewBox="0 0 24 24"><path d="M20 8h-3V4H3c-1.1 0-2 .9-2 2v11h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3h2v-5l-3-4z"/></svg></div>
+      <h3>Home Delivery</h3>
+      <p>Pharmacy delivery coordination to your loved one's home in Harare or Bulawayo — arranged through your coordinator.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon"><svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg></div>
+      <h3>Family Reporting</h3>
+      <p>Regular written updates and WhatsApp communication so you always know how your loved one is doing.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg></div>
+      <h3>Wellness Verification</h3>
+      <p>Scheduled check-in calls and wellness visits to verify your loved one's health status. Platinum tier.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon"><svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg></div>
+      <h3>Dedicated Coordinator</h3>
+      <p>A named Care360 coordinator assigned to your patient — a consistent, trusted local point of contact. Platinum tier.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm7 13H5v-.23c0-.62.28-1.2.76-1.58C7.47 15.82 9.64 15 12 15s4.53.82 6.24 2.19c.48.38.76.97.76 1.58V19z"/></svg></div>
+      <h3>Chronic Care Support</h3>
+      <p>Structured support for diabetes, hypertension, HIV/AIDS, asthma, and other long-term conditions.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon"><svg viewBox="0 0 24 24"><path d="M11.5 2C6.81 2 3 5.81 3 10.5S6.81 19 11.5 19h.5v3c4.86-2.34 8-7 8-11.5C20 5.81 16.19 2 11.5 2zm1 14.5h-2v-2h2v2zm0-4h-2c0-3.25 3-3 3-5 0-1.1-.9-2-2-2s-2 .9-2 2h-2c0-2.21 1.79-4 4-4s4 1.79 4 4c0 2.5-3 2.75-3 5z"/></svg></div>
+      <h3>Escalation Support</h3>
+      <p>When something needs urgent attention, your coordinator escalates to the right professional or facility. Platinum tier.</p>
     </div>
   </div>
 </section>
 
-<section class="content plans" id="plans">
-  <h2 class="section-title">Plans & Pricing</h2>
-  <p class="section-intro">
-    Choose the level of support that best fits your loved one’s needs.
-  </p>
+<!-- PRICING -->
+<section class="section section-white" id="plans">
+  <div class="section-label">Pricing</div>
+  <h2 class="section-title">Three Plans.<br>One Goal — Your Loved One's Wellbeing.</h2>
+  <p class="section-intro">Choose the level of support that fits your situation. Upgrade at any time — no lock-in.</p>
 
-  <div class="grid-3">
-    <div class="card">
+  <div class="tiers-grid">
+
+    <!-- ESSENTIAL -->
+    <div class="tier-card">
+      <div class="tier-num">01</div>
       <h3>Essential</h3>
-      <div class="price">$19/mo</div>
-      <ul>
-        <li>Care profile setup</li>
+      <div class="tier-price">$19<span>/month</span></div>
+      <div class="tier-target">For diaspora families wanting basic oversight and reliable medication management.</div>
+      <div class="tier-divider"></div>
+      <ul class="tier-features">
+        <li>Afripharma360 profile creation</li>
         <li>Medication tracking</li>
         <li>Refill reminders</li>
-        <li>Monthly family update</li>
-        <li>WhatsApp support</li>
+        <li>WhatsApp family support</li>
+        <li>Monthly written family update</li>
+        <li>Pharmacy delivery requests</li>
       </ul>
+      <a href="care360enrol.html?tier=Essential" class="tier-cta">Enrol in Essential →</a>
     </div>
 
-    <div class="card">
+    <!-- PLUS -->
+    <div class="tier-card featured">
+      <div class="tier-num">02</div>
       <h3>Plus</h3>
-      <div class="price">$49/mo</div>
-      <ul>
+      <div class="tier-price">$49<span>/month</span></div>
+      <div class="tier-target">Best for families supporting elderly parents. Full coordination and priority support.</div>
+      <div class="tier-divider"></div>
+      <ul class="tier-features">
         <li>Everything in Essential</li>
-        <li>Medication coordination</li>
-        <li>Pharmacy coordination support</li>
+        <li>Active medication coordination</li>
+        <li>Prescription refill management</li>
+        <li>Pharmacy delivery coordination</li>
         <li>Appointment scheduling support</li>
-        <li>Priority communication</li>
+        <li>Priority WhatsApp response</li>
       </ul>
+      <a href="care360enrol.html?tier=Plus" class="tier-cta">Enrol in Plus →</a>
     </div>
 
-    <div class="card">
+    <!-- PLATINUM -->
+    <div class="tier-card">
+      <div class="tier-num">03</div>
       <h3>Platinum</h3>
-      <div class="price">$99/mo</div>
-      <ul>
+      <div class="tier-price">$99<span>/month</span></div>
+      <div class="tier-target">For families wanting active, hands-on involvement in every aspect of their loved one's care.</div>
+      <div class="tier-divider"></div>
+      <ul class="tier-features">
         <li>Everything in Plus</li>
-        <li>Dedicated coordinator</li>
+        <li>Dedicated named Care Coordinator</li>
         <li>Wellness verification calls</li>
-        <li>Enhanced family reporting</li>
+        <li>Detailed monthly family report</li>
+        <li>Full appointment coordination</li>
         <li>Escalation support</li>
+        <li>Priority delivery service</li>
       </ul>
+      <a href="care360enrol.html?tier=Platinum" class="tier-cta">Enrol in Platinum →</a>
+    </div>
+
+  </div>
+
+  <!-- SIGNATURE NOTE -->
+  <div class="signature-note">
+    <p><strong>Need a higher level of support?</strong> For complex care situations, multiple family members, or concierge-level coordination — we can discuss a tailored arrangement.</p>
+    <a href="mailto:care360@afripharma-health.com">Contact us to discuss →</a>
+  </div>
+
+  <!-- ADD-ONS -->
+  <div style="margin-top:55px">
+    <div class="section-label" style="margin-bottom:10px">Add-On Services</div>
+    <h3 style="font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:700;color:var(--navy);margin-bottom:8px">Available Separately After Enrolment.</h3>
+    <p style="font-size:15px;color:var(--muted);margin-bottom:26px;max-width:580px">Arranged directly with your Care360 coordinator — not included in monthly plan fees.</p>
+    <div class="addons-grid">
+      <div class="addon-card">
+        <h4>Pharmacy Delivery</h4>
+        <div class="addon-price">$3–5<span style="font-size:14px;font-weight:400;color:var(--muted)"> per delivery</span></div>
+        <p>Home delivery in Harare or Bulawayo. Coordinated through your Care360 team after enrolment.</p>
+      </div>
+      <div class="addon-card">
+        <div class="coming">Coming Soon</div>
+        <h4>Appointment Escort</h4>
+        <div class="addon-price">$15–25<span style="font-size:14px;font-weight:400;color:var(--muted)"> per appointment</span></div>
+        <p>An Afripharma360 team member accompanies your loved one to and from medical appointments.</p>
+      </div>
+      <div class="addon-card">
+        <div class="coming">Coming Soon</div>
+        <h4>Wellness Visit</h4>
+        <div class="addon-price">$10–20<span style="font-size:14px;font-weight:400;color:var(--muted)"> per visit</span></div>
+        <p>An in-person wellness check at your loved one's home, with a written summary sent to family.</p>
+      </div>
     </div>
   </div>
 
-  <div style="margin-top:35px;">
-    <a href="afripharma360-enrol.html" class="cta-primary">Start Enrolment →</a>
-  </div>
-
-  <div class="disclaimer">
-    <strong>Important Service Disclaimer:</strong><br>
-    AfriPharma360™ is a healthcare coordination and family support service. AfriPharma360™ does not diagnose medical conditions, prescribe medications, dispense medicines, provide medical treatment, or replace the relationship between a patient and licensed healthcare providers. AfriPharma360™ is not an emergency medical service. In a medical emergency, patients should contact local emergency services or proceed to the nearest licensed healthcare facility.
+  <div class="disclaimer-box">
+    <p><strong>Important:</strong> Afripharma360 is a healthcare coordination and medication management service. It is <strong>not</strong> an emergency medical service and cannot dispatch emergency responders. In any medical emergency in Zimbabwe, please dial <strong>994</strong> (ambulance) or go directly to the nearest hospital or clinic.</p>
   </div>
 </section>
 
-<section class="content">
-  <h2 class="section-title">Why Families Choose AfriPharma360™</h2>
-
-  <div class="grid-3">
+<!-- HOW IT WORKS -->
+<section class="section section-offwhite">
+  <div class="section-label">The Process</div>
+  <h2 class="section-title">Simple to Start.</h2>
+  <div class="how-grid" style="margin-top:44px">
     <div class="card">
-      <h3>Peace of Mind</h3>
-      <p>Families abroad gain visibility into what is happening on the ground without needing to manage everything alone.</p>
+      <div class="card-icon" style="background:linear-gradient(135deg,var(--navy),var(--blue))">
+        <svg viewBox="0 0 24 24" style="width:20px;height:20px;fill:white"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm7 13H5v-.23c0-.62.28-1.2.76-1.58C7.47 15.82 9.64 15 12 15s4.53.82 6.24 2.19c.48.38.76.97.76 1.58V19z"/></svg>
+      </div>
+      <h3>1. Enrol Online</h3>
+      <p>Complete the enrolment form with your details, your loved one's information, current medications, conditions, and your preferred plan. Takes about 5–10 minutes.</p>
     </div>
-
     <div class="card">
-      <h3>Structured Coordination</h3>
-      <p>AfriPharma360 brings structure to medication reminders, appointment support, communication, and wellness follow-up.</p>
+      <div class="card-icon" style="background:linear-gradient(135deg,var(--navy),var(--blue))">
+        <svg viewBox="0 0 24 24" style="width:20px;height:20px;fill:white"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+      </div>
+      <h3>2. Meet Your Coordinator</h3>
+      <p>Within 24 hours of payment confirmation, your Care360 coordinator will contact you via WhatsApp to introduce themselves and confirm your patient's profile.</p>
     </div>
-
     <div class="card">
-      <h3>Built for Diaspora Families</h3>
-      <p>The service is designed specifically for people supporting loved ones from outside Zimbabwe.</p>
+      <div class="card-icon" style="background:linear-gradient(135deg,var(--navy),var(--blue))">
+        <svg viewBox="0 0 24 24" style="width:20px;height:20px;fill:white"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+      </div>
+      <h3>3. Stay Connected</h3>
+      <p>Your coordinator manages medications, appointments, and care — keeping your family updated with regular WhatsApp messages and written reports every month.</p>
     </div>
   </div>
 </section>
 
-<footer class="footer">
-  <p><strong>AfriPharma360™</strong> — Healthcare Support for the People Who Matter Most.</p>
-  <p style="margin-top:10px;">
-    <a href="afripharma360-enrol.html">Enrol</a> ·
-    <a href="care360-faq.html">FAQ</a> ·
-    <a href="care360-account.html">Manage Account</a> ·
-    <a href="care360-privacy-terms.html">Privacy & Terms</a>
-  </p>
-  <p style="margin-top:16px;font-size:.85rem;">
-    AfriPharma360™ is a healthcare coordination service, not a clinical or emergency medical service.
-  </p>
+<!-- CTA -->
+<section class="section section-navy">
+  <div style="max-width:680px">
+    <div class="section-label">Get Started Today</div>
+    <h2 class="section-title">Enrol Your Loved One<br>in Care360™.</h2>
+    <p class="section-intro">Enrolment takes 5–10 minutes. Your coordinator will be in touch within 24 hours of payment confirmation.</p>
+    <div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:10px">
+      <a href="care360enrol.html" class="btn-gold">Start Enrolment →</a>
+      <a href="mailto:care360@afripharma-health.com"
+        style="display:inline-block;border:1.5px solid rgba(255,255,255,0.3);color:white;
+               padding:13px 26px;border-radius:4px;text-decoration:none;font-weight:500;font-size:14px">
+        Have a Question First
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand-col">
+      <div class="footer-logo-text">Afri<span>Pharma</span> Health Systems</div>
+      <p>Precision Medicine. African Roots.</p>
+      <p>Building Africa's health infrastructure — one brick at a time.</p>
+      <p style="margin-top:14px">care360@afripharma-health.com</p>
+    </div>
+    <div class="footer-col">
+      <h4>Platform</h4>
+      <a href="pharmacy.html">Pharmacy Services</a>
+      <a href="care360.html">Afripharma360™</a>
+       <a href="care360-faq.html">Afripharma360 FAQ</a>
+  <a href="care360-account.html">Manage Subscription</a>
+  <a href="care360-privacy-terms.html">Privacy & Terms</a>
+      <a href="distribution.html">Distribution</a>
+      <a href="manufacturing.html">Manufacturing Vision</a>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <a href="about.html">About Us</a>
+      <a href="partners.html">Partners &amp; Investors</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="footer-col">
+      <h4>Care360 Plans</h4>
+      <a href="care360enrol.html?tier=Essential">Essential — $19/mo</a>
+      <a href="care360enrol.html?tier=Plus">Plus — $49/mo</a>
+      <a href="care360enrol.html?tier=Platinum">Platinum — $99/mo</a>
+      <a href="mailto:care360@afripharma-health.com">Custom — Contact us</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 AfriPharma Health Systems. All rights reserved.</span>
+    <span>Afripharma360™ is a coordination service, not an emergency medical service.</span>
+  </div>
 </footer>
 
 </body>
