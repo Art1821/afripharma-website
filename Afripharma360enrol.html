@@ -471,9 +471,9 @@ In a medical emergency, patients should contact local emergency services or proc
 
 </div>
 
-</form>
 
-</section>
+
+
 </form>
 
 </section>
@@ -508,7 +508,16 @@ function handleStripe() {
 
   window.location.href = stripeLinks[selectedPlan];
 }
+function handlePayPal() {
 
+  const paypalLinks = {
+    "Essential": "https://www.paypal.com/ncp/payment/7QU3779P226RJ",
+    "Plus": "https://www.paypal.com/ncp/payment/RYLM7ZKK6HZ66",
+    "Platinum": "https://www.paypal.com/ncp/payment/GNX29J8QSAPTC"
+  };
+
+  window.location.href = paypalLinks[selectedPlan];
+}
 document.addEventListener("DOMContentLoaded", function() {
 
   document.getElementById("selectedPlanField").value = selectedPlan;
