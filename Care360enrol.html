@@ -218,28 +218,18 @@
           <div class="step-connector"></div>
           <div class="step" data-step="8"><div class="step-num">8</div><div class="step-label">Payment</div></div>
         </div>
+        <!-- Your existing Blocks 1–7 remain unchanged -->
+        <!-- BLOCK 1 -->
         <div class="form-block active" id="block1">
           <div class="block-title">Sponsor Information</div>
           <div class="block-subtitle">Tell us about yourself — the person arranging and paying for Care360 support.</div>
           <div class="form-row">
-            <div class="field">
-              <label>First Name <span class="req">*</span></label>
-              <input type="text" id="sponsorFirst" name="Sponsor First Name" required>
-            </div>
-            <div class="field">
-              <label>Last Name <span class="req">*</span></label>
-              <input type="text" id="sponsorLast" name="Sponsor Last Name" required>
-            </div>
+            <div class="field"><label>First Name <span class="req">*</span></label><input type="text" id="sponsorFirst" name="Sponsor First Name" required></div>
+            <div class="field"><label>Last Name <span class="req">*</span></label><input type="text" id="sponsorLast" name="Sponsor Last Name" required></div>
           </div>
           <div class="form-row">
-            <div class="field">
-              <label>Email Address <span class="req">*</span></label>
-              <input type="email" id="sponsorEmail" name="Sponsor Email Address" required>
-            </div>
-            <div class="field">
-              <label>Phone / WhatsApp <span class="req">*</span></label>
-              <input type="tel" id="sponsorPhone" name="Sponsor Phone Number" required>
-            </div>
+            <div class="field"><label>Email Address <span class="req">*</span></label><input type="email" id="sponsorEmail" name="Sponsor Email Address" required></div>
+            <div class="field"><label>Phone / WhatsApp <span class="req">*</span></label><input type="tel" id="sponsorPhone" name="Sponsor Phone Number" required></div>
           </div>
           <div class="form-row">
             <div class="field">
@@ -262,6 +252,7 @@
             <button type="button" class="btn-next" onclick="nextStep(1)">Continue →</button>
           </div>
         </div>
+        <!-- BLOCK 2 -->
         <div class="form-block" id="block2">
           <div class="block-title">Patient Information</div>
           <div class="block-subtitle">Information about the person who will be receiving Care360 support in Zimbabwe.</div>
@@ -278,14 +269,13 @@
             <div class="field"><label>Patient Phone / WhatsApp</label><input type="tel" id="patientPhone" name="Patient Phone Number"><span class="hint">If the patient has their own phone</span></div>
             <div class="field"><label>Emergency Contact Name</label><input type="text" id="emergencyName" name="Emergency Contact Name"></div>
           </div>
-          <div class="form-row full">
-            <div class="field"><label>Emergency Contact Phone</label><input type="tel" id="emergencyPhone" name="Emergency Contact Phone"></div>
-          </div>
+          <div class="form-row full"><div class="field"><label>Emergency Contact Phone</label><input type="tel" id="emergencyPhone" name="Emergency Contact Phone"></div></div>
           <div class="form-nav">
             <button type="button" class="btn-back" onclick="prevStep(2)">← Back</button>
             <button type="button" class="btn-next" onclick="nextStep(2)">Continue →</button>
           </div>
         </div>
+        <!-- BLOCK 3 -->
         <div class="form-block" id="block3">
           <div class="block-title">Patient Location</div>
           <div class="block-subtitle">Where is your patient located in Zimbabwe?</div>
@@ -307,6 +297,7 @@
             <button type="button" class="btn-next" onclick="nextStep(3)">Continue →</button>
           </div>
         </div>
+        <!-- BLOCK 4 -->
         <div class="form-block" id="block4">
           <div class="block-title">Current Medications</div>
           <div class="block-subtitle">List current medications so we can set up tracking and refill reminders.</div>
@@ -318,28 +309,13 @@
             <button type="button" class="btn-next" onclick="nextStep(4)">Continue →</button>
           </div>
         </div>
+        <!-- BLOCK 5 -->
         <div class="form-block" id="block5">
           <div class="block-title">Medical Conditions</div>
           <div class="block-subtitle">Select all relevant conditions.</div>
           <input type="hidden" id="selectedConditionsField" name="Selected Medical Conditions">
           <div class="condition-tags" id="conditionTags">
-            <div class="tag" onclick="toggleTag(this)">Diabetes (Type 1)</div>
-            <div class="tag" onclick="toggleTag(this)">Diabetes (Type 2)</div>
-            <div class="tag" onclick="toggleTag(this)">Hypertension</div>
-            <div class="tag" onclick="toggleTag(this)">Heart Disease</div>
-            <div class="tag" onclick="toggleTag(this)">Asthma / COPD</div>
-            <div class="tag" onclick="toggleTag(this)">HIV/AIDS</div>
-            <div class="tag" onclick="toggleTag(this)">Tuberculosis (TB)</div>
-            <div class="tag" onclick="toggleTag(this)">Kidney Disease</div>
-            <div class="tag" onclick="toggleTag(this)">Arthritis</div>
-            <div class="tag" onclick="toggleTag(this)">Epilepsy</div>
-            <div class="tag" onclick="toggleTag(this)">Mental Health Condition</div>
-            <div class="tag" onclick="toggleTag(this)">Cancer</div>
-            <div class="tag" onclick="toggleTag(this)">Stroke / Neurological</div>
-            <div class="tag" onclick="toggleTag(this)">Thyroid Condition</div>
-            <div class="tag" onclick="toggleTag(this)">Mobility / Physical Disability</div>
-            <div class="tag" onclick="toggleTag(this)">Dementia / Memory Issues</div>
-            <div class="tag" onclick="toggleTag(this)">None of the above</div>
+            <div class="tag" onclick="toggleTag(this)">Diabetes (Type 1)</div><div class="tag" onclick="toggleTag(this)">Diabetes (Type 2)</div><div class="tag" onclick="toggleTag(this)">Hypertension</div><div class="tag" onclick="toggleTag(this)">Heart Disease</div><div class="tag" onclick="toggleTag(this)">Asthma / COPD</div><div class="tag" onclick="toggleTag(this)">HIV/AIDS</div><div class="tag" onclick="toggleTag(this)">Tuberculosis (TB)</div><div class="tag" onclick="toggleTag(this)">Kidney Disease</div><div class="tag" onclick="toggleTag(this)">Arthritis</div><div class="tag" onclick="toggleTag(this)">Epilepsy</div><div class="tag" onclick="toggleTag(this)">Mental Health Condition</div><div class="tag" onclick="toggleTag(this)">Cancer</div><div class="tag" onclick="toggleTag(this)">Stroke / Neurological</div><div class="tag" onclick="toggleTag(this)">Thyroid Condition</div><div class="tag" onclick="toggleTag(this)">Mobility / Physical Disability</div><div class="tag" onclick="toggleTag(this)">Dementia / Memory Issues</div><div class="tag" onclick="toggleTag(this)">None of the above</div>
           </div>
           <div class="form-row full"><div class="field"><label>Other Conditions or Notes</label><textarea id="otherConditions" name="Other Conditions or Notes"></textarea></div></div>
           <div class="form-row full"><div class="field"><label>Primary Doctor / Clinic</label><input type="text" id="primaryDoctor" name="Primary Doctor or Clinic"></div></div>
@@ -348,6 +324,7 @@
             <button type="button" class="btn-next" onclick="nextStep(5)">Continue →</button>
           </div>
         </div>
+        <!-- BLOCK 6 -->
         <div class="form-block" id="block6">
           <div class="block-title">Choose Your Care360 Plan</div>
           <div class="block-subtitle">Select the tier that best matches your patient's needs.</div>
@@ -375,46 +352,39 @@
             <button type="button" class="btn-next" onclick="nextStep(6)">Continue →</button>
           </div>
         </div>
+        <!-- BLOCK 7 -->
         <div class="form-block" id="block7">
           <div class="block-title">Consent &amp; Authorization</div>
           <div class="block-subtitle">Please review the following carefully before proceeding.</div>
           <div class="consent-box">
             <p><strong>Important:</strong> Care360 is a healthcare coordination service. It is not an emergency medical service, clinical diagnosis service, or replacement for direct medical care.</p>
           </div>
-          <div class="checkbox-row">
-            <input type="checkbox" id="consentCare" name="Consent - Not Emergency Service" value="Yes">
-            <label for="consentCare">I understand Care360 is not an emergency medical service. <span class="req">*</span></label>
-          </div>
-          <div class="checkbox-row">
-            <input type="checkbox" id="consentInfo" name="Consent - Health Information Use" value="Yes">
-            <label for="consentInfo">I authorize AfriPharma to use the information provided to coordinate Care360 services. <span class="req">*</span></label>
-          </div>
-          <div class="checkbox-row">
-            <input type="checkbox" id="consentBilling" name="Consent - Monthly Billing" value="Yes">
-            <label for="consentBilling">I understand Care360 is a monthly subscription service. <span class="req">*</span></label>
-          </div>
+          <div class="checkbox-row"><input type="checkbox" id="consentCare" name="Consent - Not Emergency Service" value="Yes"><label for="consentCare">I understand Care360 is not an emergency medical service. <span class="req">*</span></label></div>
+          <div class="checkbox-row"><input type="checkbox" id="consentInfo" name="Consent - Health Information Use" value="Yes"><label for="consentInfo">I authorize AfriPharma to use the information provided to coordinate Care360 services. <span class="req">*</span></label></div>
+          <div class="checkbox-row"><input type="checkbox" id="consentBilling" name="Consent - Monthly Billing" value="Yes"><label for="consentBilling">I understand Care360 is a monthly subscription service. <span class="req">*</span></label></div>
           <div id="consentError" style="display:none;font-size:13px;color:#dc2626;margin-bottom:14px">Please check all required boxes to continue.</div>
           <div class="form-nav">
             <button type="button" class="btn-back" onclick="prevStep(7)">← Back</button>
             <button type="button" class="btn-next" onclick="nextStep(7)">Proceed to Payment →</button>
           </div>
         </div>
+        <!-- BLOCK 8 -->
         <div class="form-block" id="block8">
           <div class="block-title">Review &amp; Payment</div>
-          <div class="block-subtitle">Review the selected plan. When you submit, your enrolment request will be sent to AfriPharma and you will be taken to secure subscription checkout.</div>
+          <div class="block-subtitle">Review the selected plan. When you submit, your enrolment request will be sent to AfriPharma and you will be taken to the secure payment page.</div>
           <div class="payment-total" id="paymentTotal">
             <div class="t-row"><span>Care360 Plan</span><span id="ptTier">—</span></div>
             <div class="t-row"><span>Monthly Subscription</span><span id="ptMonthly">—</span></div>
             <div class="t-row total"><span>Total Today</span><span id="ptTotal">—</span></div>
           </div>
           <div class="payment-note-box">
-            <p>After you click below, your enrolment details will be submitted first. You will then be redirected to the correct Stripe subscription checkout for your selected Care360 plan.</p>
+            <p>After you click below, your enrolment details will be submitted first. You will then choose Stripe or PayPal on the secure payment page.</p>
           </div>
           <button type="submit" id="submitPaymentBtn" class="btn-next" style="width:100%;margin-bottom:10px;">
             Submit Enrolment &amp; Continue to Payment
           </button>
           <p class="pay-note">
-            Payments are processed securely via Stripe. AfriPharma does not store card details.<br>
+            Payments are processed securely via Stripe or PayPal. AfriPharma does not store card details.<br>
             Questions? Email <a href="mailto:care360@afripharma-health.com">care360@afripharma-health.com</a>
           </p>
           <div class="form-nav" style="margin-top:24px">
@@ -447,24 +417,9 @@
       <p>Precision Medicine. African Roots.</p>
       <p style="margin-top:14px">care360@afripharma-health.com</p>
     </div>
-    <div class="footer-col">
-      <h4>Platform</h4>
-      <a href="pharmacy.html">Pharmacy Services</a>
-      <a href="care360.html">Care360™</a>
-      <a href="distribution.html">Distribution</a>
-      <a href="manufacturing.html">Manufacturing Vision</a>
-    </div>
-    <div class="footer-col">
-      <h4>Company</h4>
-      <a href="about.html">About Us</a>
-      <a href="partners.html">Partners &amp; Investors</a>
-      <a href="contact.html">Contact</a>
-    </div>
-    <div class="footer-col">
-      <h4>Support</h4>
-      <a href="mailto:care360@afripharma-health.com">Care360 Support</a>
-      <a href="mailto:info@afripharma-health.com">General Enquiries</a>
-    </div>
+    <div class="footer-col"><h4>Platform</h4><a href="pharmacy.html">Pharmacy Services</a><a href="care360.html">Care360™</a><a href="distribution.html">Distribution</a><a href="manufacturing.html">Manufacturing Vision</a></div>
+    <div class="footer-col"><h4>Company</h4><a href="about.html">About Us</a><a href="partners.html">Partners &amp; Investors</a><a href="contact.html">Contact</a></div>
+    <div class="footer-col"><h4>Support</h4><a href="mailto:care360@afripharma-health.com">Care360 Support</a><a href="mailto:info@afripharma-health.com">General Enquiries</a></div>
   </div>
   <div class="footer-bottom">
     <span>© 2026 AfriPharma Health Systems. All rights reserved.</span>
@@ -475,11 +430,6 @@
 let currentStep = 1;
 let selectedTier = '';
 let selectedMonthly = 0;
-const stripeLinks = {
-  'Essential': 'https://buy.stripe.com/bJe7sN54H2NL1JhbRR9Ve00',
-  'Plus': 'https://buy.stripe.com/cNi8wRfJlewtfA7cVV9Ve02',
-  'Platinum': 'https://buy.stripe.com/fZu3cx8gT4VT87F3ll9Ve01'
-};
 function selectPricingCard(card) {
   document.querySelectorAll('.price-card').forEach(c => c.classList.remove('selected'));
   card.classList.add('selected');
@@ -629,7 +579,7 @@ function toggleTag(el) {
 }
 document.getElementById('care360Form').addEventListener('submit', async function(event) {
   event.preventDefault();
-  if (!selectedTier || !stripeLinks[selectedTier]) {
+  if (!selectedTier) {
     alert('Please select a Care360 plan before continuing to payment.');
     goToStep(6);
     return;
@@ -651,8 +601,11 @@ document.getElementById('care360Form').addEventListener('submit', async function
       throw new Error('Formspree submission failed');
     }
     const email = document.getElementById('sponsorEmail')?.value || '';
-    const paymentUrl = stripeLinks[selectedTier] + '?prefilled_email=' + encodeURIComponent(email);
-    window.location.href = paymentUrl;
+    window.location.href =
+      'care360-payment.html?plan=' +
+      encodeURIComponent(selectedTier) +
+      '&email=' +
+      encodeURIComponent(email);
   } catch (error) {
     console.error(error);
     submitBtn.disabled = false;
