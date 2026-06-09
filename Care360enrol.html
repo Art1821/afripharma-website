@@ -474,42 +474,25 @@
     .payment-total .t-row.total span:last-child {
       color: var(--gold);
     }
-    .payment-methods {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 14px;
-      margin-bottom: 20px;
-    }
-    .pay-btn {
-      border: none;
+    .payment-note-box {
+      background: var(--offwhite);
+      border: 1px solid rgba(0,0,0,0.07);
       border-radius: 8px;
-      padding: 15px 20px;
-      font-size: 15px;
-      font-weight: 700;
-      cursor: pointer;
-      transition: transform 0.15s, box-shadow 0.15s;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
+      padding: 16px 18px;
+      margin-bottom: 18px;
     }
-    .pay-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(0,0,0,0.15);
-    }
-    .pay-stripe {
-      background: #635bff;
-      color: white;
-    }
-    .paypal-tier-button {
-      display: none;
-      margin-bottom: 14px;
+    .payment-note-box p {
+      font-size: 13.5px;
+      color: var(--muted);
+      line-height: 1.65;
+      margin: 0;
     }
     .pay-note {
       font-size: 12px;
       color: var(--muted);
       text-align: center;
       line-height: 1.6;
+      margin-top: 14px;
     }
     .pay-note a {
       color: var(--blue);
@@ -721,8 +704,8 @@
   </div>
 </section>
 <section class="form-section" id="formSection">
-  <form action="https://formspree.io/f/mykvazpe" method="POST">
-    <input type="hidden" name="_redirect" value="https://afripharma-health.com/care360-thank-you.html">
+  <form id="care360Form" action="https://formspree.io/f/mykvazpe" method="POST">
+    <input type="hidden" id="redirectField" name="_redirect" value="">
     <input type="hidden" id="selectedPlanField" name="Selected Care360 Plan">
     <input type="hidden" id="selectedMonthlyField" name="Selected Monthly Price">
     <input type="hidden" name="_subject" value="New Care360 Enrollment Request">
@@ -1015,26 +998,24 @@
           </div>
         </div>
         <div class="form-block" id="block8">
-          <div class="block-title">Payment</div>
-          <div class="block-subtitle">Submit the enrolment request first, then complete payment using Stripe or PayPal.</div>
+          <div class="block-title">Review &amp; Payment</div>
+          <div class="block-subtitle">Review the selected plan. When you submit, your enrolment request will be sent to AfriPharma and you will be taken to secure subscription checkout.</div>
           <div class="payment-total" id="paymentTotal">
             <div class="t-row"><span>Care360 Plan</span><span id="ptTier">—</span></div>
             <div class="t-row"><span>Monthly Subscription</span><span id="ptMonthly">—</span></div>
             <div class="t-row total"><span>Total Today</span><span id="ptTotal">—</span></div>
           </div>
-          <button type="submit" class="btn-next" style="width:100%;margin-bottom:18px;">
-            Submit Enrollment Request
+          <div class="payment-note-box">
+            <p>
+              After you click below, your enrolment details will be securely submitted first.
+              You will then be redirected to the correct Stripe subscription checkout for your selected Care360 plan.
+            </p>
+          </div>
+          <button type="submit" class="btn-next" style="width:100%;margin-bottom:10px;">
+            Submit Enrolment &amp; Continue to Payment
           </button>
-          <div class="payment-methods">
-            <button type="button" class="pay-btn pay-stripe" onclick="handleStripe()">Pay with Stripe</button>
-          </div>
-          <div id="paypal-buttons-wrapper" style="margin-bottom:20px;">
-            <div id="paypal-button-container-essential" class="paypal-tier-button"></div>
-            <div id="paypal-button-container-plus" class="paypal-tier-button"></div>
-            <div id="paypal-button-container-platinum" class="paypal-tier-button"></div>
-          </div>
           <p class="pay-note">
-            Payments are processed securely via Stripe or PayPal. AfriPharma does not store card details.<br>
+            Payments are processed securely via Stripe. AfriPharma does not store card details.<br>
             Questions? Email <a href="mailto:care360@afripharma-health.com">care360@afripharma-health.com</a>
           </p>
           <div class="form-nav" style="margin-top:24px">
@@ -1091,25 +1072,14 @@
     <span>Care360™ is a healthcare coordination service, not an emergency medical service.</span>
   </div>
 </footer>
-<script src="https://www.paypal.com/sdk/js?client-id=BAAz5t4oBOyrCf8d_f0_CDLPIporRH1y_ykkX9yDY2IC5WUhNd_MmaUiV6x53WcK8o6HxzlIlMuJZbAfjo&vault=true&intent=subscription" data-sdk-integration-source="button-factory"></script>
 <script>
 let currentStep = 1;
 let selectedTier = '';
 let selectedMonthly = 0;
-let paypalRendered = false;
-const paypalPlans = {
-  'Essential': {
-    planId: 'P-3CB416899B103954MNIUHDBA',
-    container: '#paypal-button-container-essential'
-  },
-  'Plus': {
-    planId: 'P-0Y922591LK9135648NIUIBPY',
-    container: '#paypal-button-container-plus'
-  },
-  'Platinum': {
-    planId: 'P-0KW45358EG159825PNIUIDBI',
-    container: '#paypal-button-container-platinum'
-  }
+const stripeLinks = {
+  'Essential': 'https://buy.stripe.com/bJe7sN54H2NL1JhbRR9Ve00',
+  'Plus': 'https://buy.stripe.com/cNi8wRfJlewtfA7cVV9Ve02',
+  'Platinum': 'https://buy.stripe.com/fZu3cx8gT4VT87F3ll9Ve01'
 };
 function selectPricingCard(card) {
   document.querySelectorAll('.price-card').forEach(c => c.classList.remove('selected'));
@@ -1119,7 +1089,6 @@ function selectPricingCard(card) {
   syncTierOptions();
   updateHiddenFields();
   updateSummary();
-  updatePayPalVisibility();
   document.getElementById('formSection').scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 function selectTierOption(el) {
@@ -1133,7 +1102,6 @@ function selectTierOption(el) {
   document.getElementById('tierError').style.display = 'none';
   updateHiddenFields();
   updateSummary();
-  updatePayPalVisibility();
 }
 function syncTierOptions() {
   document.querySelectorAll('.tier-option').forEach(t => {
@@ -1167,7 +1135,6 @@ function goToStep(n) {
   updateStepIndicator();
   window.scrollTo({ top: document.getElementById('formSection').offsetTop - 80, behavior: 'smooth' });
   updateSummary();
-  updatePayPalVisibility();
 }
 function updateStepIndicator() {
   document.querySelectorAll('.step').forEach(s => {
@@ -1261,62 +1228,18 @@ function toggleTag(el) {
     .join(', ');
   document.getElementById('selectedConditionsField').value = selected;
 }
-function handleStripe() {
-  if (!selectedTier) {
-    alert('Please select a Care360 plan before proceeding to payment.');
+document.getElementById('care360Form').addEventListener('submit', function(event) {
+  if (!selectedTier || !stripeLinks[selectedTier]) {
+    event.preventDefault();
+    alert('Please select a Care360 plan before continuing to payment.');
+    goToStep(6);
     return;
   }
-  const stripeLinks = {
-    'Essential': 'https://buy.stripe.com/bJe7sN54H2NL1JhbRR9Ve00',
-    'Plus': 'https://buy.stripe.com/cNi8wRfJlewtfA7cVV9Ve02',
-    'Platinum': 'https://buy.stripe.com/fZu3cx8gT4VT87F3ll9Ve01'
-  };
-  const url = stripeLinks[selectedTier];
-  if (url) {
-    window.location.href = url + '?prefilled_email=' + encodeURIComponent(document.getElementById('sponsorEmail')?.value || '');
-  } else {
-    alert('Stripe payment link for Care360 ' + selectedTier + ' is not configured yet.');
-  }
-}
-function renderPayPalButtons() {
-  if (paypalRendered || typeof paypal === 'undefined') return;
-  Object.keys(paypalPlans).forEach(function(tier) {
-    paypal.Buttons({
-      style: {
-        shape: 'rect',
-        color: 'gold',
-        layout: 'vertical',
-        label: 'subscribe'
-      },
-      createSubscription: function(data, actions) {
-        return actions.subscription.create({
-          plan_id: paypalPlans[tier].planId
-        });
-      },
-      onApprove: function(data, actions) {
-        window.location.href = 'care360-thank-you.html?paypal_subscription_id=' + encodeURIComponent(data.subscriptionID);
-      },
-      onError: function(err) {
-        console.error('PayPal error:', err);
-        alert('There was a problem processing the PayPal subscription. Please try again or contact care360@afripharma-health.com.');
-      }
-    }).render(paypalPlans[tier].container);
-  });
-  paypalRendered = true;
-}
-function updatePayPalVisibility() {
-  document.querySelectorAll('.paypal-tier-button').forEach(function(el) {
-    el.style.display = 'none';
-  });
-  if (!selectedTier || !paypalPlans[selectedTier]) return;
-  const selectedContainer = document.querySelector(paypalPlans[selectedTier].container);
-  if (selectedContainer) {
-    selectedContainer.style.display = 'block';
-  }
-}
+  const email = document.getElementById('sponsorEmail')?.value || '';
+  const paymentUrl = stripeLinks[selectedTier] + '?prefilled_email=' + encodeURIComponent(email);
+  document.getElementById('redirectField').value = paymentUrl;
+});
 updateSummary();
-renderPayPalButtons();
-updatePayPalVisibility();
 </script>
 </body>
 </html>
