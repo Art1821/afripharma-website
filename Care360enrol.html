@@ -7,617 +7,108 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <style>
-    .enrol-hero {
-      background: var(--navy);
-      padding: 60px 7% 55px;
-      position: relative;
-      overflow: hidden;
-    }
-    .enrol-hero::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(ellipse 60% 80% at 85% 50%, rgba(11,95,165,0.18) 0%, transparent 70%);
-    }
-    .enrol-hero-inner {
-      position: relative;
-      z-index: 2;
-      max-width: 700px;
-    }
-    .enrol-hero .eyebrow {
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 14px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .enrol-hero .eyebrow::before {
-      content: '';
-      display: inline-block;
-      width: 28px;
-      height: 1px;
-      background: var(--gold);
-    }
-    .enrol-hero h1 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(34px, 4.5vw, 52px);
-      font-weight: 700;
-      color: var(--white);
-      line-height: 1.1;
-      margin-bottom: 14px;
-    }
-    .enrol-hero h1 em {
-      font-style: normal;
-      color: var(--gold);
-    }
-    .enrol-hero p {
-      font-size: 16px;
-      color: rgba(255,255,255,0.65);
-      max-width: 560px;
-      line-height: 1.75;
-    }
-    .pricing-strip {
-      background: var(--offwhite);
-      padding: 50px 7%;
-      border-bottom: 1px solid rgba(0,0,0,0.07);
-    }
-    .pricing-strip .label {
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--blue);
-      margin-bottom: 12px;
-    }
-    .pricing-strip h2 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 32px;
-      font-weight: 700;
-      color: var(--navy);
-      margin-bottom: 32px;
-    }
-    .pricing-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-    .price-card {
-      background: var(--white);
-      border: 1px solid rgba(0,0,0,0.07);
-      border-radius: 12px;
-      padding: 28px 22px;
-      cursor: pointer;
-      transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
-      position: relative;
-    }
-    .price-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 12px 36px rgba(6,33,58,0.09);
-    }
-    .price-card.selected {
-      border-color: var(--blue);
-      box-shadow: 0 0 0 3px rgba(11,95,165,0.12);
-    }
-    .price-card.popular {
-      border-color: var(--gold);
-    }
-    .popular-badge {
-      position: absolute;
-      top: -11px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: var(--gold);
-      color: var(--navy);
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      padding: 4px 14px;
-      border-radius: 20px;
-      white-space: nowrap;
-    }
-    .price-card .tier-label {
-      font-size: 10.5px;
-      font-weight: 700;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 8px;
-    }
-    .price-card h3 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 22px;
-      font-weight: 700;
-      color: var(--navy);
-      margin-bottom: 6px;
-    }
-    .price-card .amount {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 36px;
-      font-weight: 700;
-      color: var(--blue);
-      line-height: 1;
-    }
-    .price-card .amount span {
-      font-size: 15px;
-      font-weight: 400;
-      color: var(--muted);
-    }
-    .price-card .tagline {
-      font-size: 13px;
-      color: var(--muted);
-      margin: 10px 0 14px;
-      line-height: 1.5;
-    }
-    .price-features {
-      list-style: none;
-      padding-left: 0;
-    }
-    .price-features li {
-      font-size: 13px;
-      color: var(--muted);
-      padding: 5px 0;
-      border-bottom: 1px solid rgba(0,0,0,0.05);
-      display: flex;
-      gap: 8px;
-      align-items: flex-start;
-    }
-    .price-features li:last-child {
-      border-bottom: none;
-    }
-    .price-features li::before {
-      content: '✓';
-      color: var(--blue);
-      font-weight: 700;
-      flex-shrink: 0;
-    }
-    .select-indicator {
-      margin-top: 16px;
-      width: 100%;
-      padding: 9px;
-      border-radius: 6px;
-      font-size: 13px;
-      font-weight: 600;
-      text-align: center;
-      background: var(--offwhite);
-      color: var(--muted);
-      border: 1.5px solid rgba(0,0,0,0.08);
-      transition: all 0.2s;
-    }
-    .price-card.selected .select-indicator {
-      background: var(--blue);
-      color: var(--white);
-      border-color: var(--blue);
-    }
-    .price-card.popular.selected .select-indicator {
-      background: var(--gold);
-      color: var(--navy);
-      border-color: var(--gold);
-    }
-    .form-section {
-      background: var(--white);
-      padding: 60px 7%;
-    }
-    .form-layout {
-      display: grid;
-      grid-template-columns: 2fr 1fr;
-      gap: 50px;
-      align-items: start;
-      max-width: 1200px;
-    }
-    .steps {
-      display: flex;
-      gap: 0;
-      margin-bottom: 40px;
-      overflow-x: auto;
-    }
-    .step {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      flex-shrink: 0;
-    }
-    .step-num {
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      background: var(--offwhite);
-      border: 2px solid rgba(0,0,0,0.1);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 12px;
-      font-weight: 700;
-      color: var(--muted);
-      flex-shrink: 0;
-      transition: all 0.3s;
-    }
-    .step.active .step-num {
-      background: var(--blue);
-      border-color: var(--blue);
-      color: white;
-    }
-    .step.done .step-num {
-      background: #16a34a;
-      border-color: #16a34a;
-      color: white;
-    }
-    .step-label {
-      font-size: 12px;
-      font-weight: 500;
-      color: var(--muted);
-      white-space: nowrap;
-    }
-    .step.active .step-label {
-      color: var(--navy);
-      font-weight: 600;
-    }
-    .step-connector {
-      width: 24px;
-      height: 2px;
-      background: rgba(0,0,0,0.08);
-      margin: 0 4px;
-      flex-shrink: 0;
-    }
-    .form-block {
-      display: none;
-      animation: fadeIn 0.3s ease;
-    }
-    .form-block.active {
-      display: block;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(8px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    .block-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 26px;
-      font-weight: 700;
-      color: var(--navy);
-      margin-bottom: 6px;
-    }
-    .block-subtitle {
-      font-size: 14.5px;
-      color: var(--muted);
-      margin-bottom: 28px;
-      line-height: 1.6;
-    }
-    .form-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 18px;
-      margin-bottom: 18px;
-    }
-    .form-row.full {
-      grid-template-columns: 1fr;
-    }
-    .form-row.three {
-      grid-template-columns: 1fr 1fr 1fr;
-    }
-    .field {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-    .field label {
-      font-size: 12.5px;
-      font-weight: 600;
-      color: var(--navy);
-      letter-spacing: 0.03em;
-      text-transform: uppercase;
-    }
-    .field label .req,
-    .req {
-      color: var(--blue);
-      margin-left: 2px;
-    }
-    .field input,
-    .field select,
-    .field textarea {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 15px;
-      color: var(--text);
-      border: 1.5px solid rgba(0,0,0,0.12);
-      border-radius: 6px;
-      padding: 11px 14px;
-      background: var(--white);
-      transition: border-color 0.2s, box-shadow 0.2s;
-      outline: none;
-      width: 100%;
-    }
-    .field input:focus,
-    .field select:focus,
-    .field textarea:focus {
-      border-color: var(--blue);
-      box-shadow: 0 0 0 3px rgba(11,95,165,0.08);
-    }
-    .field textarea {
-      resize: vertical;
-      min-height: 90px;
-    }
-    .field .hint {
-      font-size: 12px;
-      color: var(--muted);
-    }
-    .condition-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 14px;
-    }
-    .tag {
-      background: var(--offwhite);
-      border: 1.5px solid rgba(0,0,0,0.1);
-      border-radius: 20px;
-      padding: 7px 16px;
-      font-size: 13.5px;
-      color: var(--muted);
-      cursor: pointer;
-      transition: all 0.2s;
-      user-select: none;
-    }
-    .tag.selected {
-      background: var(--blue);
-      border-color: var(--blue);
-      color: var(--white);
-    }
-    .tier-select-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-    }
-    .tier-option {
-      border: 1.5px solid rgba(0,0,0,0.1);
-      border-radius: 10px;
-      padding: 18px 16px;
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-    .tier-option:hover {
-      border-color: var(--blue);
-    }
-    .tier-option.selected {
-      border-color: var(--blue);
-      background: rgba(11,95,165,0.04);
-    }
-    .tier-option.popular-opt {
-      border-color: var(--gold);
-    }
-    .tier-option.popular-opt.selected {
-      background: rgba(200,155,60,0.06);
-    }
-    .tier-option .t-name {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 18px;
-      font-weight: 700;
-      color: var(--navy);
-      margin-bottom: 2px;
-    }
-    .tier-option .t-price {
-      font-size: 20px;
-      font-weight: 700;
-      color: var(--blue);
-      font-family: 'Cormorant Garamond', serif;
-    }
-    .tier-option .t-desc {
-      font-size: 12.5px;
-      color: var(--muted);
-      margin-top: 4px;
-      line-height: 1.5;
-    }
-    .consent-box {
-      background: #fefce8;
-      border: 1.5px solid #eab308;
-      border-radius: 8px;
-      padding: 18px 20px;
-      margin-bottom: 20px;
-    }
-    .consent-box p {
-      font-size: 13.5px;
-      color: #78350f;
-      line-height: 1.7;
-    }
-    .consent-box strong {
-      color: #92400e;
-    }
-    .checkbox-row {
-      display: flex;
-      gap: 12px;
-      align-items: flex-start;
-      margin-bottom: 14px;
-      cursor: pointer;
-    }
-    .checkbox-row input[type="checkbox"] {
-      width: 18px;
-      height: 18px;
-      flex-shrink: 0;
-      margin-top: 2px;
-      cursor: pointer;
-      accent-color: var(--blue);
-    }
-    .checkbox-row label {
-      font-size: 14px;
-      color: var(--text);
-      line-height: 1.6;
-      cursor: pointer;
-    }
-    .payment-total {
-      background: var(--navy);
-      border-radius: 10px;
-      padding: 24px;
-      margin-bottom: 22px;
-      color: var(--white);
-    }
-    .payment-total .t-row {
-      display: flex;
-      justify-content: space-between;
-      font-size: 14px;
-      color: rgba(255,255,255,0.65);
-      padding: 6px 0;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-    }
-    .payment-total .t-row:last-child {
-      border-bottom: none;
-    }
-    .payment-total .t-row.total {
-      font-size: 18px;
-      font-weight: 700;
-      color: var(--white);
-      padding-top: 12px;
-      margin-top: 4px;
-    }
-    .payment-total .t-row.total span:last-child {
-      color: var(--gold);
-    }
-    .payment-note-box {
-      background: var(--offwhite);
-      border: 1px solid rgba(0,0,0,0.07);
-      border-radius: 8px;
-      padding: 16px 18px;
-      margin-bottom: 18px;
-    }
-    .payment-note-box p {
-      font-size: 13.5px;
-      color: var(--muted);
-      line-height: 1.65;
-      margin: 0;
-    }
-    .pay-note {
-      font-size: 12px;
-      color: var(--muted);
-      text-align: center;
-      line-height: 1.6;
-      margin-top: 14px;
-    }
-    .pay-note a {
-      color: var(--blue);
-    }
-    .form-nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-top: 32px;
-    }
-    .btn-next {
-      background: var(--blue);
-      color: var(--white);
-      border: none;
-      border-radius: 6px;
-      padding: 13px 28px;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 14.5px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: background 0.2s, transform 0.15s;
-    }
-    .btn-next:hover {
-      background: var(--blue-light);
-      transform: translateY(-1px);
-    }
-    .btn-back {
-      background: none;
-      border: 1.5px solid rgba(0,0,0,0.12);
-      color: var(--muted);
-      border-radius: 6px;
-      padding: 12px 24px;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 14px;
-      font-weight: 500;
-      cursor: pointer;
-      transition: border-color 0.2s, color 0.2s;
-    }
-    .btn-back:hover {
-      border-color: var(--navy);
-      color: var(--navy);
-    }
-    .form-sidebar {
-      position: sticky;
-      top: 90px;
-    }
-    .summary-card {
-      background: var(--offwhite);
-      border-radius: 12px;
-      padding: 28px;
-      border: 1px solid rgba(0,0,0,0.07);
-      margin-bottom: 18px;
-    }
-    .summary-card h4 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 18px;
-      font-weight: 700;
-      color: var(--navy);
-      margin-bottom: 14px;
-    }
-    .summary-row {
-      display: flex;
-      justify-content: space-between;
-      font-size: 13.5px;
-      padding: 7px 0;
-      border-bottom: 1px solid rgba(0,0,0,0.06);
-      color: var(--muted);
-    }
-    .summary-row:last-child {
-      border-bottom: none;
-    }
-    .summary-row strong {
-      color: var(--navy);
-    }
-    .help-card {
-      background: var(--navy);
-      border-radius: 12px;
-      padding: 24px;
-    }
-    .help-card h4 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 17px;
-      font-weight: 700;
-      color: var(--white);
-      margin-bottom: 10px;
-    }
-    .help-card p {
-      font-size: 13.5px;
-      color: rgba(255,255,255,0.65);
-      line-height: 1.65;
-      margin-bottom: 12px;
-    }
-    .help-card a {
-      font-size: 13.5px;
-      font-weight: 600;
-      color: var(--gold);
-      text-decoration: none;
-    }
-    .field input.error,
-    .field select.error,
-    .field textarea.error {
-      border-color: #dc2626;
-    }
-    .error-msg {
-      font-size: 12px;
-      color: #dc2626;
-      margin-top: 2px;
-    }
-    @media (max-width: 900px) {
-      .pricing-grid {
-        grid-template-columns: 1fr;
-      }
-      .form-layout {
-        grid-template-columns: 1fr;
-      }
-      .form-sidebar {
-        position: static;
-      }
-      .form-row,
-      .form-row.three {
-        grid-template-columns: 1fr;
-      }
-      .tier-select-grid {
-        grid-template-columns: 1fr;
-      }
+    .enrol-hero{background:var(--navy);padding:60px 7% 55px;position:relative;overflow:hidden}
+    .enrol-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 85% 50%,rgba(11,95,165,.18) 0%,transparent 70%)}
+    .enrol-hero-inner{position:relative;z-index:2;max-width:700px}
+    .enrol-hero .eyebrow{font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;display:flex;align-items:center;gap:10px}
+    .enrol-hero .eyebrow::before{content:'';display:inline-block;width:28px;height:1px;background:var(--gold)}
+    .enrol-hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(34px,4.5vw,52px);font-weight:700;color:var(--white);line-height:1.1;margin-bottom:14px}
+    .enrol-hero h1 em{font-style:normal;color:var(--gold)}
+    .enrol-hero p{font-size:16px;color:rgba(255,255,255,.65);max-width:560px;line-height:1.75}
+    .pricing-strip{background:var(--offwhite);padding:50px 7%;border-bottom:1px solid rgba(0,0,0,.07)}
+    .pricing-strip .label{font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--blue);margin-bottom:12px}
+    .pricing-strip h2{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:700;color:var(--navy);margin-bottom:32px}
+    .pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .price-card{background:var(--white);border:1px solid rgba(0,0,0,.07);border-radius:12px;padding:28px 22px;cursor:pointer;transition:.2s;position:relative}
+    .price-card:hover{transform:translateY(-3px);box-shadow:0 12px 36px rgba(6,33,58,.09)}
+    .price-card.selected{border-color:var(--blue);box-shadow:0 0 0 3px rgba(11,95,165,.12)}
+    .price-card.popular{border-color:var(--gold)}
+    .popular-badge{position:absolute;top:-11px;left:50%;transform:translateX(-50%);background:var(--gold);color:var(--navy);font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:4px 14px;border-radius:20px;white-space:nowrap}
+    .price-card .tier-label{font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+    .price-card h3{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;color:var(--navy);margin-bottom:6px}
+    .price-card .amount{font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:700;color:var(--blue);line-height:1}
+    .price-card .amount span{font-size:15px;font-weight:400;color:var(--muted)}
+    .price-card .tagline{font-size:13px;color:var(--muted);margin:10px 0 14px;line-height:1.5}
+    .price-features{list-style:none;padding-left:0}
+    .price-features li{font-size:13px;color:var(--muted);padding:5px 0;border-bottom:1px solid rgba(0,0,0,.05);display:flex;gap:8px;align-items:flex-start}
+    .price-features li:last-child{border-bottom:none}
+    .price-features li::before{content:'✓';color:var(--blue);font-weight:700;flex-shrink:0}
+    .select-indicator{margin-top:16px;width:100%;padding:9px;border-radius:6px;font-size:13px;font-weight:600;text-align:center;background:var(--offwhite);color:var(--muted);border:1.5px solid rgba(0,0,0,.08);transition:.2s}
+    .price-card.selected .select-indicator{background:var(--blue);color:var(--white);border-color:var(--blue)}
+    .price-card.popular.selected .select-indicator{background:var(--gold);color:var(--navy);border-color:var(--gold)}
+    .form-section{background:var(--white);padding:60px 7%}
+    .form-layout{display:grid;grid-template-columns:2fr 1fr;gap:50px;align-items:start;max-width:1200px}
+    .steps{display:flex;gap:0;margin-bottom:40px;overflow-x:auto}
+    .step{display:flex;align-items:center;gap:8px;flex-shrink:0}
+    .step-num{width:28px;height:28px;border-radius:50%;background:var(--offwhite);border:2px solid rgba(0,0,0,.1);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:var(--muted);flex-shrink:0;transition:.3s}
+    .step.active .step-num{background:var(--blue);border-color:var(--blue);color:#fff}
+    .step.done .step-num{background:#16a34a;border-color:#16a34a;color:#fff}
+    .step-label{font-size:12px;font-weight:500;color:var(--muted);white-space:nowrap}
+    .step.active .step-label{color:var(--navy);font-weight:600}
+    .step-connector{width:24px;height:2px;background:rgba(0,0,0,.08);margin:0 4px;flex-shrink:0}
+    .form-block{display:none;animation:fadeIn .3s ease}
+    .form-block.active{display:block}
+    @keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+    .block-title{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:700;color:var(--navy);margin-bottom:6px}
+    .block-subtitle{font-size:14.5px;color:var(--muted);margin-bottom:28px;line-height:1.6}
+    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:18px}
+    .form-row.full{grid-template-columns:1fr}
+    .form-row.three{grid-template-columns:1fr 1fr 1fr}
+    .field{display:flex;flex-direction:column;gap:6px}
+    .field label{font-size:12.5px;font-weight:600;color:var(--navy);letter-spacing:.03em;text-transform:uppercase}
+    .field label .req,.req{color:var(--blue);margin-left:2px}
+    .field input,.field select,.field textarea{font-family:'DM Sans',sans-serif;font-size:15px;color:var(--text);border:1.5px solid rgba(0,0,0,.12);border-radius:6px;padding:11px 14px;background:var(--white);transition:.2s;outline:none;width:100%}
+    .field input:focus,.field select:focus,.field textarea:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(11,95,165,.08)}
+    .field textarea{resize:vertical;min-height:90px}
+    .field .hint{font-size:12px;color:var(--muted)}
+    .condition-tags{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:14px}
+    .tag{background:var(--offwhite);border:1.5px solid rgba(0,0,0,.1);border-radius:20px;padding:7px 16px;font-size:13.5px;color:var(--muted);cursor:pointer;transition:.2s;user-select:none}
+    .tag.selected{background:var(--blue);border-color:var(--blue);color:var(--white)}
+    .tier-select-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    .tier-option{border:1.5px solid rgba(0,0,0,.1);border-radius:10px;padding:18px 16px;cursor:pointer;transition:.2s}
+    .tier-option:hover{border-color:var(--blue)}
+    .tier-option.selected{border-color:var(--blue);background:rgba(11,95,165,.04)}
+    .tier-option.popular-opt{border-color:var(--gold)}
+    .tier-option.popular-opt.selected{background:rgba(200,155,60,.06)}
+    .tier-option .t-name{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:700;color:var(--navy);margin-bottom:2px}
+    .tier-option .t-price{font-size:20px;font-weight:700;color:var(--blue);font-family:'Cormorant Garamond',serif}
+    .tier-option .t-desc{font-size:12.5px;color:var(--muted);margin-top:4px;line-height:1.5}
+    .consent-box{background:#fefce8;border:1.5px solid #eab308;border-radius:8px;padding:18px 20px;margin-bottom:20px}
+    .consent-box p{font-size:13.5px;color:#78350f;line-height:1.7}
+    .consent-box strong{color:#92400e}
+    .checkbox-row{display:flex;gap:12px;align-items:flex-start;margin-bottom:14px;cursor:pointer}
+    .checkbox-row input[type="checkbox"]{width:18px;height:18px;flex-shrink:0;margin-top:2px;cursor:pointer;accent-color:var(--blue)}
+    .checkbox-row label{font-size:14px;color:var(--text);line-height:1.6;cursor:pointer}
+    .payment-total{background:var(--navy);border-radius:10px;padding:24px;margin-bottom:22px;color:var(--white)}
+    .payment-total .t-row{display:flex;justify-content:space-between;font-size:14px;color:rgba(255,255,255,.65);padding:6px 0;border-bottom:1px solid rgba(255,255,255,.08)}
+    .payment-total .t-row:last-child{border-bottom:none}
+    .payment-total .t-row.total{font-size:18px;font-weight:700;color:var(--white);padding-top:12px;margin-top:4px}
+    .payment-total .t-row.total span:last-child{color:var(--gold)}
+    .payment-note-box{background:var(--offwhite);border:1px solid rgba(0,0,0,.07);border-radius:8px;padding:16px 18px;margin-bottom:18px}
+    .payment-note-box p{font-size:13.5px;color:var(--muted);line-height:1.65;margin:0}
+    .pay-note{font-size:12px;color:var(--muted);text-align:center;line-height:1.6;margin-top:14px}
+    .pay-note a{color:var(--blue)}
+    .form-nav{display:flex;justify-content:space-between;align-items:center;margin-top:32px}
+    .btn-next{background:var(--blue);color:var(--white);border:none;border-radius:6px;padding:13px 28px;font-family:'DM Sans',sans-serif;font-size:14.5px;font-weight:600;cursor:pointer;transition:.2s}
+    .btn-next:hover{background:var(--blue-light);transform:translateY(-1px)}
+    .btn-next:disabled{opacity:.65;cursor:not-allowed;transform:none}
+    .btn-back{background:none;border:1.5px solid rgba(0,0,0,.12);color:var(--muted);border-radius:6px;padding:12px 24px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:500;cursor:pointer;transition:.2s}
+    .btn-back:hover{border-color:var(--navy);color:var(--navy)}
+    .form-sidebar{position:sticky;top:90px}
+    .summary-card{background:var(--offwhite);border-radius:12px;padding:28px;border:1px solid rgba(0,0,0,.07);margin-bottom:18px}
+    .summary-card h4{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:700;color:var(--navy);margin-bottom:14px}
+    .summary-row{display:flex;justify-content:space-between;font-size:13.5px;padding:7px 0;border-bottom:1px solid rgba(0,0,0,.06);color:var(--muted)}
+    .summary-row:last-child{border-bottom:none}
+    .summary-row strong{color:var(--navy)}
+    .help-card{background:var(--navy);border-radius:12px;padding:24px}
+    .help-card h4{font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:700;color:var(--white);margin-bottom:10px}
+    .help-card p{font-size:13.5px;color:rgba(255,255,255,.65);line-height:1.65;margin-bottom:12px}
+    .help-card a{font-size:13.5px;font-weight:600;color:var(--gold);text-decoration:none}
+    .field input.error,.field select.error,.field textarea.error{border-color:#dc2626}
+    .error-msg{font-size:12px;color:#dc2626;margin-top:2px}
+    @media(max-width:900px){
+      .pricing-grid,.form-layout,.form-row,.form-row.three,.tier-select-grid{grid-template-columns:1fr}
+      .form-sidebar{position:static}
     }
   </style>
 </head>
@@ -699,13 +190,12 @@
       <div class="select-indicator">Select Plan</div>
     </div>
   </div>
-  <div style="margin-top:22px;padding:16px 20px;background:var(--white);border-radius:8px;border:1px solid rgba(0,0,0,0.07);font-size:13.5px;color:var(--muted);">
+  <div style="margin-top:22px;padding:16px 20px;background:var(--white);border-radius:8px;border:1px solid rgba(0,0,0,.07);font-size:13.5px;color:var(--muted);">
     <strong style="color:var(--navy)">Add-on services</strong> — Pharmacy delivery Harare/Bulawayo: $3–5 per delivery. Appointment escort and wellness visits available in future. Add-ons are arranged separately after enrolment.
   </div>
 </section>
 <section class="form-section" id="formSection">
-  <form id="care360Form" action="https://formspree.io/f/mykvazpe" method="POST">
-    <input type="hidden" id="redirectField" name="_redirect" value="">
+  <form id="care360Form">
     <input type="hidden" id="selectedPlanField" name="Selected Care360 Plan">
     <input type="hidden" id="selectedMonthlyField" name="Selected Monthly Price">
     <input type="hidden" name="_subject" value="New Care360 Enrollment Request">
@@ -734,21 +224,21 @@
           <div class="form-row">
             <div class="field">
               <label>First Name <span class="req">*</span></label>
-              <input type="text" id="sponsorFirst" name="Sponsor First Name" placeholder="e.g. John" required>
+              <input type="text" id="sponsorFirst" name="Sponsor First Name" required>
             </div>
             <div class="field">
               <label>Last Name <span class="req">*</span></label>
-              <input type="text" id="sponsorLast" name="Sponsor Last Name" placeholder="e.g. Doe" required>
+              <input type="text" id="sponsorLast" name="Sponsor Last Name" required>
             </div>
           </div>
           <div class="form-row">
             <div class="field">
               <label>Email Address <span class="req">*</span></label>
-              <input type="email" id="sponsorEmail" name="Sponsor Email Address" placeholder="your@email.com" required>
+              <input type="email" id="sponsorEmail" name="Sponsor Email Address" required>
             </div>
             <div class="field">
               <label>Phone / WhatsApp <span class="req">*</span></label>
-              <input type="tel" id="sponsorPhone" name="Sponsor Phone Number" placeholder="+1 555 000 0000" required>
+              <input type="tel" id="sponsorPhone" name="Sponsor Phone Number" required>
             </div>
           </div>
           <div class="form-row">
@@ -756,26 +246,14 @@
               <label>Country of Residence <span class="req">*</span></label>
               <select id="sponsorCountry" name="Sponsor Country of Residence" required>
                 <option value="">— Select country —</option>
-                <option>United States</option>
-                <option>United Kingdom</option>
-                <option>Canada</option>
-                <option>Australia</option>
-                <option>South Africa</option>
-                <option>Botswana</option>
-                <option>Zimbabwe</option>
-                <option>Other</option>
+                <option>United States</option><option>United Kingdom</option><option>Canada</option><option>Australia</option><option>South Africa</option><option>Botswana</option><option>Zimbabwe</option><option>Other</option>
               </select>
             </div>
             <div class="field">
               <label>Relationship to Patient <span class="req">*</span></label>
               <select id="sponsorRelation" name="Relationship to Patient" required>
                 <option value="">— Select relationship —</option>
-                <option>Child / Son / Daughter</option>
-                <option>Spouse / Partner</option>
-                <option>Sibling</option>
-                <option>Parent</option>
-                <option>Other family member</option>
-                <option>Guardian / Legal representative</option>
+                <option>Child / Son / Daughter</option><option>Spouse / Partner</option><option>Sibling</option><option>Parent</option><option>Other family member</option><option>Guardian / Legal representative</option>
               </select>
             </div>
           </div>
@@ -788,56 +266,20 @@
           <div class="block-title">Patient Information</div>
           <div class="block-subtitle">Information about the person who will be receiving Care360 support in Zimbabwe.</div>
           <div class="form-row">
-            <div class="field">
-              <label>First Name <span class="req">*</span></label>
-              <input type="text" id="patientFirst" name="Patient First Name" placeholder="Patient's first name" required>
-            </div>
-            <div class="field">
-              <label>Last Name <span class="req">*</span></label>
-              <input type="text" id="patientLast" name="Patient Last Name" placeholder="Patient's last name" required>
-            </div>
+            <div class="field"><label>First Name <span class="req">*</span></label><input type="text" id="patientFirst" name="Patient First Name" required></div>
+            <div class="field"><label>Last Name <span class="req">*</span></label><input type="text" id="patientLast" name="Patient Last Name" required></div>
           </div>
           <div class="form-row three">
-            <div class="field">
-              <label>Date of Birth <span class="req">*</span></label>
-              <input type="date" id="patientDOB" name="Patient Date of Birth" required>
-            </div>
-            <div class="field">
-              <label>Gender</label>
-              <select id="patientGender" name="Patient Gender">
-                <option value="">— Select —</option>
-                <option>Female</option>
-                <option>Male</option>
-                <option>Prefer not to say</option>
-              </select>
-            </div>
-            <div class="field">
-              <label>Primary Language</label>
-              <select id="patientLanguage" name="Patient Primary Language">
-                <option value="">— Select —</option>
-                <option>English</option>
-                <option>Shona</option>
-                <option>Ndebele</option>
-                <option>Other</option>
-              </select>
-            </div>
+            <div class="field"><label>Date of Birth <span class="req">*</span></label><input type="date" id="patientDOB" name="Patient Date of Birth" required></div>
+            <div class="field"><label>Gender</label><select id="patientGender" name="Patient Gender"><option value="">— Select —</option><option>Female</option><option>Male</option><option>Prefer not to say</option></select></div>
+            <div class="field"><label>Primary Language</label><select id="patientLanguage" name="Patient Primary Language"><option value="">— Select —</option><option>English</option><option>Shona</option><option>Ndebele</option><option>Other</option></select></div>
           </div>
           <div class="form-row">
-            <div class="field">
-              <label>Patient Phone / WhatsApp</label>
-              <input type="tel" id="patientPhone" name="Patient Phone Number" placeholder="+263 77 000 0000">
-              <span class="hint">If the patient has their own phone</span>
-            </div>
-            <div class="field">
-              <label>Emergency Contact Name</label>
-              <input type="text" id="emergencyName" name="Emergency Contact Name" placeholder="Name of local emergency contact">
-            </div>
+            <div class="field"><label>Patient Phone / WhatsApp</label><input type="tel" id="patientPhone" name="Patient Phone Number"><span class="hint">If the patient has their own phone</span></div>
+            <div class="field"><label>Emergency Contact Name</label><input type="text" id="emergencyName" name="Emergency Contact Name"></div>
           </div>
           <div class="form-row full">
-            <div class="field">
-              <label>Emergency Contact Phone</label>
-              <input type="tel" id="emergencyPhone" name="Emergency Contact Phone" placeholder="+263 77 000 0000">
-            </div>
+            <div class="field"><label>Emergency Contact Phone</label><input type="tel" id="emergencyPhone" name="Emergency Contact Phone"></div>
           </div>
           <div class="form-nav">
             <button type="button" class="btn-back" onclick="prevStep(2)">← Back</button>
@@ -857,24 +299,9 @@
               </select>
             </div>
           </div>
-          <div class="form-row full">
-            <div class="field">
-              <label>Suburb / Area</label>
-              <input type="text" id="patientSuburb" name="Patient Suburb or Area" placeholder="e.g. Borrowdale, Avondale, Hillside">
-            </div>
-          </div>
-          <div class="form-row full">
-            <div class="field">
-              <label>Street Address or Landmark</label>
-              <input type="text" id="patientAddress" name="Patient Address or Landmark" placeholder="For delivery coordination — as specific as possible">
-            </div>
-          </div>
-          <div class="form-row full">
-            <div class="field">
-              <label>Additional Location Notes</label>
-              <textarea id="locationNotes" name="Additional Location Notes" placeholder="Any helpful directions, gate codes, or access notes for our team..."></textarea>
-            </div>
-          </div>
+          <div class="form-row full"><div class="field"><label>Suburb / Area</label><input type="text" id="patientSuburb" name="Patient Suburb or Area"></div></div>
+          <div class="form-row full"><div class="field"><label>Street Address or Landmark</label><input type="text" id="patientAddress" name="Patient Address or Landmark"></div></div>
+          <div class="form-row full"><div class="field"><label>Additional Location Notes</label><textarea id="locationNotes" name="Additional Location Notes"></textarea></div></div>
           <div class="form-nav">
             <button type="button" class="btn-back" onclick="prevStep(3)">← Back</button>
             <button type="button" class="btn-next" onclick="nextStep(3)">Continue →</button>
@@ -883,24 +310,9 @@
         <div class="form-block" id="block4">
           <div class="block-title">Current Medications</div>
           <div class="block-subtitle">List current medications so we can set up tracking and refill reminders.</div>
-          <div class="form-row full">
-            <div class="field">
-              <label>Current Medications</label>
-              <textarea id="currentMedications" name="Current Medications" placeholder="Example: Metformin 500mg twice daily; Amlodipine 5mg once daily"></textarea>
-            </div>
-          </div>
-          <div class="form-row full">
-            <div class="field">
-              <label>Known Allergies or Adverse Reactions</label>
-              <textarea id="allergies" name="Known Allergies or Adverse Reactions" placeholder="e.g. Penicillin — rash. Or 'None known'."></textarea>
-            </div>
-          </div>
-          <div class="form-row full">
-            <div class="field">
-              <label>Preferred Pharmacy</label>
-              <input type="text" id="preferredPharmacy" name="Preferred Pharmacy" placeholder="e.g. Clicks Borrowdale, or leave blank for us to arrange">
-            </div>
-          </div>
+          <div class="form-row full"><div class="field"><label>Current Medications</label><textarea id="currentMedications" name="Current Medications"></textarea></div></div>
+          <div class="form-row full"><div class="field"><label>Known Allergies or Adverse Reactions</label><textarea id="allergies" name="Known Allergies or Adverse Reactions"></textarea></div></div>
+          <div class="form-row full"><div class="field"><label>Preferred Pharmacy</label><input type="text" id="preferredPharmacy" name="Preferred Pharmacy"></div></div>
           <div class="form-nav">
             <button type="button" class="btn-back" onclick="prevStep(4)">← Back</button>
             <button type="button" class="btn-next" onclick="nextStep(4)">Continue →</button>
@@ -929,18 +341,8 @@
             <div class="tag" onclick="toggleTag(this)">Dementia / Memory Issues</div>
             <div class="tag" onclick="toggleTag(this)">None of the above</div>
           </div>
-          <div class="form-row full">
-            <div class="field">
-              <label>Other Conditions or Notes</label>
-              <textarea id="otherConditions" name="Other Conditions or Notes" placeholder="Any other relevant health information our care coordinators should know..."></textarea>
-            </div>
-          </div>
-          <div class="form-row full">
-            <div class="field">
-              <label>Primary Doctor / Clinic</label>
-              <input type="text" id="primaryDoctor" name="Primary Doctor or Clinic" placeholder="e.g. Dr. Chikwanda, Avenues Clinic, Harare">
-            </div>
-          </div>
+          <div class="form-row full"><div class="field"><label>Other Conditions or Notes</label><textarea id="otherConditions" name="Other Conditions or Notes"></textarea></div></div>
+          <div class="form-row full"><div class="field"><label>Primary Doctor / Clinic</label><input type="text" id="primaryDoctor" name="Primary Doctor or Clinic"></div></div>
           <div class="form-nav">
             <button type="button" class="btn-back" onclick="prevStep(5)">← Back</button>
             <button type="button" class="btn-next" onclick="nextStep(5)">Continue →</button>
@@ -956,7 +358,7 @@
               <div class="t-desc">Medication tracking, refill reminders, WhatsApp support, monthly update.</div>
             </div>
             <div class="tier-option popular-opt" data-tier="Plus" data-monthly="49" onclick="selectTierOption(this)">
-              <div style="font-size:10px;font-weight:700;color:var(--gold);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:4px">⭐ Most Popular</div>
+              <div style="font-size:10px;font-weight:700;color:var(--gold);letter-spacing:.1em;text-transform:uppercase;margin-bottom:4px">⭐ Most Popular</div>
               <div class="t-name">Plus</div>
               <div class="t-price">$49<span style="font-size:14px;font-weight:400;color:var(--muted)">/month</span></div>
               <div class="t-desc">Medication coordination, delivery, appointment scheduling, and priority support.</div>
@@ -1006,12 +408,9 @@
             <div class="t-row total"><span>Total Today</span><span id="ptTotal">—</span></div>
           </div>
           <div class="payment-note-box">
-            <p>
-              After you click below, your enrolment details will be securely submitted first.
-              You will then be redirected to the correct Stripe subscription checkout for your selected Care360 plan.
-            </p>
+            <p>After you click below, your enrolment details will be submitted first. You will then be redirected to the correct Stripe subscription checkout for your selected Care360 plan.</p>
           </div>
-          <button type="submit" class="btn-next" style="width:100%;margin-bottom:10px;">
+          <button type="submit" id="submitPaymentBtn" class="btn-next" style="width:100%;margin-bottom:10px;">
             Submit Enrolment &amp; Continue to Payment
           </button>
           <p class="pay-note">
@@ -1228,16 +627,38 @@ function toggleTag(el) {
     .join(', ');
   document.getElementById('selectedConditionsField').value = selected;
 }
-document.getElementById('care360Form').addEventListener('submit', function(event) {
+document.getElementById('care360Form').addEventListener('submit', async function(event) {
+  event.preventDefault();
   if (!selectedTier || !stripeLinks[selectedTier]) {
-    event.preventDefault();
     alert('Please select a Care360 plan before continuing to payment.');
     goToStep(6);
     return;
   }
-  const email = document.getElementById('sponsorEmail')?.value || '';
-  const paymentUrl = stripeLinks[selectedTier] + '?prefilled_email=' + encodeURIComponent(email);
-  document.getElementById('redirectField').value = paymentUrl;
+  updateHiddenFields();
+  const submitBtn = document.getElementById('submitPaymentBtn');
+  submitBtn.disabled = true;
+  submitBtn.textContent = 'Submitting enrolment...';
+  const formData = new FormData(event.target);
+  try {
+    const response = await fetch('https://formspree.io/f/mykvazpe', {
+      method: 'POST',
+      body: formData,
+      headers: {
+        'Accept': 'application/json'
+      }
+    });
+    if (!response.ok) {
+      throw new Error('Formspree submission failed');
+    }
+    const email = document.getElementById('sponsorEmail')?.value || '';
+    const paymentUrl = stripeLinks[selectedTier] + '?prefilled_email=' + encodeURIComponent(email);
+    window.location.href = paymentUrl;
+  } catch (error) {
+    console.error(error);
+    submitBtn.disabled = false;
+    submitBtn.textContent = 'Submit Enrolment & Continue to Payment';
+    alert('There was a problem submitting the enrolment form. Please try again or contact care360@afripharma-health.com.');
+  }
 });
 updateSummary();
 </script>
