@@ -7,7 +7,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <style>
-    /* ── INDEX-SPECIFIC ── */
     .hero {
       min-height: 90vh;
       background: var(--navy);
@@ -56,6 +55,35 @@
       transition: border-color 0.2s, color 0.2s;
     }
     .btn-outline-white:hover { border-color: var(--gold); color: var(--gold); }
+
+    .whatsapp-btn {
+      display:inline-block;
+      background:#25D366;
+      color:white;
+      padding:13px 26px;
+      border-radius:4px;
+      text-decoration:none;
+      font-weight:600;
+      font-size:14px;
+    }
+    .whatsapp-btn:hover { background:#1ebe5d; color:white; }
+
+    .whatsapp-float {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      z-index: 9999;
+      background: #25D366;
+      color: white;
+      padding: 14px 18px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.22);
+    }
+    .whatsapp-float:hover { background: #1ebe5d; color: white; }
 
     .hero-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
     .stat-card {
@@ -167,10 +195,6 @@
     .founder-aside {
       background: var(--navy); border-radius: 12px; padding: 36px 28px; color: var(--white);
     }
-    .founder-name {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 26px; font-weight: 700; color: var(--white); margin-bottom: 4px;
-    }
     .founder-title { font-size: 13px; color: var(--gold); margin-bottom: 22px; }
     .founder-credentials { list-style: none; }
     .founder-credentials li {
@@ -186,6 +210,7 @@
       border-left: 3px solid var(--gold); padding-left: 22px;
       margin: 28px 0; line-height: 1.45;
     }
+
     @media (max-width:900px) {
       .hero-grid, .vision-grid { grid-template-columns: 1fr; }
       .pillar-grid { grid-template-columns: 1fr; }
@@ -193,8 +218,18 @@
       .markets-grid { grid-template-columns: repeat(2,1fr); }
       .audience-grid { grid-template-columns: 1fr; }
     }
+
+    @media(max-width:600px) {
+      .whatsapp-float {
+        right: 16px;
+        bottom: 16px;
+        padding: 13px 16px;
+        font-size: 13px;
+      }
+    }
   </style>
 </head>
+
 <body>
 
 <header class="site-header">
@@ -221,7 +256,6 @@
   <span><strong>Now Operational:</strong> AfriPharma Zimbabwe incorporated April 2026. Botswana entity active. Distribution platform under development.</span>
 </div>
 
-<!-- HERO -->
 <section class="hero">
   <div class="hero-grid">
     <div>
@@ -231,6 +265,12 @@
       <div class="hero-buttons">
         <a href="care360.html" class="btn-gold">Explore Care360™</a>
         <a href="partners.html" class="btn-outline-white">Partner With Us</a>
+        <a href="https://wa.me/263775869990?text=Hello%20AfriPharma%2C%20I%20would%20like%20to%20learn%20more."
+           target="_blank"
+           rel="noopener noreferrer"
+           class="whatsapp-btn">
+          Chat on WhatsApp
+        </a>
       </div>
     </div>
     <div class="hero-stats">
@@ -254,7 +294,6 @@
   </div>
 </section>
 
-<!-- MISSION -->
 <section class="section section-white">
   <div class="section-label">Our Purpose</div>
   <h2 class="section-title">Building Africa's Health<br>Infrastructure — One Brick at a Time.</h2>
@@ -267,7 +306,6 @@
   </div>
 </section>
 
-<!-- PLATFORM -->
 <section class="section section-offwhite">
   <div class="section-label">The Platform</div>
   <h2 class="section-title">Three Pillars. One Mission.</h2>
@@ -294,7 +332,6 @@
   </div>
 </section>
 
-<!-- CARE360 -->
 <section class="section section-navy" id="care360">
   <div class="section-label">Care Coordination</div>
   <h2 class="section-title">AfriPharma Care360™</h2>
@@ -333,7 +370,6 @@
   </div>
 </section>
 
-<!-- FOOTPRINT -->
 <section class="section section-offwhite">
   <div class="section-label">Regional Footprint</div>
   <h2 class="section-title">Starting in Zimbabwe.<br>Expanding Across Southern Africa.</h2>
@@ -366,13 +402,12 @@
     <div class="market-card">
       <div class="status-pill pill-grey">Planned</div>
       <h3>Mozambique</h3>
-      <p>.</p>
+      <p>Manufacturing anchor under strategic review.</p>
       <div class="market-phase">Manufacturing Anchor</div>
     </div>
   </div>
 </section>
 
-<!-- VISION -->
 <section class="section section-navy">
   <div class="section-label">Long-Term Vision</div>
   <h2 class="section-title">Beyond Distribution.<br>Toward Pharmaceutical Sovereignty.</h2>
@@ -383,7 +418,7 @@
       <p>AfriPharma's anchor manufacturing product manufactured to EU GMP Annex 1 standards and targeting WHO Prequalification — addressing one of sub-Saharan Africa's most critical medicine gaps.</p>
     </div>
     <div class="vision-item">
-      <h4> Manufacturing Anchor</h4>
+      <h4>Manufacturing Anchor</h4>
       <p>The SADC Region has been identified as the preferred site for AfriPharma's Phase 2 sterile injectable manufacturing facility — strategically positioned for SADC-wide distribution.</p>
     </div>
     <div class="vision-item">
@@ -397,16 +432,13 @@
   </div>
 </section>
 
-<!-- FOUNDER -->
 <section class="section section-white">
   <div class="section-label">Leadership</div>
   <h2 class="section-title">Founder's Message</h2>
   <div class="two-col" style="margin-top:46px;align-items:start">
     <div class="founder-aside">
-      
       <div class="founder-title">Founder &amp; CEO, AfriPharma Health Systems</div>
       <ul class="founder-credentials">
-    
         <li>MS Biotechnology Management</li>
         <li>12+ years sterile injectables manufacturing</li>
         <li>Regulatory experience: FDA, EMA, PMDA, ANVISA, Health Canada, Israel MoH</li>
@@ -421,7 +453,6 @@
   </div>
 </section>
 
-<!-- CTA -->
 <section class="section section-offwhite">
   <div class="section-label">Get Involved</div>
   <h2 class="section-title">Partner With AfriPharma.</h2>
@@ -452,11 +483,20 @@
       <p>Precision Medicine. African Roots.</p>
       <p>Building Africa's health infrastructure — one brick at a time.</p>
       <p style="margin-top:14px">info@afripharma-health.com</p>
+      <p style="margin-top:8px">
+        <a href="https://wa.me/263775869990"
+           target="_blank"
+           rel="noopener noreferrer"
+           style="color:var(--gold);text-decoration:none;font-weight:600">
+          WhatsApp: +263 77 586 9990
+        </a>
+      </p>
     </div>
     <div class="footer-col">
       <h4>Platform</h4>
       <a href="pharmacy.html">Pharmacy Services</a>
       <a href="care360.html">Care360™</a>
+      <a href="https://wa.me/263775869990" target="_blank" rel="noopener noreferrer">WhatsApp Support</a>
       <a href="distribution.html">Distribution</a>
       <a href="manufacturing.html">Manufacturing Vision</a>
     </div>
@@ -480,6 +520,14 @@
     <span>Precision Medicine. African Roots.</span>
   </div>
 </footer>
+
+<a href="https://wa.me/263775869990?text=Hello%20AfriPharma%2C%20I%20would%20like%20to%20learn%20more."
+   class="whatsapp-float"
+   target="_blank"
+   rel="noopener noreferrer"
+   aria-label="Chat with AfriPharma on WhatsApp">
+  WhatsApp
+</a>
+
 </body>
 </html>
-
