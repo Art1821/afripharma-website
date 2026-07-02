@@ -97,6 +97,27 @@
       color:white;
     }
 
+    .whatsapp-float {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      z-index: 9999;
+      background: #25D366;
+      color: white;
+      padding: 14px 18px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.22);
+    }
+
+    .whatsapp-float:hover {
+      background: #1ebe5d;
+      color: white;
+    }
+
     .how-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:22px; }
     .addons-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
     .services-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:20px; }
@@ -200,6 +221,13 @@
 
     @media(max-width:600px){
       .services-grid { grid-template-columns:1fr; }
+
+      .whatsapp-float {
+        right: 16px;
+        bottom: 16px;
+        padding: 13px 16px;
+        font-size: 13px;
+      }
     }
   </style>
 </head>
@@ -546,6 +574,14 @@
     <span>AfriPharma360™ is a coordination service, not an emergency medical service.</span>
   </div>
 </footer>
+
+<a href="https://wa.me/263775869990?text=Hello%20AfriPharma360%2C%20I%20would%20like%20to%20learn%20more%20about%20your%20healthcare%20support%20services."
+   class="whatsapp-float"
+   target="_blank"
+   rel="noopener noreferrer"
+   aria-label="Chat with AfriPharma360 on WhatsApp">
+  WhatsApp
+</a>
 
 </body>
 </html>
